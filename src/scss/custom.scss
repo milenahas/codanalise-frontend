@@ -1,0 +1,23 @@
+$primary-color: #118ab2;
+$secondary-color: #073b4c;
+$bg-color: #fafafa;
+$gray: #A3A3A3;
+$light-gray: #e0e0e0;
+$dark-gray: #616161;
+
+$theme-colors:(
+  "primary-color": $primary-color,
+  "secondary-color": $secondary-color,
+  "bg-color": $bg-color,
+  "gray": $gray,
+  "light-gray": $light-gray,
+  "dark-gray": $dark-gray
+);
+
+$component-active-color: $dark-gray;
+$component-active-bg: $light-gray;
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+
