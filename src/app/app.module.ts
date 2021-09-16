@@ -8,10 +8,14 @@ import { AppComponent } from './app.component';
 import '@fortawesome/fontawesome-free/js/all.js';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuTopoComponent } from './modules/menu/menu-topo/menu-topo.component';
+import { MenuLateralComponent } from './modules/menu/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuTopoComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
