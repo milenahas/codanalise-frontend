@@ -3,7 +3,7 @@
 .sidebar {
   position: fixed;
   left: 0px;
-  width: 250px;
+  width: 300px;
   height: 100%;
   transition: all 0.5s ease;
   font-weight: 600;
@@ -32,7 +32,7 @@
   }
 
   .sidebar {
-      left: -250px;
+      left: -300px;
   }
 
   #open {
@@ -45,7 +45,7 @@
   #close {
       @extend .openClose;
       z-index: 1111;
-      left: -210px;
+      left: -260px;
       top: 10px;
       transition: all 0.5s ease;
   }
@@ -55,12 +55,12 @@
           left: 0;
       }
       &:checked ~ #open {
-          left: 250px;
+          left: 300px;
           opacity: 0;
           pointer-events: none;
       }
       &:checked ~ #close {
-          left: 210px;
+          left: 260px;
       }
   }
 }
