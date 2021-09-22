@@ -1,0 +1,67 @@
+.main-box {
+    background-color: #FAFAFA;
+    width: 800px;
+    height: 550px;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.page {
+    background-color: #FAFAFA;
+    width: 200vh;
+    height: 100vh;
+}
+
+.child-box-1 {
+    background-color: #118AB2; 
+    width: 100%;
+    height: 550px;
+}
+
+.child-box-2 {
+    width: 100%;
+    height: 550px;
+}
+
+.campo {
+    border: solid 2px #118AB2;
+    border-radius: 6px;
+    background-color: #FAFAFA;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #A3A3A3;
+    padding-left: 8px;
+}
+
+.botao {
+    border-radius: 30px;
+    background-color: #118AB2;
+    border: none;
+    color: white;
+}
+
+.botao-social {
+    border-radius: 30px;
+    background-color: #FAFAFA;
+    border: 2px solid #118AB2;
+    color: #118AB2;
+    font-size: 14px;
+}
+
+.criar-conta {
+    font-size: 12px;
+    color: #616161;
+}
+
+.crie-uma {
+    color: #118AB2;
+    text-decoration: underline;
+    cursor: pointer;
+}
