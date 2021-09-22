@@ -1,0 +1,13 @@
+.perfil-area {
+  margin-left: 300px;
+  padding: 30px;
+  .form-control {
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .perfil-area {
+    margin: 0;
+  }
+}
