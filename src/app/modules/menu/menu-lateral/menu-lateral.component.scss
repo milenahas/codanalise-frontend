@@ -15,6 +15,10 @@
       color: $gray;
       border-radius: 17px;
     }
+    .active {
+      background-color: $light-gray;
+      color: $dark-gray;
+    }
   }
 }
 #open,
