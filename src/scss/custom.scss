@@ -1,0 +1,30 @@
+* {font-family: 'Poppins', sans-serif;}
+
+$primary-color: #118ab2;
+$secondary-color: #073b4c;
+$bg-color: #fafafa;
+$gray: #A2A2A2;
+$light-gray: #e0e0e0;
+$dark-gray: #616161;
+
+$theme-colors:(
+  "primary-color": $primary-color,
+  "secondary-color": $secondary-color,
+  "bg-color": $bg-color,
+  "gray": $gray,
+  "light-gray": $light-gray,
+  "dark-gray": $dark-gray
+);
+
+$component-active-color: $dark-gray;
+$component-active-bg: $light-gray;
+
+$carousel-control-color: $primary-color;
+$carousel-indicator-width: 10px;
+$carousel-indicator-height: 10px;
+$carousel-indicator-active-bg: $primary-color;
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+
