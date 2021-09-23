@@ -1,13 +1,20 @@
 .perfil-area {
   margin-left: 300px;
-  padding: 30px;
-  .form-control {
+  padding: 25px 50px;
+  .form-control, .form-select {
     border-radius: 15px;
+  }
+  button {
+    border-radius: 10px;
+  }
+  a{
+    cursor: pointer;
   }
 }
 
 @media screen and (max-width: 800px) {
   .perfil-area {
     margin: 0;
+    padding: 20px;
   }
 }

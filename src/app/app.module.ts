@@ -10,6 +10,8 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuTopoComponent } from './modules/menu/menu-topo/menu-topo.component';
 import { MenuLateralComponent } from './modules/menu/menu-lateral/menu-lateral.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,10 @@ import { MenuLateralComponent } from './modules/menu/menu-lateral/menu-lateral.c
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    UsuarioModule
-    
+    UsuarioModule,
+    NgbModule,
+    ModalModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
