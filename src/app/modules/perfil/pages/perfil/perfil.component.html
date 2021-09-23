@@ -17,7 +17,7 @@
           <hr class="mt-2">
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="nome">Nome</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="Camila" id="nome">
@@ -28,7 +28,7 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="email">Email</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="camila@gmail.com" id="email">
@@ -39,14 +39,14 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
-        <div class="col-10 col-md-8">
+      <div class="d-flex flex-column flex-md-row justify-content-md-center mt-4 w-100">
+        <div class="col-10">
             <label class="form-label" for="sobre">Sobre</label>
             <textarea class="form-control" type="text" [readonly]="!isEdit" id="sobre" rows="4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
         </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="github">GitHub</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="github.com/camila" id="github">
@@ -62,7 +62,7 @@
           <h6>Escolaridade</h6>
           <hr class="mt-2">
       </div>
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="instituicao">Instituição</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="UNINASSAU" id="instituicao">
@@ -73,14 +73,14 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4">
-          <div class="col-10 col-md-8 form-check ms-2">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+          <div class="col-10 form-check ms-2">
               <input class="form-check-input" type="checkbox" [disabled]="!isEdit" value="" id="emAndamento">
               <label class="form-check-label fw-bold" for="emAndamento">Em andamento</label>
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataInicio">Data inicio</label>
               <input class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicio">
@@ -91,8 +91,8 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
-        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('escolaridade')">Adicionar escolaridade +</a>
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('escolaridade')">Adicionar escolaridade +</a>
       </div>
 
       <!--Profissional-->
@@ -101,7 +101,7 @@
           <hr class="mt-2">
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="empresa">Empresa</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="BORING COMPANY" id="empresa">
@@ -112,14 +112,14 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4">
-          <div class="col-10 col-md-8 form-check ms-2">
-              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" checked value="" id="cargoAtual">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+          <div class="col-10 form-check ms-2">
+              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" value="" id="cargoAtual">
               <label class="form-check-label fw-bold" for="cargoAtual">Cargo atual</label>
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataInicio">Data inicio</label>
               <input class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicio">
@@ -130,8 +130,8 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
-        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('experiencia')">Adicionar esperiência +</a>
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('experiencia')">Adicionar esperiência +</a>
       </div>
 
       <!--HardSkill-->
@@ -141,7 +141,7 @@
           <hr class="mt-2">
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="linguagem">Linguagem</label>
               <input class="form-control" type="text" [readonly]="!isEdit" value="TYPESCRIPT" id="linguagem">
@@ -156,15 +156,15 @@
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
-          <div class="col-10 col-md-8">
+      <div class="d-flex flex-column flex-md-row justify-content-md-center mt-4 w-100">
+          <div class="col-10">
               <label class="form-label" for="descricao">Descrição</label>
               <textarea class="form-control" type="text" [readonly]="!isEdit" id="descricao" rows="3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
           </div>
       </div>
 
-      <div class="row justify-content-center mt-4 w-100">
-        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('skill')">Adicionar skill +</a>
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('skill')">Adicionar skill +</a>
       </div>
 
       <!--Botões-->
