@@ -1,0 +1,182 @@
+<div class="perfil-area">
+  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+
+    <div class="card-header bg-white">
+      <h6 class="m-2">Perfil</h6>
+    </div>
+
+    <div class="container m-auto w-100">
+
+      <div class="d-flex flex-column text-center mt-5">
+        <img class="rounded-circle m-auto" src="../../../../../assets/img/personas/persona.png" alt="" width="90px">
+        <a class="text-primary-color fw-bold mt-2" href="#">Mudar foto</a>
+      </div>
+
+      <div class="mt-5 col-12">
+          <h6>Dados Pessoais</h6>
+          <hr class="mt-2">
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="nome">Nome</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="Camila" id="nome">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="sobrenome">Sobrenome</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="Ramos" id="sobrenome">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="camila@gmail.com" id="email">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="senha">Senha</label>
+              <input class="form-control" type="password" [readonly]="!isEdit" value="12345678" id="senha">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+        <div class="col-10 col-md-8">
+            <label class="form-label" for="sobre">Sobre</label>
+            <textarea class="form-control" type="text" [readonly]="!isEdit" id="sobre" rows="4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="github">GitHub</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="github.com/camila" id="github">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="linkedin">Linkedin</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="linkedin.com/camila" id="linkedin">
+          </div>
+      </div>
+
+      <!--Escolaridade-->
+      <div class="mt-5 col-12">
+          <h6>Escolaridade</h6>
+          <hr class="mt-2">
+      </div>
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="instituicao">Instituição</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="UNINASSAU" id="instituicao">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="nivel">Nível</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="SUPERIOR" id="nivel">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+          <div class="col-10 col-md-8 form-check ms-2">
+              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" value="" id="emAndamento">
+              <label class="form-check-label fw-bold" for="emAndamento">Em andamento</label>
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="dataInicio">Data inicio</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicio">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="dataFim">Data fim</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-12-01" id="dataFim">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('escolaridade')">Adicionar escolaridade +</a>
+      </div>
+
+      <!--Profissional-->
+      <div class="mt-5 col-12">
+          <h6>Experiência Profissional</h6>
+          <hr class="mt-2">
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="empresa">Empresa</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="BORING COMPANY" id="empresa">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="cargo">Cargo</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="Sênior Front-end Developer" id="cargo">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+          <div class="col-10 col-md-8 form-check ms-2">
+              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" checked value="" id="cargoAtual">
+              <label class="form-check-label fw-bold" for="cargoAtual">Cargo atual</label>
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="dataInicio">Data inicio</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicio">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="dataFim">Data fim</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="" id="dataFim">
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('experiencia')">Adicionar esperiência +</a>
+      </div>
+
+      <!--HardSkill-->
+
+      <div class="mt-5 col-12">
+          <h6>Hard Skill</h6>
+          <hr class="mt-2">
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="linguagem">Linguagem</label>
+              <input class="form-control" type="text" [readonly]="!isEdit" value="TYPESCRIPT" id="linguagem">
+          </div>
+          <div class="col-10 col-md-4">
+              <label class="form-label" for="nivel">Nível</label>
+              <select class="form-select" [disabled]="!isEdit">
+                  <option value="basico">Básico</option>
+                  <option value="intermediario">Intermediário</option>
+                  <option value="avancado" selected>Avançado</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+          <div class="col-10 col-md-8">
+              <label class="form-label" for="descricao">Descrição</label>
+              <textarea class="form-control" type="text" [readonly]="!isEdit" id="descricao" rows="3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
+          </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 w-100">
+        <a class="nav-link text-decoration-underline col-10 col-md-8 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('skill')">Adicionar skill +</a>
+      </div>
+
+      <!--Botões-->
+      <div class="d-flex justify-content-end my-5">
+          <button [hidden]="isEdit" type="button" class="btn-primary-color border-0 text-white py-2 px-4 me-4" (click)="editar()">Editar</button>
+          <div [hidden]="!isEdit">
+            <button type="button" class="btn-primary-color border-0 text-white py-2 px-4 me-4" (click)="salvar()">Salvar</button>
+            <button type="button" class="btn-gray border-0 text-white py-2 px-4" (click)="cancelar()">Cancelar</button>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
