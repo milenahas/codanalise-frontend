@@ -1,0 +1,23 @@
+@import '../../../../../scss/custom.scss';
+
+.publicacao-area {
+  margin-left: 300px;
+  padding: 25px 50px;
+}
+.fa-bookmark {
+  cursor: pointer;
+}
+
+button {
+  border-radius: 10px;
+}
+a {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .publicacao-area {
+    margin: 0;
+    padding: 20px;
+  }
+}
