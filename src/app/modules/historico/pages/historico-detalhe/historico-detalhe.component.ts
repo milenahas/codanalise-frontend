@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PagamentoComponent } from 'src/app/modules/pagamento/pages/pagamento/pagamento.component';
 
 @Component({
   selector: 'app-historico-detalhe',
@@ -10,8 +12,9 @@ export class HistoricoDetalheComponent implements OnInit {
   isFavourite: boolean = false;
   comentar: boolean = true;
   propor: boolean = false;
+  bsModalRef?: BsModalRef;
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +31,10 @@ export class HistoricoDetalheComponent implements OnInit {
   propostas() {
     this.propor = !this.propor;
     this.comentar = false;
+  }
+
+  aceitar() {
+    this.bsModalRef = this.modalService.show(PagamentoComponent);
   }
 
 }
