@@ -7,7 +7,8 @@ import { SeguindoComponent } from './pages/seguindo/seguindo.component';
 const routes: Routes = [
   {path: '', component: ContatosComponent, children: [
     {path: 'seguidores', component: SeguidoresComponent},
-    {path: 'seguindo', component: SeguindoComponent}
+    {path: 'seguindo', component: SeguindoComponent},
+    { path: '', redirectTo: 'seguidores', pathMatch: 'full' }
   ]}
 ];
 

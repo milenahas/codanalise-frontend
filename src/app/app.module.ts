@@ -17,7 +17,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   declarations: [
     AppComponent,
     MenuTopoComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
   ],
   imports: [
     BrowserModule,
