@@ -1,0 +1,45 @@
+@import '../../../../../scss/custom.scss';
+
+.dev-perfil-area {
+  margin-left: 300px;
+  padding: 25px 50px;
+
+  .card {
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    a {
+      cursor: pointer;
+      color: $primary-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    button {
+      border-radius: 5px;
+    }
+    .ft-perfil {
+      margin-bottom: -2px;
+    }
+  }
+  .cardRight {
+    width: 30%;
+  }
+  .cardLeft {
+    width: 70%;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .dev-perfil-area {
+    margin: 0;
+    padding: 20px;
+
+    .cardRight {
+      width: 100%;
+    }
+    .cardLeft {
+      width: 100%;
+    }
+  }
+}
