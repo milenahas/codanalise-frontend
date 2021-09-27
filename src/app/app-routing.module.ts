@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: 'feed', loadChildren: () => import('./modules/feed/feed.module').then(m => m.FeedModule) },
   { path: 'perfil', loadChildren: () => import('./modules/perfil/perfil.module').then(m => m.PerfilModule) },
   { path: 'carteira', loadChildren: () => import('./modules/carteira/carteira.module').then(m => m.CarteiraModule) },
-  { path: 'devs', loadChildren: () =>import('./modules/devs/devs.module').then(m => m.DevsModule) },
+  { path: 'devs', loadChildren: () => import('./modules/devs/devs.module').then(m => m.DevsModule) },
+  { path: 'contatos', loadChildren: () => import('./modules/contatos/contatos.module').then(m => m.ContatosModule) },
   { path: 'historico', loadChildren: () => import('./modules/historico/historico.module').then(m => m.HistoricoModule) },
   { path: 'usuario', loadChildren: () => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule) },
   { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) }

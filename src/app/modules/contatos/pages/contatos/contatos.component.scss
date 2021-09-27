@@ -1,0 +1,26 @@
+@import '../../../../../scss/custom.scss';
+
+.contatos-area {
+  margin-left: 300px;
+  padding: 25px 50px;
+
+  a {
+    color: $gray;
+  }
+
+  .active {
+      color: $primary-color ;
+      border-bottom: 2px solid $primary-color;
+  }
+
+  button {
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contatos-area {
+    margin: 0;
+    padding: 20px;
+  }
+}
