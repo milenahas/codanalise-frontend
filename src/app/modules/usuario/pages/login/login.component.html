@@ -1,30 +1,37 @@
-<div class="main-box">
-    <div class="text-center" style="width: 800px;">
-        <div class="d-flex justify-content-center">
-            <div class="d-flex align-self-start child-box-1">
-                <div class="align-self-center">
-                    <img class="ps-5" src="../../../../../assets/codanalise-branco.png" width="70%">
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center child-box-2">
-                <div class="w-75">
-                    <h5 class="mb-5" style="color: #118AB2;">Login</h5>
-                        <input class="form-control border-2 w-75 p-2 campo" placeholder="Usuário"><br>
-                        <input class="form-control border-2 w-75 p-2 campo" placeholder="Senha">
+<div class="py-5 container w-75 vh-100 mt-5">
+  <div class="d-flex align-items-center justify-content-center text-dark-gray h-100">
+    <div class="d-flex">
 
-                    <div class="d-flex align-items-start mt-3 ms-4">
-                        <input class="ms-3" style="padding: 20px;" type="checkbox"> <span class="ms-2" style="font-size: 12px;">Lembrar senha</span>
-                    </div>
+      <div class="d-md-flex align-items-center justify-content-center d-none w-50 my-4 bg-primary-color">
+        <img src="../../../../../assets/img/logo/codanalise-branco.png">
+      </div>
 
-                    <button class="mt-4 p-2 w-75 botao">Entrar</button>
+      <div class="w-50 my-4 px-md-5 bg-white">
 
-                    <button class="mt-5 p-2 w-75 botao-social"><i class="fab fa-facebook me-2" style="font-size: 20px;"></i> Entrar com facebook</button>
-                    <button class="mt-2 p-2 w-75 botao-social"><i class="fab fa-google me-2" style="font-size: 18px;"   ></i> Entrar com google</button>
+        <h4 class="text-primary-color text-center my-5">Login</h4>
 
+        <div class="mb-3">
+          <input class="form-control form-control-sm border-2 p-2" type="text" id="email" placeholder="Email">
+        </div>
 
-                    <h5 class="mt-4 criar-conta">Não tem uma conta? <a class="crie-uma">Crie uma</a></h5>
-                </div>
-            </div>
+        <div class="mb-3">
+          <input class="form-control form-control-sm border-2 me-2 p-2" type="text" id="senha" placeholder="Senha">
+        </div>
 
+        <div class="text-center mb-3 mt-5">
+          <button class="text-white border-0 btn-primary-color py-2 w-75" type="submit">Cadastrar</button>
+        </div>
+
+        <div class="text-center my-5">
+          <button class="p-2 w-75 border-primary-color bg-white text-primary-color"><i class="fab fa-facebook me-2" style="font-size: 20px;"></i> Entrar com facebook</button>
+          <button class="mt-2 p-2 w-75 border-primary-color bg-white text-primary-color"><i class="fab fa-google me-2" style="font-size: 18px;"   ></i> Entrar com google</button>
+        </div>
+
+        <div class="text-center mb-5">
+          <p style="font-size: 13px;">Não tem uma conta? <a class="text-primary-color" routerLink="login">Crie uma</a></p>
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>

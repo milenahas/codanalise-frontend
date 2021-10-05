@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
