@@ -5,7 +5,7 @@ import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [
   { path: '', component: FeedComponent},
-  {path: 'detalhe-publicacao', component: DetalhePublicacaoComponent}
+  {path: 'detalhe-publicacao/:id', component: DetalhePublicacaoComponent}
 ];
 
 @NgModule({

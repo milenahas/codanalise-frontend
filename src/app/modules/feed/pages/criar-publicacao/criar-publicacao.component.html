@@ -1,4 +1,4 @@
-<div class="modal-content text-dark-gray">
+<form class="modal-content text-dark-gray" [formGroup]="formulario" (ngSubmit)="onSubmit()">
   <div class="modal-header">
     <h5 class="modal-title">Publicar</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
@@ -6,32 +6,42 @@
   <div class="modal-body">
     <div class="mb-3">
       <label class="form-label" for="titulo">Título</label>
-      <input class="form-control" type="text" id="titulo">
+      <input class="form-control" [ngClass]="aplicaCssErro('titulo')" formControlName="titulo" type="text" id="titulo">
+      <div id="titulo" class="invalid-feedback">
+        Título obrigatório
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label" for="desc">Descrição</label>
-      <textarea class="form-control" type="text" id="desc" rows="4"></textarea>
+      <textarea class="form-control" [ngClass]="aplicaCssErro('desc')" formControlName="desc" type="text" id="desc" rows="4"></textarea>
+      <div id="desc" class="invalid-feedback">
+        Descrição obrigatório
+      </div>
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
       <label class="form-label" for="valor">Valor</label>
-      <input class="form-control" type="text" id="valor">
+      <input class="form-control" formControlName="valor" type="text" id="valor">
+    </div>
+    <div class="mb-3 form-check">
+      <input class="form-check-input" formControlName="semValor" type="checkbox" id="semValor">
+      <label class="form-check-label" for="semValor">Sem valor</label>
     </div>
     <div class="mb-3">
       <label for="formFile" class="form-label">Anexar arquivo (opcional)</label>
-      <input class="form-control" type="file" id="formFile">
+      <input class="form-control" formControlName="arquivo" type="file" id="formFile">
     </div>
   </div>
   <div class="mb-5 mx-3">
     <label class="form-label" for="tag">Linguagens relacionadas</label>
-    <div class="input-group">
-      <input type="text" id="tag" class="form-control" placeholder="Insira uma tag" aria-label="Recipient's username" aria-describedby="add-tag">
-      <button class="input-group-text" id="add-tag">Adicionar</button>
+    <input type="text" id="tag" class="form-control" [ngClass]="aplicaCssErro('linguagens')" formControlName="linguagens" placeholder="Separados por vírgula. Ex.: Java, C#">
+    <div id="desc" class="invalid-feedback">
+      Linguagens obrigatórias
     </div>
   </div>
 
   <div class="modal-footer">
     <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
-    <button type="button" class="btn-primary-color text-white py-2 px-3 border-0">Publicar</button>
+    <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Publicar</button>
   </div>
 
-</div>
+</form>
