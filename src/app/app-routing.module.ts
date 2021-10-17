@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthguardGuard } from './config/guards/authguard.guard';
 
 const routes: Routes = [
-  { path: 'feed', loadChildren: () => import('./modules/feed/feed.module').then(m => m.FeedModule) },
+  { path: 'feed', loadChildren: () => import('./modules/feed/feed.module').then(m => m.FeedModule), canActivate: [AuthguardGuard] },
   { path: 'perfil', loadChildren: () => import('./modules/perfil/perfil.module').then(m => m.PerfilModule) },
   { path: 'carteira', loadChildren: () => import('./modules/carteira/carteira.module').then(m => m.CarteiraModule) },
   { path: 'devs', loadChildren: () => import('./modules/devs/devs.module').then(m => m.DevsModule) },

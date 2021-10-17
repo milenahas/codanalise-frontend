@@ -6,34 +6,69 @@
         <img src="../../../../../assets/img/logo/codanalise-branco.png">
       </div>
 
-      <div class="w-50 my-4 px-md-5 bg-white">
+      <form [formGroup]="formulario" (submit)="validaFormulario()" class="w-50 my-4 px-md-5 bg-white">
 
         <h4 class="text-primary-color text-center my-5">Cadastro</h4>
 
+        <div class="mb-3 d-flex">
+          <div class="me-2">
+            <input formControlName="nome" [ngClass]="aplicaCssErro('nome')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="nome" placeholder="Nome">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+          <div>
+            <input formControlName="sobrenome" [ngClass]="aplicaCssErro('sobrenome')" class="form-control form-control-sm border-2 p-2" type="text" id="sobrenome" placeholder="Sobrenome">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+
         <div class="mb-3">
-          <input class="form-control form-control-sm border-2 p-2" type="text" id="nomeCompleto" placeholder="Nome completo">
+          <div>
+            <input formControlName="email" [ngClass]="aplicaCssErro('email')" class="form-control form-control-sm border-2 p-2" type="text" id="email" placeholder="E-mail">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+        
+        <div class="mb-3 d-flex">
+          <div class="me-2 w-50">
+            <input formControlName="dataNasc" [ngClass]="aplicaCssErro('dataNasc')" class="form-control form-control-sm me-2 border-2 p-2" type="date" id="dataNascimento" placeholder="Data de Nascimento">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+
+          <div class="w-50">
+            <select formControlName="genero" [ngClass]="aplicaCssErro('genero')" class="form-select border-2 p-2 form-select-sm" name="genero" id="genero">
+              <option value="" hidden>Gênero</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
         </div>
 
         <div class="mb-3 d-flex">
-          <input class="form-control form-control-sm me-2 border-2 p-2" type="date" id="dataNascimento" placeholder="Data de Nascimento">
-          <select class="form-select border-2 p-2 form-select-sm" name="genero" id="genero">
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-          </select>
+          <div class="me-2">
+            <input formControlName="senha" (keyup)="checaSenha()" [ngClass]="aplicaCssErro('senha')" class="form-control form-control-sm border-2 me-2 p-2" type="password" id="senha" placeholder="Senha">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+
+          <div>
+            <input formControlName="confirmarSenha" (keyup)="checaSenha()" [ngClass]="aplicaCssErro('confirmarSenha')" class="form-control form-control-sm border-2 p-2" type="password" id="confirmarSenha" placeholder="Confirmar senha">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+            <span style="font-size: 12px;" [hidden]="!validaErroSenha" style="color: red; font-size: 12px;">Senhas não coincidem</span>
+          </div>
         </div>
 
-        <div class="mb-3 d-flex">
-          <input class="form-control form-control-sm border-2 me-2 p-2" type="text" id="senha" placeholder="Senha">
-          <input class="form-control form-control-sm border-2 p-2" type="text" id="confirmarSenha" placeholder="Confirmar senha">
+        <div class="form-check">
+          <input formControlName="termos" [ngClass]="aplicaCssErro('termos')" class="form-check-input me-2" type="checkbox"><label class="form-check-label">Aceito os termos e condições de uso</label><br>
+          <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
         </div>
 
         <div class="text-center mb-4 mt-5">
           <button class="text-white border-0 btn-primary-color py-2 w-75" type="submit">Cadastrar</button>
         </div>
         <div class="text-center mb-5">
-          <p style="font-size: 13px;">Já possui uma conta? <a class="text-primary-color" routerLink="login">Entre</a></p>
+          <p style="font-size: 13px;">Já possui uma conta? <a class="text-primary-color" routerLink="/login">Entre</a></p>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

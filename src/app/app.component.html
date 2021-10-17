@@ -1,3 +1,8 @@
-<app-menu-topo></app-menu-topo>
-<!--app-menu-lateral></app-menu-lateral-->
+<ng-container *ngIf="!mostrarMenu">
+    <app-menu-topo></app-menu-topo>
+</ng-container>
+
+<ng-container *ngIf="mostrarMenu">
+    <app-menu-lateral></app-menu-lateral>
+</ng-container>
 <router-outlet></router-outlet>
