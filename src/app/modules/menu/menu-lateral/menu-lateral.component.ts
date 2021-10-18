@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../usuario/shared/usuario.service';
+import { AuthguardService } from 'src/app/config/guards/authguard.service';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -9,14 +9,14 @@ import { UsuarioService } from '../../usuario/shared/usuario.service';
 })
 export class MenuLateralComponent implements OnInit {
 
-  constructor(private usuarioService: UsuarioService, private rota: Router) { }
+  constructor(private rota: Router, private authGuardService: AuthguardService) { }
 
   ngOnInit(): void {
   }
 
-  // deslogar(){
-  //   this.usuarioService.mostrarMenu.emit(false);
-  //   this.rota.navigate(['/login']);
-  // }
+  sair(){
+    localStorage.clear();
+    this.rota.navigate(['/login']);
+  }
 
 }

@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   email: string;
 
 
-  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private myRoute: Router, private authGuardService: AuthguardService) { }
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private myRoute: Router) { }
 
   ngOnInit(): void {
-    // localStorage.setItem('login', 'false');
+    localStorage.clear();
     this.inicializarForm();
   }
 
@@ -47,8 +47,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data: Usuario) => {
         if (data.senha === this.formulario.controls.senha.value){
-          // localStorage.setItem('login', 'true');
-          this.authGuardService.mostrarMenu.emit(true);
+          localStorage.setItem('login', 'true');
           this.myRoute.navigate(['/feed']);
           
         }

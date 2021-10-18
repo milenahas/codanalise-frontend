@@ -1,8 +1,8 @@
-<ng-container *ngIf="!mostrarMenu">
+<ng-container *ngIf="!authGuardService.validaLogar()">
     <app-menu-topo></app-menu-topo>
 </ng-container>
 
-<ng-container *ngIf="mostrarMenu">
+<ng-container *ngIf="authGuardService.validaLogar()">
     <app-menu-lateral></app-menu-lateral>
 </ng-container>
 <router-outlet></router-outlet>

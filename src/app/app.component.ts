@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthguardService } from './config/guards/authguard.service';
 import { UsuarioService } from './modules/usuario/shared/usuario.service';
 
@@ -10,14 +11,13 @@ import { UsuarioService } from './modules/usuario/shared/usuario.service';
 export class AppComponent {
   title = 'codanalise';
 
-  mostrarMenu: boolean = false;
-
-  constructor (private authGuardService: AuthguardService) {  }
+  constructor (public authGuardService: AuthguardService, private rota: Router) {  }
 
   ngOnInit(): void {
-    this.authGuardService.mostrarMenu.subscribe(
-      mostrar => this.mostrarMenu = mostrar
-    )
   }
-  // login: string = localStorage.getItem('login');
+
+  deslogar(){
+    this.rota.navigate(['/login']);
+  }
+  
 }
