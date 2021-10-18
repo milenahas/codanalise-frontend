@@ -13,6 +13,7 @@ export class CriarPublicacaoComponent implements OnInit {
   //formulário reativo
   formulario: FormGroup;
   submitted: boolean = false; //Para caso o formulário for submetido
+  isDisabled: boolean= false; //Desabilitar o input valor caso o usuário escolha "Sem valor"
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -33,31 +34,45 @@ export class CriarPublicacaoComponent implements OnInit {
 
   }
 
+
   onSubmit() {
-    this.submitted = true;
-
-    if(this.formulario.valid){
-      console.log(this.formulario.value);
-      this.onClose();
-    }
-
+    this.onClose();
   }
 
   onClose() {
-    this.bsModalRef.hide();
-    this.formulario.reset();
-    this.submitted = false;
+    if (this.formulario.valid) {
+      this.bsModalRef.hide();
+      this.formulario.reset();
+      this.submitted = false;
+    }
+    this.submitted = true;
   }
 
-  //Verifica e retorna campo inválido
-  verificaValidTouched(campo) {
-    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+  //Desabilita o input valor caso o usuário escolha "Sem valor"
+  mudarSemvalor() {
+    this.isDisabled = !this.isDisabled;
+
+    if(this.isDisabled){
+      this.formulario.controls['valor'].disable();
+    }else {
+      this.formulario.controls['valor'].enable();
+    }
+  }
+
+  //Verifica e retorna erro formulario submetido inválido
+  verificaValidSubmitted(campo) {
+    return this.submitted && !this.formulario.get(campo).valid;
+  }
+
+  //Verifica e retorna campo touched inválido
+  verificaTouched(campo) {
+    return this.formulario.get(campo).touched;
   }
 
   //Aplica a classe Bootstrap para campos inválidos
   aplicaCssErro(campo) {
     return{
-      'is-invalid': this.verificaValidTouched(campo) || this.submitted === true,
+      'is-invalid': this.verificaTouched(campo) || this.verificaValidSubmitted(campo)
     }
   }
 

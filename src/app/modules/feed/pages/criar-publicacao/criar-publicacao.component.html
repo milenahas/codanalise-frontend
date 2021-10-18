@@ -23,7 +23,7 @@
       <input class="form-control" formControlName="valor" type="text" id="valor">
     </div>
     <div class="mb-3 form-check">
-      <input class="form-check-input" formControlName="semValor" type="checkbox" id="semValor">
+      <input class="form-check-input" (click)="mudarSemvalor()" formControlName="semValor" type="checkbox" id="semValor">
       <label class="form-check-label" for="semValor">Sem valor</label>
     </div>
     <div class="mb-3">
