@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,WAAW,EAAE,KAAK;EAClB,OAAO,EAAE,SAAS;CAKnB;;AAPD,AAIE,cAJY,CAIZ,MAAM,CAAC;EACL,aAAa,EAAE,IAAI;CACpB;;AAGH,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EACjC,AAAA,cAAc,CAAC;IACb,MAAM,EAAE,CAAC;IACT,OAAO,EAAE,IAAI;GACd",
+    "sources": [
+        "carteira.component.scss"
+    ],
+    "names": [],
+    "file": "carteira.component.css"
+}

@@ -16,18 +16,12 @@ $theme-colors:(
   "dark-gray": $dark-gray
 );
 
-$component-active-bg: white;
-
 $carousel-control-color: $primary-color;
 $carousel-indicator-width: 10px;
 $carousel-indicator-height: 10px;
 $carousel-indicator-active-bg: $primary-color;
 
 $input-focus-border-color: $primary-color;
-
-@import '../../node_modules/bootstrap/scss/bootstrap';
-
-
 
 
 /* Importing Bootstrap SCSS file. */

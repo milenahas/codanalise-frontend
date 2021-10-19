@@ -8,6 +8,12 @@ label {
   font-size: 12px;
 }
 
+input {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
 span {
   font-size: 12px;
 }

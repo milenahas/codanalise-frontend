@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,WAAW,EAAE,KAAK;EAClB,OAAO,EAAE,SAAS;CAMnB;;AARD,AAIE,gBAJc,CAId,KAAK,CAAC;EACJ,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,wBAAwB,CAAC,GAAG,CAAC,GAAG,CAAC,IAAI;CAClD;;AAGH,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EACjC,AAAA,gBAAgB,CAAC;IACf,MAAM,EAAE,CAAC;IACT,OAAO,EAAE,IAAI;GACd",
+    "sources": [
+        "avaliacoes.component.scss"
+    ],
+    "names": [],
+    "file": "avaliacoes.component.css"
+}
