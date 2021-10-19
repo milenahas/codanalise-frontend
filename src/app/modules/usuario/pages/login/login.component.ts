@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login(this.email)
     .subscribe(
       (data: Usuario) => {
+        localStorage.setItem('nome', data.nome);
+        localStorage.setItem('sobrenome', data.sobrenome);
+        
         if (data.senha === this.formulario.controls.senha.value){
           localStorage.setItem('login', 'true');
           this.myRoute.navigate(['/feed']);

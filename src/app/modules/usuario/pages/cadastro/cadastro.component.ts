@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../shared/usuario';
 import { UsuarioService } from '../../shared/usuario.service';
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -19,7 +21,7 @@ export class CadastroComponent implements OnInit {
     return this.formulario.controls;
   }
 
-  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) { }
+  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService, private rota: Router) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -81,10 +83,19 @@ export class CadastroComponent implements OnInit {
     this.usuarioService.cadastrar(this.usuario)
     .subscribe(
       (data: Usuario) => {
-        console.log("deu bom", data);
+        Swal.fire(
+          'Sucesso!',
+          'O cadastro foi efetuado com sucesso!',
+          'success'
+        )
+        this.rota.navigate(['/login']);
     },
     error => {
-      console.log(error);
+      Swal.fire(
+        'Erro',
+        'Algo deu errado.',
+        'error'
+      )
     }
     )
   }

@@ -9,9 +9,12 @@ import { AuthguardService } from 'src/app/config/guards/authguard.service';
 })
 export class MenuLateralComponent implements OnInit {
 
+  usuario: string = localStorage.getItem('nome') + " " + localStorage.getItem('sobrenome');
+
   constructor(private rota: Router, private authGuardService: AuthguardService) { }
 
   ngOnInit(): void {
+    console.log(this.usuario);
   }
 
   sair(){
