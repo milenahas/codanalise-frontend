@@ -7,17 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevsComponent implements OnInit {
 
-  // validaLogin: string = localStorage.getItem('login');
+  validaLogin: string = localStorage.getItem('login');
 
   constructor() { }
 
   ngOnInit(): void {
+    this.validarLogin()
   }
 
   validarLogin(){
-    // if (this.validaLogin === 'true'){
-    //   return true;
-    // }
+    console.log(this.validaLogin)
+    if (this.validaLogin === 'true'){
+      return true;
+    }
   }
 
 }

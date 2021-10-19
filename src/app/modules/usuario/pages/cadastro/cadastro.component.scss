@@ -1,4 +1,10 @@
-@import '../../../../../scss/custom.scss';
+input {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
+  }
+}
 
 button {
   border-radius: 20px;
@@ -6,12 +12,6 @@ button {
 
 label {
   font-size: 12px;
-}
-
-input {
-  &:focus {
-    box-shadow: none;
-  }
 }
 
 span {

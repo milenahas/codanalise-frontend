@@ -1,5 +1,3 @@
-@import '../../../../../scss/custom.scss';
-
 .feed-area {
   margin-left: 300px;
   padding: 25px 50px;
@@ -18,6 +16,14 @@
         text-decoration: underline;
       }
     }
+  }
+}
+
+input {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
   }
 }
 

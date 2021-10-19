@@ -1,5 +1,5 @@
 <div class="perfil-area">
-  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+  <form [formGroup]="formulario" (ngSubmit)="salvar()" class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
 
     <div class="card-header bg-white">
       <h6 class="m-2">Perfil</h6>
@@ -20,22 +20,22 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="nome">Nome</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="Milena" id="nome">
+              <input class="form-control" type="text" [readonly]="!isEdit" formControlName="nome" id="nome">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="sobrenome">Sobrenome</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="Alves" id="sobrenome">
+              <input class="form-control" type="text" [readonly]="!isEdit" formControlName="sobrenome" id="sobrenome">
           </div>
       </div>
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="email">Email</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="milena@email.com" id="email">
+              <input class="form-control" type="text" [readonly]="!isEdit" formControlName="email" id="email">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="senha">Senha</label>
-              <input class="form-control" type="password" [readonly]="!isEdit" value="123456" id="senha">
+              <input class="form-control" type="password" [readonly]="!isEdit" formControlName="senha" id="senha">
           </div>
       </div>
 
@@ -82,12 +82,12 @@
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
-              <label class="form-label" for="dataInicio">Data inicio</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicio">
+              <label class="form-label" for="dataInicioIstituicao">Data inicio</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicioIstituicao">
           </div>
           <div class="col-10 col-md-4">
-              <label class="form-label" for="dataFim">Data fim</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-12-01" id="dataFim">
+              <label class="form-label" for="dataFimInstituicao">Data fim</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-12-01" id="dataFimInstituicao">
           </div>
       </div>
 
@@ -121,17 +121,17 @@
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
-              <label class="form-label" for="dataInicio">Data inicio</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicio">
+              <label class="form-label" for="dataInicioCargo">Data inicio</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicioCargo">
           </div>
           <div class="col-10 col-md-4">
-              <label class="form-label" for="dataFim">Data fim</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="" id="dataFim">
+              <label class="form-label" for="dataFimCargo">Data fim</label>
+              <input class="form-control" type="date" [readonly]="!isEdit" value="" id="dataFimCargo">
           </div>
       </div>
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
-        <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('experiencia')">Adicionar esperiência +</a>
+        <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('experiencia')">Adicionar experiência +</a>
       </div>
 
       <!--HardSkill-->
@@ -178,5 +178,5 @@
 
     </div>
 
-  </div>
+  </form>
 </div>

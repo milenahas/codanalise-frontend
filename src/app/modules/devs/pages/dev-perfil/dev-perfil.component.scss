@@ -1,5 +1,3 @@
-@import '../../../../../scss/custom.scss';
-
 .dev-perfil-area {
   margin-left: 300px;
   padding: 25px 50px;
@@ -9,7 +7,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     a {
       cursor: pointer;
-      color: $primary-color;
+      color: #118ab2;
       &:hover {
         text-decoration: underline;
       }
@@ -28,6 +26,14 @@
     width: 70%;
   }
 
+}
+
+input {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
+  }
 }
 
 @media screen and (max-width: 800px) {

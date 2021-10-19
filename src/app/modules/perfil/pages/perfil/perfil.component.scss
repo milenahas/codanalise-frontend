@@ -1,16 +1,22 @@
-@import '../../../../../scss/custom.scss';
-
 .perfil-area {
   margin-left: 300px;
   padding: 25px 50px;
   .form-control, .form-select {
-    border-radius: 15px;
+    border-radius: 3px;
   }
   button {
     border-radius: 10px;
   }
   a{
     cursor: pointer;
+  }
+}
+
+input, textarea {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
   }
 }
 

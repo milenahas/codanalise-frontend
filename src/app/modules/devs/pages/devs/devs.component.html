@@ -1,4 +1,4 @@
-<div class="devs-area">
+<div class="devs-area" [ngStyle]="{'margin-left' : validaLogin === 'true' ? '300px'  : '0px', 'padding-top' : validaLogin === 'true' ? ''  : '100px'}">
   <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
 
     <div class="card-header bg-white">
@@ -8,7 +8,7 @@
     <div class="container m-auto w-100">
       <div class="d-flex mt-5">
         <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-        <button class="btn btn-primary-color py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
+        <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
       </div>
 
       <div class="card bg-white my-5 border-0" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">

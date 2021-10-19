@@ -1,5 +1,3 @@
-@import '../../../../../scss/custom.scss';
-
 .perfil-area {
   margin-left: 300px;
   padding: 25px 50px;
@@ -12,6 +10,13 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+button {
+  outline: none;
+  &:focus {
+    box-shadow: none;
   }
 }
 

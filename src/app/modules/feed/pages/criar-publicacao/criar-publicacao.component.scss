@@ -1,5 +1,11 @@
-@import '../../../../../scss/custom.scss';
-
 button {
   border-radius: 10px;
+}
+
+input, textarea {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
+  }
 }
