@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/modules/usuario/shared/usuario';
+import { DevsService } from '../../shared/devs.service';
 
 @Component({
   selector: 'app-devs',
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevsComponent implements OnInit {
 
+  usuario: Usuario;
+
   validaLogin: string = localStorage.getItem('login');
 
-  constructor() { }
+  loading: boolean = false;
+
+  constructor(private devsService: DevsService) { }
 
   ngOnInit(): void {
-    this.validarLogin()
+    this.validarLogin();
+    this.listarMentores();
   }
 
   validarLogin(){
@@ -20,6 +27,18 @@ export class DevsComponent implements OnInit {
     if (this.validaLogin === 'true'){
       return true;
     }
+  }
+
+  listarMentores(){
+    this.loading = true;
+
+    this.devsService.listarUsuarios()
+    .subscribe(
+      (data: Usuario) => {
+        this.usuario = data;
+    }).add(() => {
+      this.loading = false;
+    })
   }
 
 }

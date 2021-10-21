@@ -1,4 +1,4 @@
-<div class="perfil-area">
+<div *ngIf="!loading else carregamento" class="perfil-area">
   <form [formGroup]="formulario" (ngSubmit)="salvar()" class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
 
     <div class="card-header bg-white">
@@ -42,18 +42,18 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-center mt-4 w-100">
         <div class="col-10">
             <label class="form-label" for="sobre">Sobre</label>
-            <textarea class="form-control" type="text" [readonly]="!isEdit" id="sobre" rows="4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
+            <textarea class="form-control" type="text" [readonly]="!isEdit" id="sobre" rows="4" formControlName="sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
         </div>
       </div>
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="github">GitHub</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="github.com/milena" id="github">
+              <input formControlName="github" class="form-control" type="text" [readonly]="!isEdit" value="github.com/milena" id="github">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="linkedin">Linkedin</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="linkedin.com/milena" id="linkedin">
+              <input formControlName="linkedin" class="form-control" type="text" [readonly]="!isEdit" value="linkedin.com/milena" id="linkedin">
           </div>
       </div>
 
@@ -167,16 +167,37 @@
         <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('skill')">Adicionar skill +</a>
       </div>
 
+      <!-- Tipo da conta -->
+      
+      <div class="mt-5 col-12">
+        <h6>Tipo da conta</h6>
+        <hr class="mt-2">
+    </div>
+
+    <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+        <div class="col-10 col-md-10">
+            <label class="form-label">Tipo de usuário</label>
+            <input class="form-control" type="text" [readonly]="!isEdit" *ngIf="usuario.mentor" value="Mentor">
+            <input class="form-control" type="text" [readonly]="!isEdit" *ngIf="!usuario.mentor" value="Usuário comum">
+            <button (click)="setarMentor()" class="btn-gray border-0 text-white py-2 px-4 me-2 mt-2" type="button">Mentor</button>
+        </div>
+    </div>
+
       <!--Botões-->
       <div class="d-flex justify-content-end my-5">
           <button [hidden]="isEdit" type="button" class="btn-primary-color border-0 text-white py-2 px-4 me-4" (click)="editar()">Editar</button>
           <div [hidden]="!isEdit">
-            <button type="button" class="btn-primary-color border-0 text-white py-2 px-4 me-4" (click)="salvar()">Salvar</button>
-            <button type="button" class="btn-gray border-0 text-white py-2 px-4" (click)="cancelar()">Cancelar</button>
+            <button type="button" class="btn-gray border-0 text-white py-2 px-4 me-2" (click)="cancelar()">Cancelar</button>
+            <button type="submit" class="btn-primary-color border-0 text-white py-2 px-4 me-4">Salvar</button>
           </div>
       </div>
-
     </div>
-
   </form>
 </div>
+
+
+<ng-template #carregamento>
+    <div class="text-center p-5 m-5">
+        <h5>Carregando <i class="fa fa-spinner fa-spin pl-2"></i></h5>
+    </div>
+</ng-template>

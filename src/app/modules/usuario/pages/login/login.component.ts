@@ -48,18 +48,21 @@ export class LoginComponent implements OnInit {
       (data: Usuario) => {
         localStorage.setItem('nome', data.nome);
         localStorage.setItem('sobrenome', data.sobrenome);
+        localStorage.setItem('email', this.email);
         
-        if (data.senha === this.formulario.controls.senha.value){
-          localStorage.setItem('login', 'true');
-          this.myRoute.navigate(['/feed']);
-          
-        }
+        this.retornoLogin(data);
     },
     error => {
       alert("Dados não encontrados em nossa base de dados.");
-      // this.usuarioService.mostrarMenu.emit(false);
     });
   };
+
+  retornoLogin(data){
+    if (data.senha === this.formulario.controls.senha.value){
+      localStorage.setItem('login', 'true');
+      this.myRoute.navigate(['/feed']);
+    }
+  }
 
     // ****************** VALIDAÇÕES ******************
 

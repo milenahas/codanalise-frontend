@@ -1,114 +1,120 @@
-<div class="dev-perfil-area">
+<ng-container >
+  <div *ngIf="validaUsuario else semDados" class="dev-perfil-area">
 
-    <div class="card bg-white text-dark-gray border-0">
-      <div class="card-body border-bottom border-4 border-primary-color p-0 mt-5 mb-3">
-        <div class="d-flex justify-content-center">
-          <img src="../../../../../assets/img/personas/persona.png" width="100px" class="rounded-circle border border-4 border-primary-color ft-perfil">
-        </div>
-      </div>
-      <div class="text-center">
-        <h5>Maria Santos</h5>
-        <p>Sênior Front-end Developer</p>
-      </div>
-      <div class="card-footer d-flex justify-content-between align-items-center bg-white mx-2">
-        <div>
-          <i class="fab fa-linkedin fs-2 mx-3"></i>
-          <i class="fab fa-github-square fs-2"></i>
-        </div>
-        <button type="button" class="btn-primary-color py-2 px-3 me-3 border-0 text-white">Seguir</button>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column flex-md-row">
-
-      <div class="cardLeft me-3">
-
-        <div class="card mt-3 border-0">
-          <div class="card-header bg-white m-3 ps-0 pb-0">
-            <a (click)="add('Sobre')"><h6 class="m-2 text-primary-color">Sobre</h6></a>
-          </div>
-          <div class="card-body ms-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex.
+      <div class="card bg-white text-dark-gray border-0">
+        <div class="card-body border-bottom border-4 border-primary-color p-0 mt-5 mb-3">
+          <div class="d-flex justify-content-center">
+            <img src="../../../../../assets/img/personas/persona.png" width="100px" class="rounded-circle border border-4 border-primary-color ft-perfil">
           </div>
         </div>
-
-        <!--Publicações-->
-        <div class="card my-3 border-0">
-          <div class="card-header bg-white m-3 ps-0 pb-0">
-            <a (click)="add('Publicações')"><h6 class="m-2 text-primary-color">Publicações</h6></a>
+        <div class="text-center">
+          <h5>{{usuarioEspecifico.nome}} {{usuarioEspecifico.sobrenome}}</h5>
+          <p>Sênior Front-end Developer</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center bg-white mx-2">
+          <div>
+            <a (click)="abrirRedeSocial(1)"><i class="fab fa-linkedin fs-2 mx-3"></i></a>
+            <a (click)="abrirRedeSocial(2)"><i  class="fab fa-github-square fs-2"></i></a>
           </div>
-          <div class="card bg-white my-3 mx-1 mx-md-3 border-0" >
-            <div class="container">
+          <button type="button" class="btn-primary-color py-2 px-3 me-3 border-0 text-white">Seguir</button>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row">
+
+        <div class="cardLeft me-3">
+
+          <div class="card mt-3 border-0">
+            <div class="card-header bg-white m-3 ps-0 pb-0">
+              <a (click)="add('Sobre')"><h6 class="m-2 text-primary-color">Sobre</h6></a>
+            </div>
+            <div class="card-body ms-4 me-4 mb-4">
+              {{usuarioEspecifico.sobre}}
+            </div>
+          </div>
+
+          <!--Publicações-->
+          <div class="card my-3 border-0">
+            <div class="card-header bg-white m-3 ps-0 pb-0">
+              <a (click)="add('Publicações')"><h6 class="m-2 text-primary-color">Publicações</h6></a>
+            </div>
+            <div class="card bg-white my-3 mx-1 mx-md-3 border-0" >
+              <div class="container">
+                <div class="card-header d-flex align-items-center bg-white">
+                  <a routerLink="detalhe-publicacao" class="mt-2 flex-grow-1 text-dark-gray">Code Review</a>
+                  <p class="mt-3 text-gray" style="font-size: 13px;">Publicado: há 5 min</p>
+                </div>
+
+                <div class="card-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco laboris nisi ut aliquip ex.</p>
+                </div>
+
+                <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
+                    <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">JavaScript</span>
+                    <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">Angular</span>
+                    <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">CSS3</span>
+                    <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">HTML5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardRight">
+
+          <!--Ferramentas-->
+          <div class="card mt-3 border-0">
+            <div class="card-header bg-white m-3 ps-0 pb-0">
+              <a (click)="add('Ferramentas')"><h6 class="m-2 text-primary-color">Ferramentas</h6></a>
+            </div>
+            <div class="card-body">
+              <ul class="list-group ">
+                <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-js-square fs-2 me-2"></i>JavaScript</li>
+                <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-angular fs-2 me-2"></i>Angular</li>
+                <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-css3-alt fs-2 me-2"></i>CSS3</li>
+                <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-html5 fs-2 me-2"></i>HTML5</li>
+              </ul>
+            </div>
+          </div>
+
+          <!--Avaliações-->
+          <div class="card my-3 border-0">
+            <div class="card-header bg-white m-3 ps-0 pb-0">
+              <a (click)="add('Avaliações')"><h6 class="m-2 text-primary-color">Avaliações</h6></a>
+            </div>
+
+            <div class="card border-0 bg-white text-dark-gray my-3 mx-1 mx-md-2">
               <div class="card-header d-flex align-items-center bg-white">
-                <a routerLink="detalhe-publicacao" class="mt-2 flex-grow-1 text-dark-gray">Code Review</a>
-                <p class="mt-3 text-gray" style="font-size: 13px;">Publicado: há 5 min</p>
+                <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
+                <div>
+                  <h6 class="m-0">Camila Souza</h6>
+                  <p class="m-0" style="font-size: 13px;">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </p>
+                </div>
+              </div>
+              <div class="card-body mx-0 mx-md-3">
+                <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.</p>
               </div>
 
-              <div class="card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex.</p>
-              </div>
-
-              <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
-                  <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">JavaScript</span>
-                  <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">Angular</span>
-                  <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">CSS3</span>
-                  <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">HTML5</span>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cardRight">
-
-        <!--Ferramentas-->
-        <div class="card mt-3 border-0">
-          <div class="card-header bg-white m-3 ps-0 pb-0">
-            <a (click)="add('Ferramentas')"><h6 class="m-2 text-primary-color">Ferramentas</h6></a>
-          </div>
-          <div class="card-body">
-            <ul class="list-group ">
-              <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-js-square fs-2 me-2"></i>JavaScript</li>
-              <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-angular fs-2 me-2"></i>Angular</li>
-              <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-css3-alt fs-2 me-2"></i>CSS3</li>
-              <li class="list-group-item border-0 text-dark-gray"><i class="fab fa-html5 fs-2 me-2"></i>HTML5</li>
-            </ul>
-          </div>
         </div>
 
-        <!--Avaliações-->
-        <div class="card my-3 border-0">
-          <div class="card-header bg-white m-3 ps-0 pb-0">
-            <a (click)="add('Avaliações')"><h6 class="m-2 text-primary-color">Avaliações</h6></a>
-          </div>
-
-          <div class="card border-0 bg-white text-dark-gray my-3 mx-1 mx-md-2">
-            <div class="card-header d-flex align-items-center bg-white">
-              <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
-              <div>
-                <h6 class="m-0">Camila Souza</h6>
-                <p class="m-0" style="font-size: 13px;">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </p>
-              </div>
-            </div>
-            <div class="card-body mx-0 mx-md-3">
-              <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
+    </div>
   </div>
-</div>
+</ng-container>
+
+<ng-template #semDados>
+  <div class="text-center p-5 m-5">
+    <h5>Não há dados disponíveis.</h5>
+  </div>
+</ng-template>

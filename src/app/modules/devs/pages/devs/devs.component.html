@@ -1,42 +1,14 @@
 <div class="devs-area" [ngStyle]="{'margin-left' : validaLogin === 'true' ? '300px'  : '0px', 'padding-top' : validaLogin === 'true' ? ''  : '100px'}">
   <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-
-    <div class="card-header bg-white">
-      <h6 class="m-2">Devs</h6>
-    </div>
-
-    <div class="container m-auto w-100">
-      <div class="d-flex mt-5">
-        <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-        <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
-      </div>
-
-      <div class="card bg-white my-5 border-0" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-        <div class="container">
-          <div class="card-header d-flex align-items-center bg-white">
-            <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
-            <div>
-              <a routerLink="dev-perfil" class="text-dark-gray"><h6 class="m-0">Camila Souza</h6></a>
-              <p class="m-0" style="font-size: 13px;">Desenvolvedor</p>
-            </div>
-          </div>
-
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex.</p>
-          </div>
-
-          <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">JavaScript</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">Angular</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">CSS3</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">HTML5</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <ng-container *ngIf="!loading else carregamento">
+      <app-devs-listagem [usuario]="usuario"></app-devs-listagem>
+    </ng-container>
   </div>
 </div>
+
+<ng-template #carregamento>
+  <div class="text-center p-5 m-5">
+    <h5>Carregando <i class="fa fa-spinner fa-spin pl-2"></i></h5>
+  </div>
+</ng-template>
 
