@@ -57,6 +57,18 @@
           </div>
       </div>
 
+      <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
+        <div class="col-10 col-md-4">
+            <label class="form-label">Status</label>
+            <input class="form-control" type="text" [readonly]="!isEdit" value="Sênior">
+        </div>
+
+        <div class="col-10 col-md-4">
+          <label class="form-label">Tipo de usuário</label>
+          <input class="form-control" type="text" value="Mentorado" readonly>
+      </div>
+    </div>
+
       <!--Escolaridade-->
       <div class="mt-5 col-12">
           <h6>Escolaridade</h6>
@@ -167,22 +179,6 @@
         <a class="nav-link text-decoration-underline col-10 text-primary-color" [ngClass]="{ 'disabled': !isEdit }" (click)="add('skill')">Adicionar skill +</a>
       </div>
 
-      <!-- Tipo da conta -->
-      
-      <div class="mt-5 col-12">
-        <h6>Tipo da conta</h6>
-        <hr class="mt-2">
-    </div>
-
-    <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
-        <div class="col-10 col-md-10">
-            <label class="form-label">Tipo de usuário</label>
-            <input class="form-control" type="text" [readonly]="!isEdit" *ngIf="usuario.mentor" value="Mentor">
-            <input class="form-control" type="text" [readonly]="!isEdit" *ngIf="!usuario.mentor" value="Usuário comum">
-            <button (click)="setarMentor()" class="btn-gray border-0 text-white py-2 px-4 me-2 mt-2" type="button">Mentor</button>
-        </div>
-    </div>
-
       <!--Botões-->
       <div class="d-flex justify-content-end my-5">
           <button [hidden]="isEdit" type="button" class="btn-primary-color border-0 text-white py-2 px-4 me-4" (click)="editar()">Editar</button>
@@ -197,7 +193,7 @@
 
 
 <ng-template #carregamento>
-    <div class="text-center p-5 m-5">
+    <div class="text-center perfil-area text-dark-gray mt-5">
         <h5>Carregando <i class="fa fa-spinner fa-spin pl-2"></i></h5>
     </div>
 </ng-template>

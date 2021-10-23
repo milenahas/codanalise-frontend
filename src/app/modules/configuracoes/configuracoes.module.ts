@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { ConfiguracoesRoutingModule } from './configuracoes-routing.module';
 import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
+import { TornarMentorComponent } from './components/tornar-mentor/tornar-mentor.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ConfiguracoesComponent
+    ConfiguracoesComponent,
+    TornarMentorComponent
   ],
   imports: [
     CommonModule,
-    ConfiguracoesRoutingModule
+    ConfiguracoesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ConfiguracoesModule { }

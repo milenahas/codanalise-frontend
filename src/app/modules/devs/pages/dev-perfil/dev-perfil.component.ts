@@ -18,7 +18,7 @@ export class DevPerfilComponent implements OnInit {
   constructor(private modalService: BsModalService, private devsService: DevsService) { }
 
   ngOnInit(): void {
-    { this.usuarioEspecifico != undefined ? [ this.validaUsuario = true ] : [this.validaUsuario = false ]} 
+    { this.usuarioEspecifico != undefined ? [ this.validaUsuario = true ] : [this.validaUsuario = false ]}
     console.log(this.usuarioEspecifico);
   }
 

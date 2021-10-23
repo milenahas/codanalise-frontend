@@ -1,0 +1,28 @@
+<div class="modal-content text-dark-gray">
+  <div class="modal-header">
+    <h6 class="modal-title">Torne-se mentor</h6>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()" style="font-size: 12px;"></button>
+  </div>
+  <div class="modal-body p-5">
+
+    <div class="text-center">
+      <img src="../../../../../assets/img/logo/logo2.png">
+    </div>
+
+    <div class="mt-5 mb-5">
+      <p class="text-center">Deseja tornar-se um mentor e ajudar milhares de estudantes e desenvolvedores todos os dias?</p>
+      <p class="text-center">Envie seu currículo para passar por um processo de avaliação e tornar-se um mentor.</p>
+    </div>
+
+    <form [formGroup]="formulario" (submit)="validarFormulario()">
+      <div class="mb-4">
+        <label for="arquivoE" class="w-100">Currículo (.pdf)</label>
+        <input formControlName="curriculo" [ngClass]="aplicaCssErro('curriculo')" type="file" name="arquivo" id="arquivoE" class="form-control">
+        <small class="text-danger invalid-feedback">Campo obrigatório.</small>
+      </div>
+
+      <button type="submit" class="btn-primary-color border-0 rounded w-100 py-2 text-white">Enviar</button>
+    </form>
+  </div>
+
+</div>

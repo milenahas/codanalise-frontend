@@ -49,7 +49,7 @@ export class PerfilComponent implements OnInit {
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.usuario = data;
-        this.setarDadosInput(data);
+        this.setarDadosInput();
       },
       error: err => console.log('Erro', err)
     }).add(() => {
@@ -57,7 +57,7 @@ export class PerfilComponent implements OnInit {
     })
   }
 
-  setarDadosInput(data) {
+  setarDadosInput() {
     this.formulario.controls.nome.setValue(this.usuario.nome);
     this.formulario.controls.sobrenome.setValue(this.usuario.sobrenome);
     this.formulario.controls.email.setValue(this.usuario.email);
@@ -73,7 +73,7 @@ export class PerfilComponent implements OnInit {
 
   alterarDadosUsuario(){
     this.setarDadosObjeto();
-    
+
     this.perfilService.editarUsuario(this.usuario)
     .subscribe(
       (data: Usuario) => {
@@ -83,15 +83,18 @@ export class PerfilComponent implements OnInit {
           'success'
         ).then((result) => {
           location.reload();
+          this.isEdit = !this.isEdit;
         });
-        
-    }, 
+
+    },
     error => {
       Swal.fire(
         'Erro',
         'Verifique os dados e tente novamente.',
         'error'
-      );
+      ).then((result) => {
+        this.isEdit = true;
+      });
     })
   }
 
@@ -117,7 +120,6 @@ export class PerfilComponent implements OnInit {
   }
 
   salvar() {
-    this.isEdit = !this.isEdit;
     this.alterarDadosUsuario();
   }
 
