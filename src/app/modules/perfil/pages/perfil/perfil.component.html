@@ -1,5 +1,5 @@
 <div *ngIf="!loading else carregamento" class="perfil-area">
-  <form [formGroup]="formulario" (ngSubmit)="salvar()" class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+  <form [formGroup]="formulario" (submit)="alterarDadosUsuario()" class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
 
     <div class="card-header bg-white">
       <h6 class="m-2">Perfil</h6>
@@ -8,7 +8,7 @@
     <div class="container m-auto w-100">
 
       <div class="d-flex flex-column text-center mt-5">
-        <img class="rounded-circle m-auto" src="../../../../../assets/img/personas/persona.png" alt="" width="90px">
+        <img class="rounded-circle m-auto" src="../../../../../assets/img/personas/profile.png" alt="" width="90px">
         <a class="text-primary-color fw-bold mt-2" href="#">Mudar foto</a>
       </div>
 
@@ -60,12 +60,12 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
         <div class="col-10 col-md-4">
             <label class="form-label">Status</label>
-            <input class="form-control" type="text" [readonly]="!isEdit" value="Sênior">
+            <input formControlName="status" class="form-control" type="text" [readonly]="!isEdit" value="Sênior">
         </div>
 
         <div class="col-10 col-md-4">
           <label class="form-label">Tipo de usuário</label>
-          <input class="form-control" type="text" value="Mentorado" readonly>
+          <input formControlName="tipoUsuario" class="form-control" type="text" value="Mentorado" readonly>
       </div>
     </div>
 
@@ -77,17 +77,17 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="instituicao">Instituição</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="UNINASSAU" id="instituicao">
+              <input formControlName="instituicao" class="form-control" type="text" [readonly]="!isEdit" value="UNINASSAU" id="instituicao">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="nivel">Nível</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="SUPERIOR" id="nivel">
+              <input formControlName="nivelInstituicao" class="form-control" type="text" [readonly]="!isEdit" value="SUPERIOR" id="nivel">
           </div>
       </div>
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 form-check ms-2">
-              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" value="" id="emAndamento">
+              <input class="form-check-input" type="checkbox"  value="" id="emAndamento">
               <label class="form-check-label fw-bold" for="emAndamento">Em andamento</label>
           </div>
       </div>
@@ -95,11 +95,11 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataInicioIstituicao">Data inicio</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicioIstituicao">
+              <input formControlName="dataInicio" class="form-control" type="date" [readonly]="!isEdit" value="2015-01-01" id="dataInicioIstituicao">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataFimInstituicao">Data fim</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-12-01" id="dataFimInstituicao">
+              <input formControlName="dataFinal" class="form-control" type="date" [readonly]="!isEdit" value="2018-12-01" id="dataFimInstituicao">
           </div>
       </div>
 
@@ -116,17 +116,17 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="empresa">Empresa</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="BORING COMPANY" id="empresa">
+              <input formControlName="empresa" class="form-control" type="text" [readonly]="!isEdit" value="BORING COMPANY" id="empresa">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="cargo">Cargo</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="Sênior Front-end Developer" id="cargo">
+              <input formControlName="cargo" class="form-control" type="text" [readonly]="!isEdit" value="Sênior Front-end Developer" id="cargo">
           </div>
       </div>
 
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 form-check ms-2">
-              <input class="form-check-input" type="checkbox" [disabled]="!isEdit" value="" id="cargoAtual">
+              <input class="form-check-input" type="checkbox"  value="" id="cargoAtual">
               <label class="form-check-label fw-bold" for="cargoAtual">Cargo atual</label>
           </div>
       </div>
@@ -134,11 +134,11 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataInicioCargo">Data inicio</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicioCargo">
+              <input formControlName="dtini" class="form-control" type="date" [readonly]="!isEdit" value="2018-09-20" id="dataInicioCargo">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="dataFimCargo">Data fim</label>
-              <input class="form-control" type="date" [readonly]="!isEdit" value="" id="dataFimCargo">
+              <input formControlName="dtfim" class="form-control" type="date" [readonly]="!isEdit" value="" id="dataFimCargo">
           </div>
       </div>
 
@@ -156,11 +156,11 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-around mt-4 w-100">
           <div class="col-10 col-md-4">
               <label class="form-label" for="linguagem">Linguagem</label>
-              <input class="form-control" type="text" [readonly]="!isEdit" value="TYPESCRIPT" id="linguagem">
+              <input formControlName="linguagem" class="form-control" type="text" [readonly]="!isEdit" value="TYPESCRIPT" id="linguagem">
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="nivel">Nível</label>
-              <select class="form-select" [disabled]="!isEdit">
+              <select formControlName="nivelLinguagem" class="form-select">
                   <option value="basico">Básico</option>
                   <option value="intermediario">Intermediário</option>
                   <option value="avancado" selected>Avançado</option>
@@ -171,7 +171,7 @@
       <div class="d-flex flex-column flex-md-row justify-content-md-center mt-4 w-100">
           <div class="col-10">
               <label class="form-label" for="descricao">Descrição</label>
-              <textarea class="form-control" type="text" [readonly]="!isEdit" id="descricao" rows="3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
+              <textarea formControlName="descricao" class="form-control" type="text" [readonly]="!isEdit" id="descricao" rows="3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque ab qui aperiam quod voluptas esse veritatis explicabo, harum laboriosam laudantium perspiciatis maxime consequuntur nemo ipsa autem quae culpa. Quos, totam! Lorem ipsum dolor, sit amet consectetur adipisicing elit</textarea>
           </div>
       </div>
 

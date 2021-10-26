@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/modules/usuario/shared/usuario';
 import { FormModalComponent } from '../../shared/form-modal/form-modal.component';
 import { PerfilService } from '../../shared/perfil.service';
 import Swal from 'sweetalert2'
+import { Experiencia } from 'src/app/modules/usuario/shared/experiencia';
 
 @Component({
   selector: 'app-perfil',
@@ -17,6 +18,7 @@ export class PerfilComponent implements OnInit {
   isEdit: boolean = false;
 
   usuario: Usuario;
+  experiencia: Experiencia[];
   formulario: FormGroup;
   email: string = localStorage.getItem('email');
   loading: boolean = false;
@@ -34,13 +36,29 @@ export class PerfilComponent implements OnInit {
 
   inicializarFormulario() {
     this.formulario = this.formBuilder.group({
-      nome: ['',],
-      sobrenome: ['',],
-      email: ['',],
-      senha: ['',],
+      nome: [''],
+      sobrenome: [''],
+      email: [''],
+      senha: [''],
       sobre: [''],
       github: [''],
-      linkedin: ['']
+      linkedin: [''],
+      status: [''],
+      tipoUsuario: [''],
+
+      instituicao: [''],
+      nivelInstituicao: [''],
+      dataInicio: [''],
+      dataFinal: [''],
+
+      empresa: [''],
+      cargo: [''],
+      dtini: [''],
+      dtfim: [''],
+
+      linguagem: [''],
+      nivelLinguagem: [''],
+      descricao: [''],
     });
   }
 
@@ -65,6 +83,19 @@ export class PerfilComponent implements OnInit {
     this.formulario.controls.sobre.setValue(this.usuario.sobre);
     this.formulario.controls.github.setValue(this.usuario.github);
     this.formulario.controls.linkedin.setValue(this.usuario.linkedin);
+    this.formulario.controls.status.setValue(this.usuario.status);
+
+    if (this.usuario.exp.length > 0){
+      this.formulario.controls.empresa.setValue(this.usuario.exp[0].empresa);
+      this.formulario.controls.cargo.setValue(this.usuario.exp[0].cargo);
+      this.formulario.controls.dtini.setValue(this.usuario.exp[0].dtini);
+      this.formulario.controls.dtfim.setValue(this.usuario.exp[0].dtfim);
+    }
+
+    if (this.usuario.linguagem.length > 0 ){
+      this.formulario.controls.linguagem.setValue(this.usuario.linguagem[0].ferramenta);
+      this.formulario.controls.nivelLinguagem.setValue(this.usuario.linguagem[0].exp_ferramenta);
+    }
   }
 
   // *************************************
@@ -99,13 +130,32 @@ export class PerfilComponent implements OnInit {
   }
 
   setarDadosObjeto(){
-    this.usuario.nome = this.formulario.controls.nome.value;
-    this.usuario.sobrenome = this.formulario.controls.sobrenome.value;
-    this.usuario.email = this.formulario.controls.email.value;
-    this.usuario.senha = this.formulario.controls.senha.value;
-    this.usuario.sobre = this.formulario.controls.sobre.value;
-    this.usuario.github = this.formulario.controls.github.value;
-    this.usuario.linkedin = this.formulario.controls.linkedin.value;
+    this.usuario.nome = this.formulario.get('nome').value;
+    this.usuario.sobrenome = this.formulario.get('sobrenome').value;
+    this.usuario.email = this.formulario.get('email').value;
+    this.usuario.senha = this.formulario.get('senha').value;
+    this.usuario.sobre = this.formulario.get('sobre').value;
+    this.usuario.github = this.formulario.get('github').value;
+    this.usuario.linkedin = this.formulario.get('linkedin').value;
+    this.usuario.status = this.formulario.get('status').value;
+
+    // this.usuario.instituicao = this.formulario.get('instituicao').value;
+    // this.usuario.nivelInstituicao = this.formulario.get('nivelInstituicao').value;
+    // this.usuario.dataInicio = this.formulario.get('dataInicio').value;
+    // this.usuario.dataFinal = this.formulario.get('dataFinal').value;
+
+  this.usuario.exp.push({
+    empresa: this.formulario.get('empresa').value,
+    cargo: this.formulario.get('cargo').value,
+    dtini: this.formulario.get('dtini').value + "T23:59:00.809+00:00",
+    dtfim: this.formulario.get('dtfim').value + "T23:59:00.809+00:00"
+  });
+
+  this.usuario.linguagem.push({
+    ferramenta: this.formulario.get('linguagem').value,
+    exp_ferramenta: this.formulario.get('nivelLinguagem').value,
+    // descricao: this.formulario.get('descricao').value
+  })
   }
 
   add(fArea) {
@@ -117,10 +167,6 @@ export class PerfilComponent implements OnInit {
 
   editar() {
     this.isEdit = !this.isEdit;
-  }
-
-  salvar() {
-    this.alterarDadosUsuario();
   }
 
   cancelar() {

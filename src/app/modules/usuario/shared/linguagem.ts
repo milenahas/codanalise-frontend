@@ -1,4 +1,5 @@
 export interface Linguagem {
-    ferramenta: string;
-    exp_ferramenta: string;
+  id?: number;
+  ferramenta: string;
+  exp_ferramenta: string;
 }
