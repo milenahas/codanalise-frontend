@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'avaliacoes', loadChildren: () => import('./modules/avaliacoes/avaliacoes.module').then(m => m.AvaliacoesModule) },
   { path: 'configuracoes', loadChildren: () => import('./modules/configuracoes/configuracoes.module').then(m => m.ConfiguracoesModule) },
   { path: 'usuario', loadChildren: () => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule) },
+  { path: 'erro', component: }
   { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) }
 
 ];

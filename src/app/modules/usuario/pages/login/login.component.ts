@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthguardService } from 'src/app/config/guards/authguard.service';
+import Swal from 'sweetalert2';
 import { Usuario } from '../../shared/usuario';
 import { UsuarioService } from '../../shared/usuario.service';
 
@@ -49,11 +50,16 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('nome', data.nome);
         localStorage.setItem('sobrenome', data.sobrenome);
         localStorage.setItem('email', this.email);
-        
+        localStorage.setItem('sessao', 'true');
+
         this.retornoLogin(data);
     },
     error => {
-      alert("Dados não encontrados em nossa base de dados.");
+      Swal.fire(
+        'Erro',
+        'Verifique os dados e tente novamente.',
+        'error'
+      )
     });
   };
 
@@ -71,7 +77,7 @@ export class LoginComponent implements OnInit {
         'is-invalid': this.verificaTouched(campo) && !this.formulario.valid
       }
     }
-  
+
     verificaTouched(campo) {
       return !this.formulario.get(campo).valid && this.formulario.get(campo).dirty;
     }

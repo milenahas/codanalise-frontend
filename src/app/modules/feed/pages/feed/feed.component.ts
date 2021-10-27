@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { CriarPublicacaoComponent } from '../criar-publicacao/criar-publicacao.component';
+import { CriarPublicacaoComponent } from '../../components/criar-publicacao/criar-publicacao.component';
 
 @Component({
   selector: 'app-feed',

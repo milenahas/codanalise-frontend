@@ -12,12 +12,13 @@ import { MenuTopoComponent } from './modules/menu/menu-topo/menu-topo.component'
 import { MenuLateralComponent } from './modules/menu/menu-lateral/menu-lateral.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ErroModule } from './shared/erro/erro.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuTopoComponent,
-    MenuLateralComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +26,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BrowserAnimationsModule,
     HttpClientModule,
     UsuarioModule,
+    ErroModule,
     NgbModule,
     ModalModule.forRoot()
 
