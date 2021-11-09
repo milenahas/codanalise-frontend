@@ -135,16 +135,44 @@ export class PerfilComponent implements OnInit {
     this.usuario.email = this.formulario.get('email').value;
     this.usuario.senha = this.formulario.get('senha').value;
     this.usuario.sobre = this.formulario.get('sobre').value;
-    this.usuario.github = this.formulario.get('github').value;
-    this.usuario.linkedin = this.formulario.get('linkedin').value;
     this.usuario.status = this.formulario.get('status').value;
+
+    // ***************************************************************
+    // ***************** VALIDAÇÃO DO LINK DO GITHUB *****************
+    // ***************************************************************
+
+    let github = this.formulario.get('github').value
+    let dadoGithub = github.substring(0, 8);
+
+    if (dadoGithub === 'https://'){
+      this.usuario.linkedin = this.formulario.get('github').value;
+    } else {
+      let linkFormatado = github.replace('www.', 'https://');
+      this.usuario.github = linkFormatado;
+    }
+    // ***************************************************************
+
+    // ***************************************************************
+    // **************** VALIDAÇÃO DO LINK DO LINKEDIN ****************
+    // ***************************************************************
+    let linkedin = this.formulario.get('linkedin').value
+    let dadoLinkedin = linkedin.substring(0, 8);
+
+    if (dadoLinkedin === 'https://'){
+      this.usuario.linkedin = this.formulario.get('linkedin').value;
+    } else {
+      let linkFormatado = linkedin.replace('www.', 'https://');
+      this.usuario.linkedin = linkFormatado;
+    }
+    // ***************************************************************
 
     // this.usuario.instituicao = this.formulario.get('instituicao').value;
     // this.usuario.nivelInstituicao = this.formulario.get('nivelInstituicao').value;
     // this.usuario.dataInicio = this.formulario.get('dataInicio').value;
     // this.usuario.dataFinal = this.formulario.get('dataFinal').value;
 
-    console.log(this.usuario.exp);
+    // ***************** Valida se a data início e data final foram preenchidas *****************
+
     if (this.formulario.get('dtini').value !== '' && this.formulario.get('dtfim').value !== '') {
       this.usuario.exp.push({
         empresa: this.formulario.get('empresa').value,
@@ -154,13 +182,15 @@ export class PerfilComponent implements OnInit {
       });
     }
 
-  if (this.formulario.get('linguagem').value !== '' && this.formulario.get('nivelLinguagem').value !== '') {
-    this.usuario.linguagem.push({
-      ferramenta: this.formulario.get('linguagem').value,
-      exp_ferramenta: this.formulario.get('nivelLinguagem').value,
-      // descricao: this.formulario.get('descricao').value
-    })
-  }
+    // ***************** Valida se o campo linguagem e nivelLinguagem foram preenchidos *****************
+
+    if (this.formulario.get('linguagem').value !== '' && this.formulario.get('nivelLinguagem').value !== '') {
+      this.usuario.linguagem.push({
+        ferramenta: this.formulario.get('linguagem').value,
+        exp_ferramenta: this.formulario.get('nivelLinguagem').value,
+        // descricao: this.formulario.get('descricao').value
+      })
+    }
   }
 
   add(fArea) {

@@ -54,11 +54,11 @@
       <hr class="w-100 border-light-gray">
       <div class="d-flex pb-4 align-items-center">
         <div>
-          <img src="../../../../assets/img/personas/persona.png" width="50" height="50" class="rounded-circle">
+          <a (click)="acessarPerfil()" style="cursor: pointer;"><img src="../../../../assets/img/personas/profile.png" width="50" height="50" class="rounded-circle"></a>
         </div>
         <div class="ms-2">
           <h5 class="text-primary-color m-0">{{usuario.nome}} {{usuario.sobrenome}}</h5>
-          <p class="text-secondary-color m-0" style="font-size: 12px;">Sênior Front-end Developer</p>
+          <p class="text-secondary-color m-0" style="font-size: 12px;">{{usuario.status}}</p>
         </div>
       </div>
   </div>

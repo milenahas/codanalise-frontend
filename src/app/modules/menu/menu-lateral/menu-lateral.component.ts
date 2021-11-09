@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthguardService } from 'src/app/config/guards/authguard.service';
+import { DevsService } from '../../devs/shared/devs.service';
 import { Usuario } from '../../usuario/shared/usuario';
 import { MenuService } from '../shared/menu.service';
 
@@ -17,11 +18,10 @@ export class MenuLateralComponent implements OnInit {
 
   loadingMenu: boolean = false;
 
-  constructor(private rota: Router, private menuService: MenuService) { }
+  constructor(private rota: Router, private menuService: MenuService, private devsService: DevsService) { }
 
   ngOnInit(): void {
     this.pegarDadosUsuarioEspecifico();
-    console.log(this.usuario);
   }
 
   sair(){
@@ -34,12 +34,16 @@ export class MenuLateralComponent implements OnInit {
     this.menuService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.usuario = data;
-        console.log(this.usuario);
       },
       error: err => console.log('Erro', err)
     }).add(() => {
       this.loadingMenu = false;
     })
+  }
+
+  acessarPerfil(){
+    this.devsService.usuarioEspecifico = this.usuario;
+    this.rota.navigate(['/devs/dev-perfil']);
   }
 
 }

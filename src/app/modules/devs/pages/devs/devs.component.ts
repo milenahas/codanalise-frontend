@@ -23,7 +23,6 @@ export class DevsComponent implements OnInit {
   }
 
   validarLogin(){
-    console.log(this.validaLogin)
     if (this.validaLogin === 'true'){
       return true;
     }

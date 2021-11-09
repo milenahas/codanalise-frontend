@@ -14,7 +14,6 @@ export class DevsListagemComponent implements OnInit {
   constructor(private devsService: DevsService) { }
 
   ngOnInit(): void {
-    console.log(this.usuario);
   }
 
   abrirPerfil(index: number){

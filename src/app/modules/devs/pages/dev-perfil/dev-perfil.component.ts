@@ -19,7 +19,6 @@ export class DevPerfilComponent implements OnInit {
 
   ngOnInit(): void {
     { this.usuarioEspecifico != undefined ? [ this.validaUsuario = true ] : [this.validaUsuario = false ]}
-    console.log(this.usuarioEspecifico);
   }
 
   add(fArea) {
