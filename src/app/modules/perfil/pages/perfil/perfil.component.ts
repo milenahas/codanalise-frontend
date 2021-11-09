@@ -57,7 +57,7 @@ export class PerfilComponent implements OnInit {
       dtfim: [''],
 
       linguagem: [''],
-      nivelLinguagem: [''],
+      nivelLinguagem: [{value: '', disabled: true}],
       descricao: [''],
     });
   }
@@ -144,18 +144,23 @@ export class PerfilComponent implements OnInit {
     // this.usuario.dataInicio = this.formulario.get('dataInicio').value;
     // this.usuario.dataFinal = this.formulario.get('dataFinal').value;
 
-  this.usuario.exp.push({
-    empresa: this.formulario.get('empresa').value,
-    cargo: this.formulario.get('cargo').value,
-    dtini: this.formulario.get('dtini').value + "T23:59:00.809+00:00",
-    dtfim: this.formulario.get('dtfim').value + "T23:59:00.809+00:00"
-  });
+    console.log(this.usuario.exp);
+    if (this.formulario.get('dtini').value !== '' && this.formulario.get('dtfim').value !== '') {
+      this.usuario.exp.push({
+        empresa: this.formulario.get('empresa').value,
+        cargo: this.formulario.get('cargo').value,
+        dtini: this.formulario.get('dtini').value + "T23:59:00.809+00:00",
+        dtfim: this.formulario.get('dtfim').value + "T23:59:00.809+00:00"
+      });
+    }
 
-  this.usuario.linguagem.push({
-    ferramenta: this.formulario.get('linguagem').value,
-    exp_ferramenta: this.formulario.get('nivelLinguagem').value,
-    // descricao: this.formulario.get('descricao').value
-  })
+  if (this.formulario.get('linguagem').value !== '' && this.formulario.get('nivelLinguagem').value !== '') {
+    this.usuario.linguagem.push({
+      ferramenta: this.formulario.get('linguagem').value,
+      exp_ferramenta: this.formulario.get('nivelLinguagem').value,
+      // descricao: this.formulario.get('descricao').value
+    })
+  }
   }
 
   add(fArea) {
@@ -167,10 +172,12 @@ export class PerfilComponent implements OnInit {
 
   editar() {
     this.isEdit = !this.isEdit;
+    this.formulario.controls.nivelLinguagem.enable();
   }
 
   cancelar() {
     this.isEdit = !this.isEdit;
+    this.formulario.controls.nivelLinguagem.disable();
   }
 
   setarMentor(){

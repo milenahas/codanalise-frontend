@@ -160,7 +160,7 @@
           </div>
           <div class="col-10 col-md-4">
               <label class="form-label" for="nivel">Nível</label>
-              <select formControlName="nivelLinguagem" class="form-select">
+              <select formControlName="nivelLinguagem" class="form-select" [disableControl]="disable">
                   <option value="basico">Básico</option>
                   <option value="intermediario">Intermediário</option>
                   <option value="avancado" selected>Avançado</option>
