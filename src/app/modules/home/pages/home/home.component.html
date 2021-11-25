@@ -1,50 +1,79 @@
-<div class="d-flex align-items-center justify-content-end" style="height: 100vh;">
-  <div class="col-md-3 col-12 text-center text-md-start mt-5">
-    <h1 class="text-primary-color fw-bolder">CODANALISE</h1>
-    <p class="text-secondary-color fw-bolder">Inscreva-se, faça conexões, publique seu problema e encontre Devs dispostos a te ajudar.</p>
-    <button class="rounded-pill border-0 px-3 py-2 bg-primary-color text-white fw-bolder" routerLink="cadastro" type="button">Cadastre-se</button>
+<div class="d-flex justify-content-end bg-primary-color curved " style="height: 100vh;">
+  <div class="col-md-6 col-12 text-md-start text-center p-3 pt-0 align-self-center">
+    <h2 class="text-white">Conecte-se com o mundo da tecnologia e tenha o universo de possibilidades.</h2>
+    <p class="text-white">Inscreva-se, faça conexões, publique seu problema e encontre Devs dispostos a te ajudar.</p>
+    <button class="rounded-pill border-0 px-3 py-2 bg-white text-primary-color fw-bolder" routerLink="/cadastro" type="button">Cadastre-se</button>
   </div>
-  <div class="col-md-8 d-none d-md-block">
-    <img src="../../../../../assets/img/home-img.jpg" class="w-100">
+  <div class="col-md-5 d-none d-md-block text-center">
+    <img src="../../../../../assets/img/home-img-3.png" class="fixed-image">
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-6 col-12 mt-5 p-4">
+    <h4 class="text-primary-color">O que é CODANÁLISE</h4>
+    <h3 class="text-secondary-color">Somos uma plataforma responsável por conectar desenvolvedores de todos os lugares.</h3><br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sed illo dolore nisi assumenda perspiciatis a similique eaque. Consectetur ab molestias voluptatem? Fugit odit, expedita quam odio doloribus sapiente illo.</p>
+  </div>
+</div>
+
+<div>
+  <img src="../../../../../assets/img/logo/logo-3.png" class="logo-body d-none d-md-block">
+</div>
+
+<div class="container">
+  <div class="col-md-6 col-12 my-5 p-4" style="position: relative;">
+    <h4 class="text-primary-color">Mentores</h4>
+    <h3 class="text-secondary-color">Profissionais com experiência dispostos a te ajudar.</h3><br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sed illo dolore nisi assumenda perspiciatis a similique eaque. Consectetur ab molestias voluptatem? Fugit odit, expedita quam odio doloribus sapiente illo.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-6 col-12 p-4" style="position: relative; margin-top: 14%;">
+    <h4 class="text-primary-color">Escolha sua stack</h4>
+    <h3 class="text-secondary-color">Faça publicações e tire suas dúvidas seja qual for sua linguagem preferida.</h3><br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sed illo dolore nisi assumenda perspiciatis a similique eaque. Consectetur ab molestias voluptatem? Fugit odit, expedita quam odio doloribus sapiente illo.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-6 col-12 my-5 p-4">
+    <h4 class="text-primary-color">Faça conexões</h4>
+    <h3 class="text-secondary-color">Publique, comente e faça conexões com outros programadores.</h3><br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sed illo dolore nisi assumenda perspiciatis a similique eaque. Consectetur ab molestias voluptatem? Fugit odit, expedita quam odio doloribus sapiente illo.</p>
   </div>
 </div>
 
 
-<h4 class="text-center text-secondary-color mb-4">Como Funciona</h4>
-
-<div id="carouselHome" class="carousel slide w-100 mb-5 rounded" data-bs-touch="false" data-bs-interval="false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="0" class="active rounded-circle"></button>
-    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="1" class="rounded-circle"></button>
-  </div>
-  <div class="carousel-inner w-75 m-auto m-4 bg-bg-color">
-    <div class="carousel-item active">
-      <div class="d-flex flex-column flex-md-row align-items-center pe-2">
-        <div class="w-50 d-none d-md-block">
-          <img src="../../../../../assets/img/carousel/pefil.png" class="d-block w-100">
-        </div>
-        <div class="w-50">
-          <p style="text-align: justify;">Mantenha sempre seu perfil atualizado para outros devs  saberem  um  pouco sobre   você  e  em  casos   de   realizar alguma  proposta  o  dev  responsável pela publicação  irá  lhe  avaliar.  Com o perfil  atualizado  mais  chances  de sua proposta ser escolhida.</p>
-        </div>
+<div class="text-center" style="margin-bottom: -23px;">
+  <a (click)="topWindow()"><i class="fas fa-chevron-circle-up rounded-circle bg-white text-primary-color fs-1" style="cursor: pointer; z-index: 11111; box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;"></i></a>
+</div>
+<div class="bg-primary-color">
+  <div class="container d-md-flex text-white py-5">
+    <div class="col-12 col-md-8">
+      <div class="list-group list-group-horizontal border-bottom me-5 pb-3 mb-3 rounded-0">
+        <a class="text-white" routerLink="/home">Home</a>
+        <a class="text-white" routerLink="/devs">Devs</a>
+        <a class="text-white" routerLink="/login">Login</a>
+        <a class="text-white" routerLink="/cadastro">Cadastro</a>
+      </div>
+      <div class="list-group list-group-horizontal">
+        <a>Termos e Condições</a>
+        <a>Cookies</a>
+        <a>Política de privacidade</a>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="d-flex flex-column flex-md-row align-items-center pe-2">
-        <div class="w-50 d-none d-md-block">
-          <img src="../../../../../assets/img/carousel/feed.png" class="d-block w-100">
-        </div>
-        <div class="w-50">
-          <p style="text-align: justify;">Na página “Feed”, você poderá realizar publicações relatando o problema que está te impedindo de evoluir, irá receber comentários e propostas de profissionais com experiência dispostos a te ajudar. Interagindo com outras publicações você aumentará seu networking.</p>
-        </div>
+    <div class="col-12 col-md-4">
+      <div class="border-bottom me-5 mb-3">
+        <p>Entre em contato</p>
+      </div>
+      <div class="list-group list-group-horizontal">
+        <a class="fs-3 border-0 text-white"><i class="fab fa-linkedin"></i></a>
+        <a class="fs-3 border-0 text-white"><i class="fab fa-github-square"></i></a>
+        <a class="fs-3 border-0 text-white"><i class="fab fa-twitter-square"></i></a>
+        <p>Emai: codanalise@contato.com</p>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>

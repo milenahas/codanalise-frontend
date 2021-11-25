@@ -1,1 +1,32 @@
-@import '../../../../../scss/custom.scss'
+.curved {
+  position: relative;
+  background: #2c3e50;
+  height: 50vh;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.fixed-image {
+  position: fixed;
+  top: 50px;
+  right: 100px;
+  width: 40%;
+}
+
+.logo-body {
+  width: 42%;
+  position: absolute;
+  margin-left: -430px;
+  opacity: 60%;
+}
+
+.list-group {
+  a {
+    border-right: 1px solid white;
+    padding-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
