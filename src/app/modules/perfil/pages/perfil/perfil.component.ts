@@ -141,29 +141,35 @@ export class PerfilComponent implements OnInit {
     // ***************** VALIDAÇÃO DO LINK DO GITHUB *****************
     // ***************************************************************
 
-    let github = this.formulario.get('github').value
-    let dadoGithub = github.substring(0, 8);
+    let github = this.formulario.get('github').value;
+    if (github != '' && null){
+      let dadoGithub = github.substring(0, 8);
 
-    if (dadoGithub === 'https://'){
-      this.usuario.linkedin = this.formulario.get('github').value;
-    } else {
-      let linkFormatado = github.replace('www.', 'https://');
-      this.usuario.github = linkFormatado;
+      if (dadoGithub === 'https://'){
+        this.usuario.linkedin = this.formulario.get('github').value;
+      } else {
+        let linkFormatado = github.replace('www.', 'https://');
+        this.usuario.github = linkFormatado;
+      }
     }
+
     // ***************************************************************
 
     // ***************************************************************
     // **************** VALIDAÇÃO DO LINK DO LINKEDIN ****************
     // ***************************************************************
     let linkedin = this.formulario.get('linkedin').value
-    let dadoLinkedin = linkedin.substring(0, 8);
+    if (linkedin != '' && null){
+      let dadoLinkedin = linkedin.substring(0, 8);
 
-    if (dadoLinkedin === 'https://'){
-      this.usuario.linkedin = this.formulario.get('linkedin').value;
-    } else {
-      let linkFormatado = linkedin.replace('www.', 'https://');
-      this.usuario.linkedin = linkFormatado;
+      if (dadoLinkedin === 'https://'){
+        this.usuario.linkedin = this.formulario.get('linkedin').value;
+      } else {
+        let linkFormatado = linkedin.replace('www.', 'https://');
+        this.usuario.linkedin = linkFormatado;
+      }
     }
+
     // ***************************************************************
 
     // this.usuario.instituicao = this.formulario.get('instituicao').value;
