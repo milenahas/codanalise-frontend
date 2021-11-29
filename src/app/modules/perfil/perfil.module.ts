@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PerfilRoutingModule } from './perfil-routing.module';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-import { FormModalComponent } from './shared/form-modal/form-modal.component';
+import { FormModalComponent } from './pages/form-modal/form-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
