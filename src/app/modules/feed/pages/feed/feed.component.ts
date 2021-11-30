@@ -10,6 +10,10 @@ import { CriarPublicacaoComponent } from '../criar-publicacao/criar-publicacao.c
 export class FeedComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
+  config = {
+    keyboard: false,
+    ignoreBackdropClick: true
+  };
 
   constructor(private modalService: BsModalService) { }
 
@@ -17,7 +21,7 @@ export class FeedComponent implements OnInit {
   }
 
   add() {
-    this.bsModalRef = this.modalService.show(CriarPublicacaoComponent);
+    this.bsModalRef = this.modalService.show(CriarPublicacaoComponent, this.config);
     //this.bsModalRef.content.area = fArea;
   }
 

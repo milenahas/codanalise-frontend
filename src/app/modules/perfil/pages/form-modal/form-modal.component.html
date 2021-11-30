@@ -1,86 +1,73 @@
 <div class="modal-content text-dark-gray">
   <div class="modal-header">
-    <h5 class="modal-title">Adicionar {{area}}</h5>
+    <h5 class="modal-title">{{acao}} {{area}}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
   </div>
   <div class="modal-body">
 
-    <div *ngIf="area == 'escolaridade'" class="container">
+    <!--Escolaridade-->
+    <form *ngIf="area == 'escolaridade'" class="container" [formGroup]="formulario">
       <div class="col-12 mt-3">
           <label class="form-label" for="instituicao">Instituição</label>
-          <input class="form-control" type="text" id="instituicao">
+          <input class="form-control" type="text" id="instituicao" formControlName="instituicao">
       </div>
       <div class="col-12 mt-3">
           <label class="form-label" for="nivel">Nível</label>
-          <input class="form-control" type="text" id="nivel">
+          <input class="form-control" type="text" id="nivel" formControlName="nivelInstituicao">
       </div>
-
       <div class="col-12 form-check mt-3">
           <input class="form-check-input" type="checkbox" id="emAndamento">
           <label class="form-check-label fw-bold" for="emAndamento">Em andamento</label>
       </div>
-
       <div class="col-12 mt-3">
           <label class="form-label" for="dataInicio">Data Inicio</label>
-          <input class="form-control" type="date" id="dataInicio">
+          <input class="form-control" type="date" id="dataInicio" formControlName="dataInicio">
       </div>
       <div class="col-12 mt-3">
           <label class="form-label" for="dataFim">Data Fim</label>
-          <input class="form-control" type="date" id="dataFim">
+          <input class="form-control" type="date" id="dataFim" formControlName="dataFinal">
       </div>
-    </div>
+    </form>
 
-    <div *ngIf="area == 'experiencia'">
+    <!--Experiência-->
+    <form *ngIf="area == 'experiencia'" [formGroup]="formulario">
       <div class="col-12 mt-3">
         <label class="form-label" for="empresa">Empresa</label>
-        <input class="form-control" type="text" id="empresa">
+        <input class="form-control" type="text" id="empresa" formControlName="empresa">
       </div>
       <div class="col-12 mt-3">
           <label class="form-label" for="cargo">Cargo</label>
-          <input class="form-control" type="text" id="cargo">
+          <input class="form-control" type="text" id="cargo" formControlName="cargo">
       </div>
-
       <div class="col-12 form-check mt-3">
           <input class="form-check-input" type="checkbox" id="cargoAtual">
           <label class="form-check-label fw-bold" for="cargoAtual">Cargo atual</label>
       </div>
-
       <div class="col-12 mt-3">
           <label class="form-label" for="dataInicio">Data Inicio</label>
-          <input class="form-control" type="date" id="dataInicio">
+          <input class="form-control" type="date" id="dataInicio" formControlName="dataInicio">
       </div>
       <div class="col-12 mt-3">
           <label class="form-label" for="dataFim">Data Fim</label>
-          <input class="form-control" type="date" id="dataFim">
+          <input class="form-control" type="date" id="dataFim" formControlName="dataFinal">
       </div>
-    </div>
+    </form>
 
+    <!--Skill-->
     <div *ngIf="area == 'skill'">
       <div class="col-12">
         <label class="form-label" for="linguagem">Linguagem</label>
         <input class="form-control" type="text" id="linguagem">
       </div>
-
-      <div class="col-12">
-        <label class="form-label" for="nivel">Nível</label>
-        <select class="form-select">
-            <option value="basico">Básico</option>
-            <option value="intermediario">Intermediário</option>
-            <option value="avancado">Avançado</option>
-        </select>
-      </div>
-
-      <div class="col-12">
-          <label class="form-label" for="descricao">Descrição</label>
-          <textarea class="form-control" type="text" id="descricao" rows="3"></textarea>
-      </div>
     </div>
 
-  </div>
-
-  <div class="modal-footer">
-    <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
-    <button type="button" class="btn-primary-color text-white py-2 px-3 border-0">Adicionar</button>
-  </div>
+    <div class="modal-footer">
+      <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white py-2 px-3 border-0" (click)="onSubmit()">Adicionar</button>
+      <div *ngIf="acao == 'Editar'">
+        <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Editar</button>
+        <button type="button" class="btn-danger text-white py-2 px-3 border-0 mx-2">Excluir</button>
+      </div>
+      <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+    </div>
 
 </div>

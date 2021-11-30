@@ -1,16 +1,14 @@
-@import '../../../../../scss/custom.scss';
-
 .contatos-area {
   margin-left: 300px;
   padding: 25px 50px;
 
   a {
-    color: $gray;
+    color: #A2A2A2;
   }
 
   .active {
-      color: $primary-color ;
-      border-bottom: 2px solid $primary-color;
+      color: #118ab2 ;
+      border-bottom: 2px solid #118ab2;
   }
 
   button {

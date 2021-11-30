@@ -13,4 +13,8 @@ export class HomeComponent implements OnInit {
 
   }
 
+  topWindow() {
+    window.scroll(0,0);
+  }
+
 }

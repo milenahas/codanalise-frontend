@@ -1,22 +1,8 @@
 .perfil-area {
   margin-left: 300px;
   padding: 25px 50px;
-  .form-control, .form-select {
-    border-radius: 3px;
-  }
-  button {
-    border-radius: 10px;
-  }
-  a{
+  i{
     cursor: pointer;
-  }
-}
-
-input, textarea {
-  outline: none;
-  &:focus {
-    box-shadow: none;
-    border: solid 2px #118ab2;
   }
 }
 
@@ -24,5 +10,8 @@ input, textarea {
   .perfil-area {
     margin: 0;
     padding: 20px;
+  }
+  .autoMargin {
+    margin: auto;
   }
 }

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Usuario } from 'src/app/modules/usuario/shared/usuario';
-import { FormModalComponent } from '../../shared/form-modal/form-modal.component';
 import { PerfilService } from '../../shared/perfil.service';
 import Swal from 'sweetalert2'
 import { Experiencia } from 'src/app/modules/usuario/shared/experiencia';
+import { FormModalComponent } from '../form-modal/form-modal.component';
 
 @Component({
   selector: 'app-perfil',
@@ -15,12 +15,11 @@ import { Experiencia } from 'src/app/modules/usuario/shared/experiencia';
 export class PerfilComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
-  isEdit: boolean = false;
-
-  usuario: Usuario;
+  /*isEdit: boolean = false;
   experiencia: Experiencia[];
-  formulario: FormGroup;
+  formulario: FormGroup;*/
   email: string = localStorage.getItem('email');
+  perfil: Usuario;
   loading: boolean = false;
 
   constructor(
@@ -31,10 +30,10 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.pegarDadosUsuarioEspecifico();
-    this.inicializarFormulario();
+    //this.inicializarFormulario();*/
   }
 
-  inicializarFormulario() {
+  /*inicializarFormulario() {
     this.formulario = this.formBuilder.group({
       nome: [''],
       sobrenome: [''],
@@ -60,22 +59,20 @@ export class PerfilComponent implements OnInit {
       nivelLinguagem: [{value: '', disabled: true}],
       descricao: [''],
     });
-  }
+  }*/
 
   pegarDadosUsuarioEspecifico(){
     this.loading = true;
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
-        this.usuario = data;
-        this.setarDadosInput();
+        this.perfil = data;
+        console.log(this.perfil)
       },
       error: err => console.log('Erro', err)
-    }).add(() => {
-      this.loading = false;
     })
   }
 
-  setarDadosInput() {
+  /*setarDadosInput() {
     this.formulario.controls.nome.setValue(this.usuario.nome);
     this.formulario.controls.sobrenome.setValue(this.usuario.sobrenome);
     this.formulario.controls.email.setValue(this.usuario.email);
@@ -197,13 +194,14 @@ export class PerfilComponent implements OnInit {
         // descricao: this.formulario.get('descricao').value
       })
     }
-  }
+  }*/
 
-  add(fArea) {
+  add(facao, fArea) {
     this.bsModalRef = this.modalService.show(FormModalComponent);
     this.bsModalRef.content.area = fArea;
+    this.bsModalRef.content.acao = facao;
   }
-
+/*
   // Botões
 
   editar() {
@@ -218,6 +216,6 @@ export class PerfilComponent implements OnInit {
 
   setarMentor(){
     this.usuario.mentor = true;
-  }
+  }*/
 
 }

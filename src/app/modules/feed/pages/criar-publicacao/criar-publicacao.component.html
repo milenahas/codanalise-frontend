@@ -1,20 +1,25 @@
-<div class="modal-content text-dark-gray">
+<form class="modal-content text-dark-gray" [formGroup]="formulario" (submit)="onSubmit()">
   <div class="modal-header">
     <h5 class="modal-title">Publicar</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onCancelClose()"></button>
   </div>
   <div class="modal-body">
     <div class="mb-3">
       <label class="form-label" for="titulo">Título</label>
-      <input class="form-control" type="text" id="titulo">
+      <input class="form-control" formControlName="titulo" type="text" id="titulo" [ngClass]="aplicaCssErro('titulo')">
+      <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
     </div>
     <div class="mb-3">
       <label class="form-label" for="desc">Descrição</label>
-      <textarea class="form-control" type="text" id="desc" rows="4"></textarea>
+      <textarea class="form-control" formControlName="descricao" type="text" id="desc" rows="4" [ngClass]="aplicaCssErro('descricao')"></textarea>
+      <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
     </div>
     <div class="mb-3">
       <label class="form-label" for="valor">Valor</label>
-      <input class="form-control" type="text" id="valor">
+      <div class="d-flex">
+        <input class="form-control" type="text" id="valor" [value]="valorForm" #campoValor oninput="this.value = this.value.replace(/[^0-9,]/g, '').replace(/(\..*)\./g, '$1');" (blur)="converteBrl(campoValor.value)">
+        <i class="fas fa-info-circle ms-1" data-bs-placement="top" title="Caso não preencha com algum valor, será submetido como 'Grátis'."></i>
+      </div>
     </div>
     <div class="mb-3">
       <label for="formFile" class="form-label">Anexar arquivo (opcional)</label>
@@ -24,14 +29,22 @@
   <div class="mb-5 mx-3">
     <label class="form-label" for="tag">Linguagens relacionadas</label>
     <div class="input-group">
-      <input type="text" id="tag" class="form-control" placeholder="Insira uma tag" aria-label="Recipient's username" aria-describedby="add-tag">
-      <button class="input-group-text" id="add-tag">Adicionar</button>
+      <input type="text" list="tag" class="form-control" formControlName="linguagens" #linguagem placeholder="Insira uma tag" [ngClass]="aplicaCssErro('linguagens')">
+        <datalist id="tag">
+          <option value=""></option>
+          <option *ngFor="let linguagem of allLinguagens" value="{{linguagem.linguagem}}">{{linguagem.linguagem}}</option>
+        </datalist>
+      <button class="input-group-text" type="button" id="add-tag" (click)="addLinguagem(linguagem.value)">Adicionar</button>
+      <span class="invalid-feedback" style="font-size: 12px;">Insira pelo menos uma linguagem</span>
+    </div>
+    <div class="mt-2">
+      <span *ngFor="let linguagem of linguagens" class="p-1 me-2 rounded text-white bg-dark-gray" (click)="removeLinguagem(linguagem)">{{linguagem}}</span>
     </div>
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
-    <button type="button" class="btn-primary-color text-white py-2 px-3 border-0">Publicar</button>
+    <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onCancelClose()">Cancelar</button>
+    <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Publicar</button>
   </div>
 
-</div>
+</form>
