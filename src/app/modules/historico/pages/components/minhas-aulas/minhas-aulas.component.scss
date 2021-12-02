@@ -1,0 +1,32 @@
+.divisoria{
+  border-left: solid 1px #E8E8E8;
+}
+
+.texto-card-body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.body-card-buttons{
+  border-radius: 20px;
+  border: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 75%;
+}
+
+@media screen and (max-width: 750px) {
+  .divisoria{
+    border: none;
+  }
+
+  .texto-card-body{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .body-card-buttons{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
