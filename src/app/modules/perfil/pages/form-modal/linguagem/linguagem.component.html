@@ -1,0 +1,31 @@
+<form class="modal-content text-dark-gray" [formGroup]="formulario" (submit)="onSubmit()">
+    <div class="modal-header">
+      <h5 class="modal-title">Editar linguagens</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+    </div>
+    <div class="modal-body">
+
+        <div class="mb-5 mx-3">
+            <label class="form-label" for="tag">Linguagem</label>
+            <div class="input-group">
+                <input type="text" list="tag" class="form-control" formControlName="linguagem" [ngClass]="aplicaCssErro('linguagem')">
+                <datalist id="tag">
+                    <option value=""></option>
+                    <option *ngFor="let linguagem of allLinguagens" value="{{linguagem.linguagem}}">{{linguagem.linguagem}}</option>
+                </datalist>
+                <span class="invalid-feedback" style="font-size: 12px;">Insira pelo menos uma linguagem</span>
+            </div>
+        </div>
+    
+        <div class="modal-footer">
+            <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white rounded py-2 px-3 border-0">Adicionar</button>
+            <div *ngIf="acao == 'Editar'">
+                <button type="submit" class="btn-primary-color text-white py-2 px-3 rounded border-0">Editar</button>
+                <button type="button" class="btn-danger text-white py-2 px-3 border-0 rounded mx-2" (click)="excluir()">Excluir</button>
+            </div>
+            <button type="button" class="btn-gray rounded text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+        </div>
+
+    </div>
+</form>
+  

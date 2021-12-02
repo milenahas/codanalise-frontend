@@ -3,14 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { PerfilRoutingModule } from './perfil-routing.module';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-import { FormModalComponent } from './pages/form-modal/form-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ExperienciaComponent } from './pages/form-modal/experiencia/experiencia.component';
+import { SobreComponent } from './pages/form-modal/sobre/sobre.component';
+import { LinguagemComponent } from './pages/form-modal/linguagem/linguagem.component';
+import { EscolaridadeComponent } from './pages/form-modal/escolaridade/escolaridade.component';
 
 
 @NgModule({
   declarations: [
     PerfilComponent,
-    FormModalComponent
+    ExperienciaComponent,
+    SobreComponent,
+    LinguagemComponent,
+    EscolaridadeComponent
   ],
   imports: [
     CommonModule,

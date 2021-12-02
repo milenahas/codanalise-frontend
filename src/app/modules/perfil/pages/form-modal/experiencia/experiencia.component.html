@@ -1,0 +1,44 @@
+<div class="modal-content text-dark-gray">
+    <div class="modal-header">
+      <h5 class="modal-title">{{acao}} experiência</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+    </div>
+    <div class="modal-body">
+
+      <form [formGroup]="formulario" (submit)="onSubmit()">
+        <div class="col-12 mt-3">
+          <label class="form-label" for="empresa">Empresa</label>
+          <input class="form-control" type="text" id="empresa" formControlName="empresa" [ngClass]="aplicaCssErro('empresa')">
+          <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label" for="cargo">Cargo</label>
+            <input class="form-control" type="text" id="cargo" formControlName="cargo" [ngClass]="aplicaCssErro('cargo')">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+        </div>
+        <div class="col-12 form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="cargoAtual" formControlName="cargoAtual" (click)="cargoAtual()">
+            <label class="form-check-label fw-bold" for="cargoAtual">Cargo atual</label>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label" for="dtini">Data Inicio</label>
+            <input class="form-control" type="date" id="dtini" formControlName="dtini" [ngClass]="aplicaCssErro('dtini')">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label" for="dtfim">Data Fim</label>
+            <input class="form-control" type="date" id="dtfim" formControlName="dtfim">
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white rounded py-2 px-3 border-0">Adicionar</button>
+            <div *ngIf="acao == 'Editar'">
+                <button type="submit" class="btn-primary-color text-white py-2 px-3 rounded border-0">Editar</button>
+                <button type="button" class="btn-danger text-white py-2 px-3 border-0 rounded mx-2" (click)="excluir()">Excluir</button>
+            </div>
+            <button type="button" class="btn-gray rounded text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</div>
+  

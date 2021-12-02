@@ -1,0 +1,78 @@
+<div class="modal-content text-dark-gray">
+    <div class="modal-header">
+      <h5 class="modal-title">Editar sobre</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+    </div>
+    <div class="modal-body">
+
+      <form class="container px-md-5" [formGroup]="formulario" (submit)="onSubmit()">
+        <div class="mb-3 d-flex">
+          <div class="me-2">
+            <label class="form-label" for="nome">Nome</label>
+            <input formControlName="nome" [ngClass]="aplicaCssErro('nome')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="nome">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+          <div>
+            <label class="form-label" for="sobrenome">Sobrenome</label>
+            <input formControlName="sobrenome" [ngClass]="aplicaCssErro('sobrenome')" class="form-control form-control-sm border-2 p-2" type="text" id="sobrenome">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input formControlName="email" [ngClass]="aplicaCssErro('email')" class="form-control form-control-sm border-2 p-2" type="text" id="email">
+          <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+        </div>
+        <div class="mb-4 d-flex">
+          <div class="me-2">
+            <label class="form-label" for="nascimento">Nascimento</label>
+            <input formControlName="nascimento" [ngClass]="aplicaCssErro('nascimento')" class="form-control form-control-sm border-2 p-2 me-2" type="date" id="nascimento">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+          <div class="w-100">
+            <label class="form-label" for="genero">Gênero</label>
+            <select formControlName="genero" id="genero" [ngClass]="aplicaCssErro('genero')" class="form-select border-2 p-2 form-select-sm">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+        <hr>
+        <div class="mb-3">
+          <label for="sobre" class="form-label">Sobre</label>
+          <textarea formControlName="sobre" [ngClass]="aplicaCssErro('sobre')" class="form-control form-control-sm border-2 p-2" type="text" id="sobre"></textarea>
+          <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="me-2">
+            <label class="form-label" for="github">Github</label>
+            <input formControlName="github" [ngClass]="aplicaCssErro('github')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="github">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+          <div>
+            <label class="form-label" for="linkedin">Linkedin</label>
+            <input formControlName="linkedin" [ngClass]="aplicaCssErro('linkedin')" class="form-control form-control-sm border-2 p-2" type="text" id="linkedin">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="me-2">
+            <label class="form-label" for="status">Status</label>
+            <input formControlName="status" [ngClass]="aplicaCssErro('status')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="status">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+          <div>
+            <label class="form-label" for="senha">Senha</label>
+            <input formControlName="senha" [ngClass]="aplicaCssErro('senha')" class="form-control form-control-sm border-2 p-2" type="password" id="senha">
+            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Editar</button>
+            <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</div>
+  
