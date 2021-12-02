@@ -50,39 +50,42 @@
       <hr class="m-0">
 
       <!--Comentar-->
-      <div class="col-12 col-md-8 mt-4" [hidden]="!comentar">
-        <div>
-          <label class="form-label" for="descricao">Comentário</label>
-          <textarea class="form-control" type="text" id="descricao" rows="3"></textarea>
+      <form [formGroup]="formularioComentario" (submit)="validarFormularioComentario()">
+        <div class="col-12 col-md-8 mt-4" [hidden]="!comentar">
+          <div>
+            <label class="form-label" for="descricao">Comentário</label>
+            <textarea formControlName="comentario" class="form-control" type="text" id="descricao" rows="3"></textarea>
+          </div>
+          <div class="mt-4">
+            <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Comentar</button>
+          </div>
         </div>
-        <div class="mt-4">
-          <button type="button" class="btn-primary-color text-white py-2 px-3 border-0">Comentar</button>
-        </div>
-      </div>
+      </form>
 
       <!--Propor-->
-      <div class="col-12 col-md-8 mt-4" [hidden]="!propor">
-        <div class="d-flex flex-column flex-md-row">
+      <form [formGroup]="formularioProposta" (submit)="validaFormularioProposta()">
+        <div class="col-12 col-md-8 mt-4" [hidden]="!propor">
+          <div class="d-flex flex-column flex-md-row">
+            <div>
+              <label class="form-label" for="valor">Valor</label>
+              <input formControlName="valor" class="form-control" type="text">
+            </div>
+            <div class="form-check align-items-start align-self-md-end ms-md-3 mb-0">
+              <input class="form-check-input" type="checkbox" value="" id="semValor" (click)="removerCampoValor($event)">
+              <label class="form-check-label" for="semValor">
+                Desejo fazer uma proposta gratuita
+              </label>
+            </div>
+          </div>
           <div>
-            <label class="form-label" for="valor">Valor</label>
-            <input class="form-control" type="text">
+            <label class="form-label mt-3" for="descricao">Comentário</label>
+            <textarea formControlName="comentario" class="form-control" type="text" id="descricao" rows="3"></textarea>
           </div>
-          <div class="form-check align-items-start align-self-md-end ms-md-3 mb-0">
-            <input class="form-check-input" type="checkbox" value="" id="semValor">
-            <label class="form-check-label" for="semValor">
-              Sem valor
-            </label>
+          <div class="mt-4">
+            <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Enviar</button>
           </div>
         </div>
-        <div>
-          <label class="form-label mt-3" for="descricao">Comentário</label>
-          <textarea class="form-control" type="text" id="descricao" rows="3"></textarea>
-        </div>
-        <div class="mt-4">
-          <button type="button" class="btn-primary-color text-white py-2 px-3 border-0">Enviar</button>
-        </div>
-      </div>
-
+      </form>
 
       <!--Comentários-->
       <div class="card border-0 bg-white text-dark-gray mt-4" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
