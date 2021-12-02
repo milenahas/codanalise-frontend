@@ -6,25 +6,25 @@
     <div class="d-md-flex d-block justify-content-center container">
       <div class="col-12 col-md-4 mt-5">
         <div class="bg-bg-color w-75 text-center p-3 rounded autoMargin">
-          <img src="../../../../../assets/img/personas/foto-perfil-2.png" class="w-75">
+          <img src="../../../../../assets/img/personas/avatar.png" class="w-75">
           <div class="d-flex justify-content-between align-items-center border p-2 mt-3 rounded" style="cursor: pointer;">
             <span></span>
             <span>Upload foto</span>
             <i class="fas fa-camera-retro me-2"></i>
           </div>
         </div>
+
         <div class="mt-5 w-75 autoMargin">
-          <div class="float-end">
-            <a (click)="add('Editar','skill')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
-          </div>
           <h5>Skills</h5>
           <hr>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Java</li>
-            <li class="list-group-item">TypeScript</li>
-            <li class="list-group-item">Angular</li>
-            <li class="list-group-item">HTML5</li>
-            <li class="list-group-item">CSS3</li>
+          <ul class="list-group list-group-flush" *ngFor="let skill of perfil?.linguagem">
+            <div class="d-flex justify-content-between align-items-center">
+              <li class="list-group-item border-0">{{skill.ferramenta}}</li>
+              <div class="text-end">
+                <a (click)="add('Editar','skill')" (click)="editar(skill.id)" style="cursor: pointer;"><i class="far fa-edit"></i></a>
+              </div>
+            </div>
+            <hr>
           </ul>
           <p class="text-primary-color text-decoration-underline" (click)="add('Adicionar', 'skill')" style="cursor: pointer;">Adicionar skill +</p>
         </div>
@@ -35,47 +35,48 @@
           <div class="float-end">
             <a (click)="add('Editar','sobre')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
           </div>
-          <h3 class="mb-0">Carlos Eduardo</h3>
-          <p class="mt-0">Full stack web developer</p>
+          <h3 class="mb-0">{{perfil?.nome}} {{perfil?.sobrenome}}</h3>
+          <p class="mt-0">{{perfil?.status}}</p>
           <h5>Sobre</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis aut architecto porro minus voluptatibus tempore, fuga odio perferendis saepe itaque officiis reiciendis est veritatis mollitia asperiores dolorem unde alias sapiente.</p>
+          <p>{{perfil?.sobre}}</p>
           <div class="d-flex flex-wrap justify-content-between">
             <div>
               <h6 class="mb-0">Linkedin:</h6>
-              <p>https://linkedin/carlos.com</p>
+              <p>{{perfil?.linkedin}}</p>
             </div>
             <div>
               <h6 class="mb-0">Github:</h6>
-              <p>https://linkedin/carlos.com</p>
+              <p>{{perfil?.github}}</p>
             </div>
           </div>
 
           <!-- Escolaridade -->
           <div class="mt-5">
-            <div class="float-end">
-              <a (click)="add('Editar','escolaridade')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
-            </div>
             <h5>Escolaridade</h5>
             <hr>
-            <div>
+            <div *ngFor="let esco of perfil?.escolaridade">
+              <div class="text-end">
+                <a (click)="add('Editar','escolaridade')" (click)="editar(esco.id)" style="cursor: pointer;"><i class="far fa-edit"></i></a>
+              </div>
               <div class="d-flex flex-wrap justify-content-between">
                 <div class="w-75">
                   <h6>Instituição</h6>
-                  <p></p>
+                  <p>{{esco.instituicao}}</p>
                 </div>
                 <div class="w-25">
                   <h6>Nível</h6>
-                  <p></p>
+                  <p>{{esco.nivel}}</p>
                 </div>
               </div>
               <div class="d-flex flex-wrap justify-content-between">
                 <div class="w-75">
                   <h6>Data Início</h6>
-                  <p></p>
+                  <p>{{esco.dtini}}</p>
                 </div>
                 <div class="w-25">
                   <h6>Data Fim</h6>
-                  <p></p>
+                  <p *ngIf="esco.dtfim != null">{{esco.dtfim}}</p>
+                  <p *ngIf="esco.dtfim === null">Em andamento</p>
                 </div>
               </div>
             </div>
@@ -84,12 +85,12 @@
 
           <!-- Experiência Profissional -->
           <div class="my-5">
-            <div class="float-end">
-              <a (click)="add('Editar','experiencia')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
-            </div>
             <h5>Experiência Profissional</h5>
             <hr>
             <div *ngFor="let exp of perfil?.exp">
+              <div class="text-end">
+                <a (click)="add('Editar','experiencia')" (click)="editar(exp.id)" style="cursor: pointer;"><i class="far fa-edit"></i></a>
+              </div>
               <div class="d-flex flex-wrap justify-content-between">
                 <div class="w-75">
                   <h6>Empresa</h6>
@@ -103,13 +104,15 @@
               <div class="d-flex flex-wrap justify-content-between">
                 <div class="w-75">
                   <h6>Data Início</h6>
-                  <p>{{exp.dataInicio}}</p>
+                  <p>{{exp.dtini}}</p>
                 </div>
                 <div class="w-25">
                   <h6>Data Fim</h6>
-                  <p>{{exp.dataFim}}</p>
+                  <p *ngIf="exp?.dtfim">{{exp.dtfim}}</p>
+                  <p *ngIf="exp?.dtfim === null">Em andamento</p>
                 </div>
               </div>
+              <hr>
             </div>
             <p class="text-primary-color text-decoration-underline" (click)="add('Adicionar','experiencia')" style="cursor: pointer;">Adicionar experiência +</p>
           </div>

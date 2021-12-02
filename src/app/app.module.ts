@@ -27,7 +27,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     UsuarioModule,
     NgbModule,
     ModalModule.forRoot()
-
   ],
   providers: [],
   bootstrap: [AppComponent]

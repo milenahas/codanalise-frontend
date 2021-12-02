@@ -5,9 +5,8 @@ import { FeedRoutingModule } from './feed-routing.module';
 import { FeedComponent } from './pages/feed/feed.component';
 import { CriarPublicacaoComponent } from './pages/criar-publicacao/criar-publicacao.component';
 import { DetalhePublicacaoComponent } from './pages/detalhe-publicacao/detalhe-publicacao.component';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     FeedRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ]
 })
 export class FeedModule { }
