@@ -34,10 +34,9 @@ export class EscolaridadeComponent implements OnInit {
     this.perfilService.editarEmitter.subscribe( id => {
       if(id != undefined) {
         this.idEsco = id;
-        console.log(id)
       }
     })
-    
+
   }
 
   // ****************** PEGA USUÁRIO E SETA VALORES EM CASO DE EDIÇÃO ****************** //
@@ -106,7 +105,7 @@ export class EscolaridadeComponent implements OnInit {
         dtfim: this.formulario.get('dtfim').value,
       });
     }
-    
+
     this.enviarDados();
   }
 
@@ -128,6 +127,7 @@ export class EscolaridadeComponent implements OnInit {
           text: 'Sucesso!',
           confirmButtonColor: '#118ab2'
         })
+        this.perfilService.perfil = this.perfil;
         this.onClose();
     },
     error => {

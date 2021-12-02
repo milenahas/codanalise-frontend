@@ -37,7 +37,7 @@ export class ExperienciaComponent implements OnInit {
         this.idExp = id;
       }
     })
-    
+
   }
 
   // ****************** PEGA USUÁRIO E SETA VALORES EM CASO DE EDIÇÃO ****************** //
@@ -51,7 +51,6 @@ export class ExperienciaComponent implements OnInit {
             this.setarValueEdit(data.exp[i]);
           }
         }
-        console.log(data)
       },
       error: err => console.log('Erro', err)
     })
@@ -105,9 +104,9 @@ export class ExperienciaComponent implements OnInit {
         dtini: this.formulario.get('dtini').value,
         dtfim: this.formulario.get('dtfim').value
       });
-      
+
     }
-    
+
     this.enviarDados();
   }
 
@@ -129,6 +128,7 @@ export class ExperienciaComponent implements OnInit {
           text: 'Sucesso!',
           confirmButtonColor: '#118ab2'
         })
+        this.perfilService.perfil = this.perfil;
         this.onClose();
     },
     error => {

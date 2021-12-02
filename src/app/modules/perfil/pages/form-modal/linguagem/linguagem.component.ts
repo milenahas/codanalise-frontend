@@ -43,7 +43,7 @@ export class LinguagemComponent implements OnInit {
         this.idLin = id;
       }
     })
-    
+
   }
 
   // ****************** PEGA USUÁRIO E SETA VALORES EM CASO DE EDIÇÃO ****************** //
@@ -96,7 +96,7 @@ export class LinguagemComponent implements OnInit {
         exp_ferramenta: 'Intermediario', //Remover do back
       });
     }
-    
+
     this.enviarDados();
   }
 
@@ -109,7 +109,6 @@ export class LinguagemComponent implements OnInit {
 
   // ****************** ENVIA DADOS PARA EDIÇÃO ****************** //
   enviarDados() {
-    console.log(this.perfil)
     this.perfilService.editarUsuario(this.perfil)
     .subscribe(
       (data: Usuario) => {
@@ -119,6 +118,7 @@ export class LinguagemComponent implements OnInit {
           text: 'Sucesso!',
           confirmButtonColor: '#118ab2'
         })
+        this.perfilService.perfil = this.perfil;
         this.onClose();
     },
     error => {

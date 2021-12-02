@@ -17,7 +17,7 @@
         <div class="mt-5 w-75 autoMargin">
           <h5>Skills</h5>
           <hr>
-          <ul class="list-group list-group-flush" *ngFor="let skill of perfil?.linguagem">
+          <ul class="list-group list-group-flush" *ngFor="let skill of perfilService.perfil?.linguagem">
             <div class="d-flex justify-content-between align-items-center">
               <li class="list-group-item border-0">{{skill.ferramenta}}</li>
               <div class="text-end">
@@ -35,18 +35,18 @@
           <div class="float-end">
             <a (click)="add('Editar','sobre')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
           </div>
-          <h3 class="mb-0">{{perfil?.nome}} {{perfil?.sobrenome}}</h3>
-          <p class="mt-0">{{perfil?.status}}</p>
+          <h3 class="mb-0">{{perfilService.perfil?.nome}} {{perfilService.perfil?.sobrenome}}</h3>
+          <p class="mt-0">{{perfilService.perfil?.status}}</p>
           <h5>Sobre</h5>
-          <p>{{perfil?.sobre}}</p>
+          <p>{{perfilService.perfil?.sobre}}</p>
           <div class="d-flex flex-wrap justify-content-between">
             <div>
               <h6 class="mb-0">Linkedin:</h6>
-              <p>{{perfil?.linkedin}}</p>
+              <p>{{perfilService.perfil?.linkedin}}</p>
             </div>
             <div>
               <h6 class="mb-0">Github:</h6>
-              <p>{{perfil?.github}}</p>
+              <p>{{perfilService.perfil?.github}}</p>
             </div>
           </div>
 
@@ -54,7 +54,7 @@
           <div class="mt-5">
             <h5>Escolaridade</h5>
             <hr>
-            <div *ngFor="let esco of perfil?.escolaridade">
+            <div *ngFor="let esco of perfilService.perfil?.escolaridade">
               <div class="text-end">
                 <a (click)="add('Editar','escolaridade')" (click)="editar(esco.id)" style="cursor: pointer;"><i class="far fa-edit"></i></a>
               </div>
@@ -87,7 +87,7 @@
           <div class="my-5">
             <h5>Experiência Profissional</h5>
             <hr>
-            <div *ngFor="let exp of perfil?.exp">
+            <div *ngFor="let exp of perfilService.perfil?.exp">
               <div class="text-end">
                 <a (click)="add('Editar','experiencia')" (click)="editar(exp.id)" style="cursor: pointer;"><i class="far fa-edit"></i></a>
               </div>

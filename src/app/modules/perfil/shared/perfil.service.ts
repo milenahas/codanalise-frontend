@@ -10,6 +10,10 @@ import { Usuario } from '../../usuario/shared/usuario';
 })
 export class PerfilService {
 
+  contAtualizar: number = 0;
+
+  perfil: Usuario;
+
   public editarEmitter = new EventEmitter<number>();
 
   private url: string = "https://codanalisebeta.herokuapp.com";

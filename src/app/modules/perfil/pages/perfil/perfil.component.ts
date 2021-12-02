@@ -23,7 +23,7 @@ export class PerfilComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private formBuilder: FormBuilder,
-    private perfilService: PerfilService
+    public perfilService: PerfilService
     ) { }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class PerfilComponent implements OnInit {
     this.loading = true;
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
-        this.perfil = data;
+        this.perfilService.perfil = data;
       },
       error: err => console.log('Erro', err)
     })

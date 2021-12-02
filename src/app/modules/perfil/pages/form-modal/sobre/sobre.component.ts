@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Usuario } from 'src/app/modules/usuario/shared/usuario';
@@ -107,6 +107,7 @@ export class SobreComponent implements OnInit {
           text: 'Dados alterados com sucesso!',
           confirmButtonColor: '#118ab2'
         })
+        this.perfilService.perfil = this.perfil;
         this.onClose();
     },
     error => {
