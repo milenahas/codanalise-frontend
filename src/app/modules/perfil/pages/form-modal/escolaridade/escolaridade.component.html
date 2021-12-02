@@ -31,16 +31,15 @@
             <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
         </div>
 
-        <div class="modal-footer">
-          <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white py-2 px-3 border-0">Adicionar</button>
-          <div *ngIf="acao == 'Editar'">
-            <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Editar</button>
-            <button type="button" class="btn-danger text-white py-2 px-3 border-0 mx-2" (click)="excluir()">Excluir</button>
-          </div>
+        <div class="modal-footer p-0 pt-2 pb-2">
           <button type="button" class="btn-gray text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+          <div *ngIf="acao == 'Editar'">
+            <button type="button" class="btn-danger text-white py-2 px-3 border-0 mx-2" (click)="excluir()">Excluir</button>
+            <button type="submit" class="btn-primary-color text-white py-2 px-3 border-0">Editar</button>
+          </div>
+          <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white py-2 px-3 border-0">Adicionar</button>
         </div>
       </form>
-  
-      
+
+
   </div>
-  

@@ -55,6 +55,7 @@ export class PerfilComponent implements OnInit {
   }
 
   editar(id) {
+    console.log(id);
     this.perfilService.editarEmitter.emit(id)
   }
 }

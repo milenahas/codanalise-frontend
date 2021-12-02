@@ -30,15 +30,15 @@
             <input class="form-control" type="date" id="dtfim" formControlName="dtfim">
         </div>
 
-        <div class="modal-footer">
-            <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white rounded py-2 px-3 border-0">Adicionar</button>
+        <div class="modal-footer p-0 pt-2 pb-2">
+          <button type="button" class="btn-gray rounded text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
             <div *ngIf="acao == 'Editar'">
-                <button type="submit" class="btn-primary-color text-white py-2 px-3 rounded border-0">Editar</button>
-                <button type="button" class="btn-danger text-white py-2 px-3 border-0 rounded mx-2" (click)="excluir()">Excluir</button>
+              <button type="button" class="btn-danger text-white py-2 px-3 border-0 rounded mx-2" (click)="excluir()">Excluir</button>
+              <button type="submit" class="btn-primary-color text-white py-2 px-3 rounded border-0">Editar</button>
             </div>
-            <button type="button" class="btn-gray rounded text-white py-2 px-3 border-0" data-bs-dismiss="modal" (click)="onClose()">Cancelar</button>
+          <button type="submit" *ngIf="acao == 'Adicionar'" class="btn-primary-color text-white rounded py-2 px-3 border-0">Adicionar</button>
+
         </div>
       </form>
     </div>
 </div>
-  

@@ -3,7 +3,7 @@
     <div class="card-header bg-white">
       <h6 class="m-2">Perfil</h6>
     </div>
-    <div class="d-md-flex d-block justify-content-center container">
+    <div class="d-md-flex d-block justify-content-center container" *ngIf="perfilService.perfil else carregando">
       <div class="col-12 col-md-4 mt-5">
         <div class="bg-bg-color w-75 text-center p-3 rounded autoMargin">
           <img src="../../../../../assets/img/personas/avatar.png" class="w-75">
@@ -122,9 +122,8 @@
   </div>
 </div>
 
-
-<!--ng-template #carregamento>
-    <div class="text-center perfil-area text-dark-gray mt-5">
-        <h5>Carregando <i class="fa fa-spinner fa-spin pl-2"></i></h5>
-    </div>
-</ng-template-->
+<ng-template #carregando>
+  <div class="text-center text-dark-gray mt-5 mb-5">
+      <h5>Carregando <i class="fa fa-spinner fa-spin"></i></h5>
+  </div>
+</ng-template>
