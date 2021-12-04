@@ -21,4 +21,8 @@ export class DevsService {
   atualizarUsuario(dados: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.url}/usuario`, dados);
   }
+
+  filtrarUsuarios(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.url}/usuario/${id}`);
+  }
 }

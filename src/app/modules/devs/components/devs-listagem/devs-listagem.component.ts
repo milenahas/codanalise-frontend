@@ -20,4 +20,15 @@ export class DevsListagemComponent implements OnInit {
     this.devsService.usuarioEspecifico = this.usuario[index];
   }
 
+  filtrarDev(event){
+    let id = event.target.value;
+
+    this.devsService.filtrarUsuarios(id)
+    .subscribe(
+      data => {
+        console.log(data.email);
+    })
+    
+  }
+
 }

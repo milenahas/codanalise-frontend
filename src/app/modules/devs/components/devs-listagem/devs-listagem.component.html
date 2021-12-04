@@ -4,7 +4,7 @@
 
   <div class="container m-auto w-100">
     <div class="d-flex mt-5">
-      <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
+      <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev" (keyup)="filtrarDev($event)">
       <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white" style="border-radius: 6px;"><i class="fas fa-search"></i></button>
     </div>
 
