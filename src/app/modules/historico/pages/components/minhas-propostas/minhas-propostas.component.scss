@@ -1,0 +1,9 @@
+.divisoria {
+    border-left: 1px solid #e8e8e8;
+}
+
+@media screen and (max-width: 750px) {
+    .divisoria {
+      border: none;
+    }
+}
