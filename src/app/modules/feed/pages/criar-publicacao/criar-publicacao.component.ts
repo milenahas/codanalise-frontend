@@ -1,10 +1,13 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Usuario } from 'src/app/modules/usuario/shared/usuario';
 import Swal from 'sweetalert2';
 import { Linguagens } from '../../shared/linguagens';
+import { Postagem } from '../../shared/postagem';
 import { Publicacao } from '../../shared/publicacao';
 import { PublicacaoService } from '../../shared/publicacao.service';
+import { Tags } from '../../shared/tags';
 
 @Component({
   selector: 'app-criar-publicacao',
@@ -14,10 +17,14 @@ import { PublicacaoService } from '../../shared/publicacao.service';
 export class CriarPublicacaoComponent implements OnInit {
 
   formulario: FormGroup;
-  publicacao: Publicacao;
+  publicacao: Postagem;
   allLinguagens: Linguagens;
-  linguagens: Array<String> = [];
+  tags: Tags[] = [];
   valorForm: String = '';
+
+  // Dados usuário
+  usuario: Usuario;
+  email: string = localStorage.getItem('email');
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -26,6 +33,7 @@ export class CriarPublicacaoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.pegarDadosUsuario();
 
     this.publicacaoService.getLinguagens().subscribe((data: Linguagens) => {
       this.allLinguagens = data;
@@ -45,6 +53,14 @@ export class CriarPublicacaoComponent implements OnInit {
     })
   }
 
+  // ******** Pega dados do usuário ********
+  pegarDadosUsuario(){
+    this.publicacaoService.dadosUsuario(this.email).subscribe(
+      (data) => {
+        this.usuario = data;
+    })
+  }
+
   // ****************** SUBMETER E VALIDAR DADOS ****************** //
   onSubmit() {
     if (!this.formulario.valid){
@@ -59,16 +75,13 @@ export class CriarPublicacaoComponent implements OnInit {
 
   // ****************** SETA DADOS NO OBJETO DEPOIS DE SUBMETER ****************** //
   setarDadosObjeto() {
-    let valor = this.valorForm
-    if(valor === ''){
-      valor = 'Grátis'
-    }
     this.publicacao = {
       titulo: this.formulario.controls.titulo.value,
+      autor: this.usuario,
       descricao: this.formulario.controls.descricao.value,
-      valor: valor,
-      arquivo: this.formulario.controls.arquivo.value,
-      linguagens: this.linguagens
+      valor: Number(this.formulario.controls.valor.value),
+      // arquivo: this.formulario.controls.arquivo.value,
+      tags: this.tags
     }
     this.enviarDados();
     this.bsModalRef.hide();
@@ -76,14 +89,16 @@ export class CriarPublicacaoComponent implements OnInit {
 
   // ****************** ENVIA DADOS PARA O BACK ****************** //
   enviarDados() {
-    /*this.publicacaoService.cadastrar(this.publicacao)
+    this.publicacaoService.cadastrarPostagem(this.publicacao)
     .subscribe(
-      (data: Publicacao) => {
+      (data: Postagem) => {
         Swal.fire(
           'Sucesso!',
           'Publicação realizada com sucesso!',
           'success'
-        )
+        );
+        this.publicacaoService.postagem.push(data);
+        this.publicacaoService.idPostagem = data.id;
     },
     error => {
       Swal.fire(
@@ -92,12 +107,12 @@ export class CriarPublicacaoComponent implements OnInit {
         'error'
       )
     }
-    )*/
+    )
   }
 
   // ****************** ADICIONA LINGUAGEM E VALIDA SE TEM MAIS QUE QUATRO TAGS ****************** //
   addLinguagem(linguagem) {
-    if(this.linguagens.length > 3){
+    if(this.tags.length > 3){
       Swal.fire({
         position: 'top',
         icon: 'warning',
@@ -106,14 +121,14 @@ export class CriarPublicacaoComponent implements OnInit {
         timer: 1500
       })
     }else if(linguagem != '') {
-      this.linguagens.push(linguagem)
+      this.tags.push({linguagem: linguagem})
     }
   }
 
   // ****************** REMOVE LINGUAGEM AO SELECIONAR ****************** //
   removeLinguagem(linguagem) {
-    let selectedLinguagem = this.linguagens.indexOf(linguagem)
-    this.linguagens.splice(selectedLinguagem, 1);
+    let selectedLinguagem = this.tags.indexOf(linguagem)
+    this.tags.splice(selectedLinguagem, 1);
   }
 
   // ****************** VERIFICA SE TEM ALGUM CAMPO 'SUJO' E PEDE CONFIRMAÇÃO DO USUARIO PARA FECHAR ****************** //
