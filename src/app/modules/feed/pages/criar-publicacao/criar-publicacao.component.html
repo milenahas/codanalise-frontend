@@ -17,14 +17,14 @@
     <div class="mb-3">
       <label class="form-label" for="valor">Valor</label>
       <div class="d-flex">
-        <input class="form-control" type="text" id="valor" [value]="valorForm" #campoValor oninput="this.value = this.value.replace(/[^0-9,]/g, '').replace(/(\..*)\./g, '$1');" (blur)="converteBrl(campoValor.value)">
+        <input class="form-control" formControlName="valor" type="text" prefix="R$" mask="separator.2" separatorLimit="10000" thousandSeparator=".">
         <i class="fas fa-info-circle ms-1" data-bs-placement="top" title="Caso não preencha com algum valor, será submetido como 'Grátis'."></i>
       </div>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
       <label for="formFile" class="form-label">Anexar arquivo (opcional)</label>
       <input class="form-control" type="file" id="formFile">
-    </div>
+    </div> -->
   </div>
   <div class="mb-5 mx-3">
     <label class="form-label" for="tag">Linguagens relacionadas</label>
@@ -38,7 +38,7 @@
       <span class="invalid-feedback" style="font-size: 12px;">Insira pelo menos uma linguagem</span>
     </div>
     <div class="mt-2">
-      <span *ngFor="let linguagem of linguagens" class="p-1 me-2 rounded text-white bg-dark-gray" (click)="removeLinguagem(linguagem)">{{linguagem}}</span>
+      <span *ngFor="let linguagem of tags" class="p-1 me-2 rounded text-white bg-dark-gray" (click)="removeLinguagem(linguagem)">{{linguagem.linguagem}}</span>
     </div>
   </div>
 

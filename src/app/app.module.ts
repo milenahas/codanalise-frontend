@@ -12,6 +12,7 @@ import { MenuTopoComponent } from './modules/menu/menu-topo/menu-topo.component'
 import { MenuLateralComponent } from './modules/menu/menu-lateral/menu-lateral.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     UsuarioModule,
     NgbModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

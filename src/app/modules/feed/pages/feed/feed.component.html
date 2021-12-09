@@ -9,31 +9,42 @@
       <div class="d-flex mt-5">
         <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
         <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
-        <button class="btn btn-white text-primary-color border-2 border-primary-color ms-3 px-3" style="border-radius: 10px;" (click)="add()"><i class="fas fa-plus"></i></button>
+        <button class="btn btn-white text-primary-color border-2 border-primary-color ms-3 px-3" style="border-radius: 10px; font-weight: 500;" (click)="add()"><i class="fas fa-plus"></i></button>
       </div>
 
-      <div class="card bg-white my-5 border-0" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-        <div class="container">
-          <div class="card-header d-flex align-items-center bg-white">
-            <a routerLink="detalhe-publicacao" class="mt-2 flex-grow-1 text-dark-gray">Code Review</a>
-            <p class="mt-3 text-gray" style="font-size: 13px;">Publicado: há 5 min</p>
-          </div>
+      <ng-container *ngIf="!loading else carregando">
+      <ng-container *ngIf="publicacaoService.postagem.length > 0 else semPublicacoes">
+        <div *ngFor="let col of publicacaoService.postagem; let i = index" class="card bg-white my-5 border-0" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+          <div class="container">
+            <div class="card-header d-flex align-items-center bg-white">
+              <a (click)="dadosDetalhePublicacao(i)" routerLink="detalhe-publicacao" class="mt-2 flex-grow-1 text-dark-gray">{{col.titulo}}</a>
+              <p class="mt-3 text-gray" style="font-size: 13px;"><span>{{col.autor.nome}} {{col.autor.sobrenome}} -  </span> {{col.datapostagem}}</p>
+            </div>
 
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex.</p>
-          </div>
+            <div class="card-body">
+              <p>{{col.descricao}}</p>
+            </div>
 
-          <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">JavaScript</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">Angular</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">CSS3</span>
-              <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">HTML5</span>
+            <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
+                <span *ngFor="let tags of col.tags" class="border rounded p-1 me-2" style="font-size: 14px;">{{tags.linguagem}}</span>
+            </div>
           </div>
         </div>
-      </div>
+      </ng-container>
+    </ng-container>
     </div>
 
   </div>
 </div>
+
+<ng-template #semPublicacoes>
+  <div class="text-center">
+    <h5 class="m-5">Sem publicações.</h5>
+  </div>
+</ng-template>
+
+<ng-template #carregando>
+  <div class="text-center">
+    <h5 class="m-5">Carregando <i class="fa fa-spinner fa-spin pl-2"></i></h5>
+  </div>
+</ng-template>

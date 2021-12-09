@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Postagem } from '../../shared/postagem';
+import { PublicacaoService } from '../../shared/publicacao.service';
 import { CriarPublicacaoComponent } from '../criar-publicacao/criar-publicacao.component';
 
 @Component({
@@ -9,15 +11,29 @@ import { CriarPublicacaoComponent } from '../criar-publicacao/criar-publicacao.c
 })
 export class FeedComponent implements OnInit {
 
+  email = localStorage.getItem('email');
+
+  loading: boolean = false;
+
   bsModalRef?: BsModalRef;
   config = {
     keyboard: false,
     ignoreBackdropClick: true
   };
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, public publicacaoService: PublicacaoService) { }
 
   ngOnInit(): void {
+    this.listarPostagens();
+    this.pegarDadosUsuario();
+  }
+
+  // ******** Pega dados do usuário ********
+  pegarDadosUsuario(){
+    this.publicacaoService.dadosUsuario(this.email).subscribe(
+      (data) => {
+        this.publicacaoService.usuario = data;
+    })
   }
 
   add() {
@@ -25,4 +41,27 @@ export class FeedComponent implements OnInit {
     //this.bsModalRef.content.area = fArea;
   }
 
+  listarPostagens(){
+    this.loading = true;
+
+    this.publicacaoService.listarPostagens()
+    .subscribe(
+      (data) => {
+        this.publicacaoService.postagem = data;
+    }).add(() => {
+      this.loading = false;
+    })
+  }
+
+  // ******************
+  // Detalhe publicação
+  // ******************
+
+  dadosDetalhePublicacao(index){
+    let idPostagem = String(this.publicacaoService.postagem[index].id);
+    localStorage.setItem('idPostagem', idPostagem);
+
+    // this.publicacaoService.idPostagem = this.publicacaoService.postagem[index].id;
+    this.publicacaoService.detalhePostagem = this.publicacaoService.postagem[index];
+  }
 }
