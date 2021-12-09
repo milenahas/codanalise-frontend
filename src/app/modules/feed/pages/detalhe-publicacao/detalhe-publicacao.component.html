@@ -64,7 +64,7 @@
           <div class="d-flex flex-column flex-md-row">
             <div>
               <label class="form-label" for="valor">Valor</label>
-              <input formControlName="valor" class="form-control" type="text">
+              <input formControlName="valor" class="form-control" type="text" prefix="R$" mask="separator.2" separatorLimit="10000" thousandSeparator=".">
             </div>
             <div class="form-check align-items-start align-self-md-end ms-md-3 mb-0">
               <input class="form-check-input" type="checkbox" value="" id="semValor" (click)="removerCampoValor($event)">
@@ -95,6 +95,32 @@
           </div>
             <div class="card-body mx-0 mx-md-5">
               <p>{{col.comentario}}</p>
+            </div>
+        </div>
+      </ng-container>
+
+      <!-- Propostas -->
+      <ng-container *ngIf="postagemEspecifica.propostas != null || postagemEspecifica.propostas.length == 0">
+        <div *ngFor="let col of postagemEspecifica.propostas" class="card border-0 bg-white text-dark-gray mt-4" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+
+              <div class="card-header d-flex align-items-center bg-white">
+                <div class="mt-2 flex-grow-1 d-flex align-items-center">
+                  <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" alt="" width="50px">
+                  <div>
+                    <h6 class="m-0">{{col.mentor.usuario.nome}} {{col.mentor.usuario.sobrenome}}</h6>
+                    <span style="font-size: small;">{{col.mentor.usuario.status}}</span>
+                  </div>
+                  
+                </div>
+
+                <p *ngIf="col.valor == ''" class="mt-3">Proposta gratuita</p>
+                <p *ngIf="col.valor != ''" class="mt-3">R${{col.valor}},00</p>
+              </div>
+
+              
+            <div class="card-body mx-0 mx-md-5">
+              <p>{{col.comentario}}</p>
+              
             </div>
         </div>
       </ng-container>

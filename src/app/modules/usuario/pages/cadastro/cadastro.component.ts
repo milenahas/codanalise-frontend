@@ -73,7 +73,7 @@ export class CadastroComponent implements OnInit {
       nascimento: (this.form.dataNasc.value + "T23:59:00.809+00:00"),
       genero: this.form.genero.value,
       senha: this.form.senha.value,
-      mentor: false
+      mentor: true
     }
 
     this.enviarCadastro();

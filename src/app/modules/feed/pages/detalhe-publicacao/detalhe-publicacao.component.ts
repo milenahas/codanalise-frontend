@@ -56,6 +56,7 @@ export class DetalhePublicacaoComponent implements OnInit {
 
   removerCampoValor(event){
     if(event.target.checked == true){
+      this.formularioProposta.controls.valor.setValue('');
       this.formularioProposta.get('valor').disable();
       this.formProposta.valor.clearValidators();
       this.formProposta.valor.updateValueAndValidity();
@@ -177,6 +178,8 @@ export class DetalhePublicacaoComponent implements OnInit {
           text: 'Proposta enviada com sucesso!',
           confirmButtonColor: '#118ab2'
         })
+        this.listarPostagemEspecifica(this.idPostagem);
+        this.formularioProposta.reset();
     })
   }
 
