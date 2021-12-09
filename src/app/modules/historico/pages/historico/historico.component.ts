@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PerfilService } from 'src/app/modules/perfil/shared/perfil.service';
 
 @Component({
   selector: 'app-historico',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricoComponent implements OnInit {
 
-  constructor() { }
+  email: string = localStorage.getItem('email');
+  mentor: boolean;
+
+  constructor(public perfilService: PerfilService) { }
 
   ngOnInit(): void {
+    this.renderizarPerfil();
+  }
+
+  renderizarPerfil(){
+    this.perfilService.usuarioEspecifico(this.email).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isMentor(data);
+      },
+      error: err => console.log('Erro', err)
+    })
+  }
+
+  isMentor(data) {
+    if(data.mentor === true) {
+      this.mentor = true;
+    }else {
+      this.mentor = false;
+    }
   }
 
 }

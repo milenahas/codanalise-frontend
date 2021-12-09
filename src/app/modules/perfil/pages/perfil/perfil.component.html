@@ -35,7 +35,10 @@
           <div class="float-end">
             <a (click)="add('Editar','sobre')" style="cursor: pointer;"><i class="far fa-edit"></i></a>
           </div>
-          <h3 class="mb-0">{{perfilService.perfil?.nome}} {{perfilService.perfil?.sobrenome}}</h3>
+          <div class="d-flex align-items-center">
+            <h3 class="mb-0 me-2">{{perfilService.perfil?.nome}} {{perfilService.perfil?.sobrenome}}</h3>
+            <img src="../../../../../assets/img/logo/logo30.png" *ngIf="perfilService.perfil.mentor === true" width="30px">
+          </div>
           <p class="mt-0">{{perfilService.perfil?.status}}</p>
           <h5>Sobre</h5>
           <p>{{perfilService.perfil?.sobre}}</p>

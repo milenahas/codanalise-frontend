@@ -14,7 +14,7 @@
 
       <hr style="border: 1px solid gray">
 
-      <div class="d-flex justify-content-between p-0 px-md-3">
+      <div class="d-flex justify-content-between p-0 px-md-3" *ngIf="mentor === false">
         <label for="tipoConta">Tipo de Conta</label>
         <a (click)="abrirModalTornarMentor()" class="text-primary-color" style="cursor: pointer;">Torne-se Mentor</a>
       </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PerfilService } from 'src/app/modules/perfil/shared/perfil.service';
 import { TornarMentorComponent } from '../../components/tornar-mentor/tornar-mentor.component';
 
 @Component({
@@ -10,14 +11,35 @@ import { TornarMentorComponent } from '../../components/tornar-mentor/tornar-men
 export class ConfiguracoesComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
+  email: string = localStorage.getItem('email');
+  mentor: boolean;
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, public perfilService: PerfilService) { }
 
   ngOnInit(): void {
+    this.renderizarPerfil();
   }
 
   abrirModalTornarMentor(){
     this.bsModalRef = this.modalService.show(TornarMentorComponent);
+  }
+
+  renderizarPerfil(){
+    this.perfilService.usuarioEspecifico(this.email).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isMentor(data);
+      },
+      error: err => console.log('Erro', err)
+    })
+  }
+
+  isMentor(data) {
+    if(data.mentor === true) {
+      this.mentor = true;
+    }else {
+      this.mentor = false;
+    }
   }
 
 }

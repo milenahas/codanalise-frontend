@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { PerfilService } from 'src/app/modules/perfil/shared/perfil.service';
+import { Usuario } from 'src/app/modules/usuario/shared/usuario';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,11 +14,27 @@ export class TornarMentorComponent implements OnInit {
 
   formulario: FormGroup;
   erroFormulario: boolean = false;
+  email: string = localStorage.getItem('email');
+  perfil: Usuario;
 
-  constructor(public bsModelRef: BsModalService, private formBuilder: FormBuilder) { }
+  constructor(
+    public bsModelRef: BsModalService,
+    private formBuilder: FormBuilder, 
+    private perfilService: PerfilService
+    ) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
+    this.pegarDadosUsuarioEspecifico();
+  }
+
+  pegarDadosUsuarioEspecifico(){
+    this.perfilService.usuarioEspecifico(this.email).subscribe({
+      next: (data) => {
+        this.perfil = data;
+      },
+      error: err => console.log('Erro', err)
+    })
   }
 
   inicializarFormulario(){
@@ -28,12 +46,41 @@ export class TornarMentorComponent implements OnInit {
   validarFormulario(){
     if (this.formulario.invalid){
       this.erroFormulario = true;
-      console.log(this.erroFormulario);
     } else {
       this.erroFormulario = false;
-      console.log("Enviou");
+      this.setarMentor();
     }
+  }
 
+  setarMentor() {
+    this.perfil.mentor = true;
+
+    this.enviarDados();
+  }
+
+  // ****************** ENVIA DADOS PARA EDIÇÃO ****************** //
+  enviarDados() {
+    this.perfilService.editarUsuario(this.perfil)
+    .subscribe(
+      (data: Usuario) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso',
+          text: 'Currículo enviado com sucesso!',
+          confirmButtonColor: '#118ab2'
+        })
+        this.onClose();
+        console.log(this.perfil)
+    },
+    error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Algo deu errado.',
+        confirmButtonColor: '#118ab2'
+      })
+    }
+    )
   }
 
   onClose(){
@@ -41,7 +88,6 @@ export class TornarMentorComponent implements OnInit {
   }
 
   // ****************** VALIDAÇÕES DE ERRO ******************
-
   aplicaCssErro(campo) {
     return {
       'is-invalid': this.verificaTouched(campo) && !this.formulario.valid

@@ -16,7 +16,7 @@
             <i class="far fa-user me-2"></i> <span>Perfil</span>
           </a>
         </li>
-        <li class="nav-item w-100">
+        <li class="nav-item w-100" *ngIf="usuario.mentor === true">
           <a routerLink="carteira" routerLinkActive="active" class="nav-link align-middle px-4 py-3 px-0">
             <i class="fas fa-wallet me-2"></i> <span>Carteira</span></a>
         </li>
@@ -57,7 +57,10 @@
           <a (click)="acessarPerfil()" style="cursor: pointer;"><img src="../../../../assets/img/personas/avatar.png" width="50" height="50" class="rounded-circle"></a>
         </div>
         <div class="ms-2">
-          <h5 class="text-primary-color m-0">{{usuario.nome}} {{usuario.sobrenome}}</h5>
+          <div class="d-flex align-items-center">
+            <h5 class="text-primary-color m-0 me-1">{{usuario.nome}} {{usuario.sobrenome}}</h5>
+            <img src="../../../../assets/img/logo/logo30.png" *ngIf="usuario.mentor === true" width="20px">
+          </div>
           <p class="text-secondary-color m-0" style="font-size: 12px;">{{usuario.status}}</p>
         </div>
       </div>
