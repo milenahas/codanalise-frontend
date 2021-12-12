@@ -4,6 +4,34 @@
   i{
     cursor: pointer;
   }
+
+  .card {
+    background-color: white;
+    color: #616161;
+    border-radius: 15px; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .card-header {
+      color: #616161;
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  }
+}
+
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  .card {
+    background-color: #282C34;
+    box-shadow: none;
+    color: #F5F5F5;
+    .card-header, li {
+      background-color: #282C34;
+      color: #F5F5F5;
+    }
+  }
+  
 }
 
 @media screen and (max-width: 800px) {

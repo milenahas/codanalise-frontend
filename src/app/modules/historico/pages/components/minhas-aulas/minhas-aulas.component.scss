@@ -15,6 +15,34 @@
   width: 75%;
 }
 
+.card {
+  border-radius: 15px; 
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 15px;
+  .card-header {
+    background-color: white;
+    color: #616161;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+}
+
+.darkmode {
+  background-color: #282C34;
+  color: #F5F5F5;
+  box-shadow: none;
+  .card {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+    .card-header {
+      background-color: #282C34;
+      color: #F5F5F5;
+    }
+  }
+}
+
 @media screen and (max-width: 750px) {
   .divisoria{
     border: none;

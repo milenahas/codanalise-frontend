@@ -5,6 +5,18 @@
   .card {
     border-radius: 15px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    color: #616161;
+    .card-header, .card-footer, li {
+      background-color: white;
+      color: #616161;
+    }
+    .card {
+      .card-header {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    }
     a {
       cursor: pointer;
       color: #118ab2;
@@ -33,6 +45,24 @@ input {
   &:focus {
     box-shadow: none;
     border: solid 2px #118ab2;
+  }
+}
+
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  box-shadow: none;
+  .card {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    .card-header, .card-footer, li {
+      background-color: #282C34;
+      color: #F5F5F5;
+    }
+    .card {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+    }
   }
 }
 

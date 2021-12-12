@@ -2,8 +2,33 @@
   margin-left: 300px;
   padding: 25px 50px;
 
+  .card{
+    background-color: white;
+    border-radius: 15px; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #616161;
+    .card-header {
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  }
+
   button {
     border-radius: 20px;
+  }
+}
+
+.darkmode {
+  background-color: #20232A;
+  .card, li {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    .card-header {
+      background-color: #282C34;
+      color: #F5F5F5;
+    }
   }
 }
 

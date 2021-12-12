@@ -1,9 +1,53 @@
 .configuracoes-area {
   margin-left: 300px;
   padding: 25px 50px;
+  height: 100vh;
 
+  .card {
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #616161;
+    .card-header {
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  }
+  
   button {
     border-radius: 20px;
+  }
+
+  input {
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      
+    }
+    &:checked {
+      border: solid 2px #118ab2;
+      background-color: #118ab2;
+    }
+  }
+  hr {
+    border: 1px solid gray
+  }
+}
+  
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  box-shadow: none;
+  .card{
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    .card-header {
+      background-color: #282C34;
+    }
+    hr {
+      border: 1px solid #F5F5F5;
+    }
   }
 }
 

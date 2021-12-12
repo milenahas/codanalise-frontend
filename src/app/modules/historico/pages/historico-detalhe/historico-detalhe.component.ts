@@ -13,6 +13,7 @@ export class HistoricoDetalheComponent implements OnInit {
   comentar: boolean = true;
   propor: boolean = false;
   bsModalRef?: BsModalRef;
+  getDark: string = localStorage.getItem('dark');
 
   constructor(private modalService: BsModalService) { }
 

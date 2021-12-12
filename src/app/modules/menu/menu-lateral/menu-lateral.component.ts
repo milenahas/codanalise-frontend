@@ -17,6 +17,7 @@ export class MenuLateralComponent implements OnInit {
   usuario: Usuario;
 
   loadingMenu: boolean = false;
+  getDark: string = localStorage.getItem('dark');
 
   constructor(private rota: Router, private menuService: MenuService, private devsService: DevsService) { }
 
@@ -43,7 +44,7 @@ export class MenuLateralComponent implements OnInit {
 
   acessarPerfil(){
     this.devsService.usuarioEspecifico = this.usuario;
-    this.rota.navigate(['/devs/dev-perfil']);
+    this.rota.navigate(['/perfil']);
   }
 
 }

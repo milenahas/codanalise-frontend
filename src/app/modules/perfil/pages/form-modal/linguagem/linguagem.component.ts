@@ -18,6 +18,7 @@ export class LinguagemComponent implements OnInit {
   formulario: FormGroup;
   perfil: Usuario;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
   allLinguagens: Linguagens;
   idLin: number;
   indexLin: number;

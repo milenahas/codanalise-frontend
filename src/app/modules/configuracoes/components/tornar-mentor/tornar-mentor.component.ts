@@ -15,6 +15,7 @@ export class TornarMentorComponent implements OnInit {
   formulario: FormGroup;
   erroFormulario: boolean = false;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
   perfil: Usuario;
 
   constructor(

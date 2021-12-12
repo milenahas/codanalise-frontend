@@ -1,4 +1,4 @@
-<form class="modal-content text-dark-gray" [formGroup]="formulario" (submit)="onSubmit()">
+<form class="modal-content" [formGroup]="formulario" (submit)="onSubmit()" [ngClass]="{'darkmode': getDark === 'true'}">
     <div class="modal-header">
       <h5 class="modal-title">Editar linguagens</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>

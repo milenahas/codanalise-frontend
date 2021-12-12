@@ -12,6 +12,7 @@ export class DevsComponent implements OnInit {
   usuario: Usuario;
 
   validaLogin: string = localStorage.getItem('login');
+  getDark: string = localStorage.getItem('dark');
 
   loading: boolean = false;
 

@@ -5,7 +5,7 @@ import { DevsComponent } from './pages/devs/devs.component';
 
 const routes: Routes = [
   { path: '', component: DevsComponent },
-  { path: 'dev-perfil', component: DevPerfilComponent }
+  { path: 'dev-perfil/:id', component: DevPerfilComponent }
 ];
 
 @NgModule({

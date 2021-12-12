@@ -1,8 +1,13 @@
-input {
+input, select {
   outline: none;
   &:focus {
     box-shadow: none;
     border: solid 2px #118ab2;
+  }
+
+  &:checked {
+    border: solid 2px #118ab2;
+    background-color: #118ab2;
   }
 }
 

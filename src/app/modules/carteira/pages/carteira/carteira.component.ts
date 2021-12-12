@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarteiraComponent implements OnInit {
 
+  getDark: string = localStorage.getItem('dark');
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,11 +1,11 @@
-<div class="perfil-area">
-  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-    <div class="card-header bg-white">
+<div class="perfil-area" [ngClass]="{'darkmode': getDark === 'true'}">
+  <div class="card border-0">
+    <div class="card-header">
       <h6 class="m-2">Perfil</h6>
     </div>
     <div class="d-md-flex d-block justify-content-center container" *ngIf="perfilService.perfil else carregando">
       <div class="col-12 col-md-4 mt-5">
-        <div class="bg-bg-color w-75 text-center p-3 rounded autoMargin">
+        <div class="w-75 text-center p-3 rounded autoMargin">
           <img src="../../../../../assets/img/personas/avatar.png" class="w-75">
           <div class="d-flex justify-content-between align-items-center border p-2 mt-3 rounded" style="cursor: pointer;">
             <span></span>

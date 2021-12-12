@@ -5,4 +5,8 @@
 <ng-container *ngIf="authGuardService.validaLogar()">
     <app-menu-lateral></app-menu-lateral>
 </ng-container>
-<router-outlet></router-outlet>
+<div [ngClass]="getDark() === true ? 'darkmode' : 'lightmode'">
+    <router-outlet></router-outlet>
+</div>
+
+

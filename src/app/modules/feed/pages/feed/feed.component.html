@@ -1,31 +1,35 @@
-<div class="feed-area">
-  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+<div class="feed-area" [ngClass]="{'darkmode': getDark === 'true'}">
+  <div class="card border-0">
 
-    <div class="card-header bg-white">
+    <div class="card-header">
       <h6 class="m-2">Feed</h6>
     </div>
 
     <div class="container m-auto w-100">
-      <div class="d-flex mt-5">
-        <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-        <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
-        <button class="btn btn-white text-primary-color border-2 border-primary-color ms-3 px-3" style="border-radius: 10px; font-weight: 500;" (click)="add()"><i class="fas fa-plus"></i></button>
+      <div class="d-flex align-items-center mt-5">
+        <div class="input-group">
+          <input class="form-control border-2 border-end-0 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
+          <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
+        </div>
+        <div>
+          <button class="btn-primary-color ms-2 text-white border-0 px-4 py-2 rounded" (click)="add()">Publicar</button>
+        </div>
       </div>
 
       <ng-container *ngIf="!loading else carregando">
       <ng-container *ngIf="publicacaoService.postagem.length > 0 else semPublicacoes">
-        <div *ngFor="let col of publicacaoService.postagem; let i = index" class="card bg-white my-5 border-0" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+        <div *ngFor="let col of publicacaoService.postagem; let i = index" class="card my-5 border-0">
           <div class="container">
-            <div class="card-header d-flex align-items-center bg-white">
-              <a (click)="dadosDetalhePublicacao(i)" routerLink="detalhe-publicacao" class="mt-2 flex-grow-1 text-dark-gray">{{col.titulo}}</a>
-              <p class="mt-3 text-gray" style="font-size: 13px;"><span>{{col.autor.nome}} {{col.autor.sobrenome}} -  </span> {{col.datapostagem}}</p>
+            <div class="card-header d-flex align-items-center">
+              <a (click)="dadosDetalhePublicacao(i)" routerLink="detalhe-publicacao" class="mt-2 flex-grow-1">{{col.titulo}}</a>
+              <p class="mt-3" style="font-size: 13px;"><span>{{col.autor.nome}} {{col.autor.sobrenome}} -  </span> {{col.datapostagem}}</p>
             </div>
 
             <div class="card-body">
               <p>{{col.descricao}}</p>
             </div>
 
-            <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0">
+            <div class="card-footer d-flex justify-content-end flex-wrap border-0">
                 <span *ngFor="let tags of col.tags" class="border rounded p-1 me-2" style="font-size: 14px;">{{tags.linguagem}}</span>
             </div>
           </div>

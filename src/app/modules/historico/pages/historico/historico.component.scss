@@ -1,22 +1,42 @@
 .perfil-area {
+  height: 100vh;
   margin-left: 300px;
   padding: 25px 50px;
-  border-radius: 15px;
-}
-.card-header {
-  a {
-    text-decoration: none;
-    font-weight: 500;
-    &:hover {
-      text-decoration: underline;
+
+  .accordion-item {
+    background-color: white;
+    color: #616161;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+  }
+  .accordion-header, .accordion-button {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #616161;
+  }
+  
+  button {
+    color: #F5F5F5;
+    outline: none;
+    &:focus {
+      box-shadow: none;
     }
   }
 }
 
-button {
-  outline: none;
-  &:focus {
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  box-shadow: none;
+  .accordion-item {
+    background-color: #282C34;
     box-shadow: none;
+  }
+  .accordion-header, .accordion-button {
+    background-color: #282C34;
+    box-shadow: none;
+    color: #F5F5F5;
   }
 }
 

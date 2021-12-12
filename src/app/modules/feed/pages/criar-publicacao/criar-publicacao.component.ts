@@ -21,10 +21,11 @@ export class CriarPublicacaoComponent implements OnInit {
   allLinguagens: Linguagens;
   tags: Tags[] = [];
   valorForm: String = '';
+  getDark: string = localStorage.getItem('dark');
 
   // Dados usuário
   usuario: Usuario;
-  email: string = localStorage.getItem('email');
+  email: string = localStorage.getItem('email')
 
   constructor(
     public bsModalRef: BsModalRef,

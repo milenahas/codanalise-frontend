@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./minhas-publicacoes.component.scss']
 })
 export class MinhasPublicacoesComponent implements OnInit {
+  
+  getDark: string = localStorage.getItem('dark');
 
   constructor() { }
 

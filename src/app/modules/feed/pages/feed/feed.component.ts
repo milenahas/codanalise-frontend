@@ -12,6 +12,7 @@ import { CriarPublicacaoComponent } from '../criar-publicacao/criar-publicacao.c
 export class FeedComponent implements OnInit {
 
   email = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
 
   loading: boolean = false;
 

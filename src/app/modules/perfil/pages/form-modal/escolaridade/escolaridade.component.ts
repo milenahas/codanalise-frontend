@@ -17,6 +17,7 @@ export class EscolaridadeComponent implements OnInit {
   formulario: FormGroup;
   perfil: Usuario;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
   idEsco: number;
   indexEsco: number;
 

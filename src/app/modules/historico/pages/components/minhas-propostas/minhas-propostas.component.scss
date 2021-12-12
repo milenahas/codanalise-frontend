@@ -1,5 +1,29 @@
 .divisoria {
-    border-left: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8; 
+}
+  
+.card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  .card-header {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-color: #F5F5F5;
+  }
+}
+
+.darkmode {
+  .card {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+    .card-header {
+      background-color: #282C34;
+      color: #F5F5F5;
+    }
+  }
 }
 
 @media screen and (max-width: 750px) {

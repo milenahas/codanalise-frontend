@@ -1,17 +1,26 @@
-button {
-  border-radius: 10px;
-}
-
-input, textarea {
-  outline: none;
-  &:focus {
-    box-shadow: none;
-    border: solid 2px #118ab2;
+.modal-content {
+  color: #616161;
+  button {
+    border-radius: 10px;
+  }
+  
+  input, textarea {
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      border: solid 2px #118ab2;
+    }
+  }
+  
+  div {
+    span {
+      cursor: pointer;
+    }
   }
 }
 
-div {
-  span {
-    cursor: pointer;
-  }
+
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
 }

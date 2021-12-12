@@ -1,8 +1,8 @@
-<ng-container *ngIf="!loadingMenu">
+<ng-container *ngIf="!loadingMenu" class="bg-primary-color">
   <input type="checkbox" id="check">
   <label for="check" id="open"><i class="fas fa-bars text-primary-color"></i></label>
   <label for="check" id="close"><i class="fas fa-window-close text-primary-color"></i></label>
-  <div class="sidebar table-overflow align-items-start px-2 bg-white">
+  <div class="sidebar table-overflow align-items-start px-2" [ngClass]="{'darkmode': getDark === 'true'}">
       <img src="../../../../assets/img/logo/coda-azul.png" class="my-3" width="150">
       <hr class="w-100 border-light-gray">
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
@@ -42,10 +42,10 @@
           <a routerLink="configuracoes" routerLinkActive="active" class="nav-link align-middle px-4 py-3 px-0">
             <i class="fas fa-cog me-2"></i> <span>Configurações</span> </a>
         </li>
-        <li class="nav-item w-100">
+        <!--li class="nav-item w-100">
           <a routerLink="ajuda" routerLinkActive="active" class="nav-link align-middle px-4 py-3 px-0">
             <i class="far fa-question-circle me-2"></i> <span>Ajuda</span> </a>
-        </li>
+        </li-->
         <li class="nav-item w-100">
           <a (click)="sair()" class="nav-link align-middle px-4 py-3 px-0" style="cursor: pointer;">
             <i class="fas fa-sign-out-alt me-2" ></i> <span>Sair</span> </a>
@@ -61,7 +61,7 @@
             <h5 class="text-primary-color m-0 me-1">{{usuario.nome}} {{usuario.sobrenome}}</h5>
             <img src="../../../../assets/img/logo/logo30.png" *ngIf="usuario.mentor === true" width="20px">
           </div>
-          <p class="text-secondary-color m-0" style="font-size: 12px;">{{usuario.status}}</p>
+          <p class="m-0" style="font-size: 12px;">{{usuario.status}}</p>
         </div>
       </div>
   </div>

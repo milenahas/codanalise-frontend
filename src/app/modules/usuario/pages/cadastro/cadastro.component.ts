@@ -73,7 +73,7 @@ export class CadastroComponent implements OnInit {
       nascimento: (this.form.dataNasc.value + "T23:59:00.809+00:00"),
       genero: this.form.genero.value,
       senha: this.form.senha.value,
-      mentor: true
+      mentor: false
     }
 
     this.enviarCadastro();
@@ -83,19 +83,21 @@ export class CadastroComponent implements OnInit {
     this.usuarioService.cadastrar(this.usuario)
     .subscribe(
       (data: Usuario) => {
-        Swal.fire(
-          'Sucesso!',
-          'O cadastro foi efetuado com sucesso!',
-          'success'
-        )
-        this.rota.navigate(['/login']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso',
+          text: 'Cadastro realizado com sucesso!',
+          confirmButtonColor: '#118ab2'
+        })
+        this.rota.navigate(['login']);
     },
     error => {
-      Swal.fire(
-        'Erro',
-        'Algo deu errado.',
-        'error'
-      )
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Algo deu errado.',
+        confirmButtonColor: '#118ab2'
+      })
     }
     )
   }

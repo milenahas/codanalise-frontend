@@ -18,6 +18,7 @@ export class ExperienciaComponent implements OnInit {
   formulario: FormGroup;
   perfil: Usuario;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
   idExp: number;
   indexExp: number;
 

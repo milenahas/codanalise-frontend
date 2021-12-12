@@ -10,14 +10,25 @@ import { UsuarioService } from './modules/usuario/shared/usuario.service';
 })
 export class AppComponent {
   title = 'codanalise';
+  
 
   constructor (public authGuardService: AuthguardService, private rota: Router) {  }
 
   ngOnInit(): void {
+    this.getDark()
   }
 
   deslogar(){
     this.rota.navigate(['/login']);
+  }
+
+  getDark() {
+    let getDark: string = localStorage.getItem('dark');
+    if(getDark === 'true'){
+      return true
+    }else {
+      return false
+    }
   }
   
 }
