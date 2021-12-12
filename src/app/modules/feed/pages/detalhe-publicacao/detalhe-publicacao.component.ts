@@ -220,4 +220,15 @@ export class DetalhePublicacaoComponent implements OnInit {
     this.comentar = false;
   }
 
+  mascaraDecimalValor(i: number) {
+
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL' 
+    });
+
+    const formatted = formatter.format(i);
+    return formatted;
+  }
+
 }

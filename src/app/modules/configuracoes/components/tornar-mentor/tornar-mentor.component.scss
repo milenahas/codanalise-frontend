@@ -6,3 +6,11 @@
         color: #F5F5F5;
     }
 }
+
+input {
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      border: solid 2px #118ab2;
+    }
+}

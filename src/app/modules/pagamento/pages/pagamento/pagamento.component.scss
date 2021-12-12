@@ -2,6 +2,14 @@ button {
   border-radius: 20px;
 }
 
+input {
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border: solid 2px #118ab2;
+  }
+}
+
 .iconPag {
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
