@@ -31,6 +31,7 @@ export class DetalhePublicacaoComponent implements OnInit {
   propor: boolean = false
   postagemEspecifica: Postagem;
   idPostagem = Number(localStorage.getItem('idPostagem'));
+  getDark: string = localStorage.getItem('dark');
 
   // Usuario
   // nome = this.publicacaoService.usuario.nome;

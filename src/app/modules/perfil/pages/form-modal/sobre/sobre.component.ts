@@ -15,6 +15,7 @@ export class SobreComponent implements OnInit {
   formulario: FormGroup;
   perfil: Usuario;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
 
   constructor(
     public bsModalRef: BsModalRef,

@@ -1,0 +1,37 @@
+input {
+    outline: none;
+    &:focus {
+        box-shadow: none;
+        border: solid 2px #118ab2;
+    }
+}
+
+.card {
+    background-color: white;
+    color: #616161;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .card-footer, .card-header {
+        background-color: white;
+        color: #616161;
+    }
+    a {
+        color: #616161;
+    }
+}
+
+
+.darkmode {
+    .card {
+        background-color: #282C34;
+        color: #F5F5F5;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+    }
+    .card-footer, .card-header {
+        background-color: #282C34;
+        color: #F5F5F5;
+    }
+    a {
+        color: #F5F5F5;
+    }
+}

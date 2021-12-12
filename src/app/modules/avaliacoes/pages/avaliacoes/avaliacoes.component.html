@@ -1,13 +1,13 @@
-<div class="avaliacoes-area">
-  <div class="card border-0 bg-white text-dark-gray mx-0 mx-md-5" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+<div class="avaliacoes-area" [ngClass]="{'darkmode': getDark === 'true'}">
+  <div class="card border-0 mx-0 mx-md-5">
 
-    <div class="card-header bg-white">
+    <div class="card-header">
       <h6 class="m-2">Avaliações</h6>
     </div>
 
-    <div class="card border-0 bg-white text-dark-gray my-3 mx-1 mx-md-3">
-      <div class="card-header d-flex align-items-center bg-white">
-        <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
+    <div class="card border-0 my-3 mx-1 mx-md-3">
+      <div class="card-header d-flex align-items-center">
+        <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px">
         <div>
           <h6 class="m-0">Manuela Silva</h6>
           <p class="m-0" style="font-size: 13px;">

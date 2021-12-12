@@ -1,31 +1,31 @@
-<div class="card-header bg-white">
-    <h6 class="m-2">Devs</h6>
+<div class="container m-auto w-100" [ngClass]="getDark === 'true' ? 'darkmode' : ''">
+  <div class="input-group mt-5">
+    <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
+    <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
   </div>
 
-  <div class="container m-auto w-100">
-    <div class="d-flex mt-5">
-      <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-      <button class="btn-primary-color border-0 py-2 px-4 fs-5 text-white" style="border-radius: 6px;"><i class="fas fa-search"></i></button>
-    </div>
-
-    <div *ngFor="let col of usuario; let i = index" class="card bg-white my-5 border-0 ms-3 me-3" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-      <div class="container">
-        <div class="card-header d-flex align-items-center bg-white mt-2 ">
-          <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px" height="50px">
-          <div>
-            <a (click)="abrirPerfil(i)" routerLink="dev-perfil" class="text-dark-gray"><h6 class="m-0">{{col.nome}} {{col.sobrenome}}</h6></a>
-            <p class="m-0" style="font-size: 13px;">{{col.status}}</p>
+  <div *ngFor="let col of usuario; let i = index" class="card my-5 border-0 ms-3 me-3">
+    <div class="container">
+      <div class="card-header d-flex align-items-center mt-2 ">
+        <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px" height="50px">
+        <div>
+          <div class="d-flex align-items-center">
+            <a [routerLink]="['dev-perfil', col.id]" class=" me-2"><h6 class="m-0">{{col.nome}} {{col.sobrenome}}</h6></a>
+            <img src="../../../../../assets/img/logo/logo30.png" width="15px" *ngIf="col.mentor === true">
           </div>
+          
+          <p class="m-0" style="font-size: 13px;">{{col.status}}</p>
         </div>
+      </div>
 
-        <div class="card-body mt-2">
-          <p *ngIf="col.sobre">{{col.sobre}}</p>
-          <p *ngIf="!col.sobre">Sem dados disponíveis.</p>
-        </div>
+      <div class="card-body mt-2">
+        <p *ngIf="col.sobre">{{col.sobre}}</p>
+        <p *ngIf="!col.sobre">Sem dados disponíveis.</p>
+      </div>
 
-        <div class="card-footer d-flex justify-content-end flex-wrap bg-white border-0 mb-2">
-            <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;" *ngFor="let linguagem of usuario[i].linguagem">{{linguagem.ferramenta}}</span>
-        </div>
+      <div class="card-footer d-flex justify-content-end flex-wrap border-0 mb-2">
+          <span class="border rounded p-1 me-2" style="font-size: 14px;" *ngFor="let linguagem of usuario[i].linguagem">{{linguagem.ferramenta}}</span>
       </div>
     </div>
   </div>
+</div>

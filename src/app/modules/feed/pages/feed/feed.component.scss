@@ -1,19 +1,32 @@
 .feed-area {
   margin-left: 300px;
   padding: 25px 50px;
-  input[type=text] {
-    border-radius: 10px 0px 0px 10px;
-    border-right: none;
-  }
-  button {
-    border-radius: 0px 10px 10px 0px;
-  }
-  .card-header {
-    a {
-      text-decoration: none;
-      font-weight: 500;
-      &:hover {
-        text-decoration: underline;
+  .card {
+    background-color: white;
+    color: #616161;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .card-header {
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      a {
+        color: #616161;
+        text-decoration: none;
+        font-weight: 500;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .card {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+      .card-header, .card-footer {
+        background-color: white;
+        color: #616161;
+        a {
+          color: #616161;
+        }
       }
     }
   }
@@ -24,6 +37,29 @@ input {
   &:focus {
     box-shadow: none;
     border: solid 2px #118ab2;
+  }
+}
+
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  .card {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    .card-header {
+      background-color: #282C34;
+    }
+    .card {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+      .card-header, .card-footer {
+        background-color: #282C34;
+        color: #F5F5F5;
+        a {
+          color: #F5F5F5;
+        }
+      }
+    }
   }
 }
 

@@ -10,10 +10,12 @@ import { DevsService } from '../../shared/devs.service';
 export class DevsListagemComponent implements OnInit {
 
   @Input() usuario: Usuario;
+  getDark: string = localStorage.getItem('dark');
 
   constructor(private devsService: DevsService) { }
 
   ngOnInit(): void {
+   
   }
 
   abrirPerfil(index: number){

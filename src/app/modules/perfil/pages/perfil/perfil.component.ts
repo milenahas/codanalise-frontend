@@ -17,6 +17,7 @@ export class PerfilComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
   email: string = localStorage.getItem('email');
+  getDark: string = localStorage.getItem('dark');
   perfil: Usuario;
   loading: boolean = false;
 
@@ -35,6 +36,7 @@ export class PerfilComponent implements OnInit {
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.perfilService.perfil = data;
+        console.log(data)
       },
       error: err => console.log('Erro', err)
     })

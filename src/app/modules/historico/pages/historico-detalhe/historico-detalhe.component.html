@@ -1,10 +1,10 @@
-<div class="publicacao-area">
-  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+<div class="publicacao-area" [ngClass]="{'darkmode': getDark === 'true'}">
+  <div class="card border-0">
 
-    <div class="card-header d-flex align-items-center bg-white">
+    <div class="card-header d-flex align-items-center">
       <h6 class="mt-2 flex-grow-1">Code Review</h6>
       <div class="d-flex align-items-center">
-        <p class="m-0 me-5 text-gray" style="font-size: 13px;">Publicado: há 5 min</p>
+        <p class="m-0 me-5" style="font-size: 13px;">Publicado: há 5 min</p>
         <div (click)="favourite()" *ngIf="!isFavourite">
           <i class="far fa-bookmark fs-4 me-3"></i>
         </div>
@@ -36,23 +36,23 @@
       <div>
         <p class="fw-bold mb-2">Linguagens relacionadas:</p>
         <div class="d-flex flex-wrap">
-          <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">JavaScript</span>
-          <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">Angular</span>
-          <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">CSS3</span>
-          <span class="bg-dark-gray text-white rounded p-2 me-2" style="font-size: 14px;">HTML5</span>
+          <span class="border rounded p-1 me-2" style="font-size: 14px;">JavaScript</span>
+          <span class="border rounded p-1 me-2" style="font-size: 14px;">Angular</span>
+          <span class="border rounded p-1 me-2" style="font-size: 14px;">CSS3</span>
+          <span class="border rounded p-1 me-2" style="font-size: 14px;">HTML5</span>
         </div>
       </div>
 
-      <div class="card-footer d-flex bg-white mt-5">
-        <a class="nav-link text-dark-gray" (click)="comentarios()"><i class="far fa-comment"></i> Comentários</a>
-        <a class="nav-link text-dark-gray" (click)="propostas()"><i class="fas fa-pencil-alt"></i> Propostas</a>
+      <div class="card-footer d-flex mt-5">
+        <a class="nav-link" (click)="comentarios()"><i class="far fa-comment"></i> Comentários</a>
+        <a class="nav-link" (click)="propostas()"><i class="fas fa-pencil-alt"></i> Propostas</a>
       </div>
       <hr class="m-0">
 
       <!--Comentários-->
-      <div class="card border-0 bg-white text-dark-gray mt-4" [hidden]="!comentar" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-        <div class="card-header d-flex align-items-center bg-white">
-          <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
+      <div class="card border-0 mt-4" [hidden]="!comentar">
+        <div class="card-header d-flex align-items-center">
+          <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px">
           <div>
             <h6 class="m-0">Camila Souza</h6>
             <p class="m-0" style="font-size: 13px;">Desenvolvedor</p>
@@ -66,9 +66,9 @@
       </div>
 
       <!--Propostas-->
-      <div class="card border-0 bg-white text-dark-gray mt-4" [hidden]="!propor" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-        <div class="card-header d-flex align-items-center bg-white">
-          <img class="rounded-circle me-3" src="../../../../../assets/img/personas/persona.png" alt="">
+      <div class="card border-0 mt-4" [hidden]="!propor">
+        <div class="card-header d-flex align-items-center">
+          <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px">
           <div>
             <h6 class="m-0">Camila Souza</h6>
             <p class="m-0" style="font-size: 13px;">Desenvolvedor</p>

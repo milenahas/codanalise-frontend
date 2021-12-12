@@ -83,19 +83,21 @@ export class CadastroComponent implements OnInit {
     this.usuarioService.cadastrar(this.usuario)
     .subscribe(
       (data: Usuario) => {
-        Swal.fire(
-          'Sucesso!',
-          'O cadastro foi efetuado com sucesso!',
-          'success'
-        )
-        this.rota.navigate(['/login']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso',
+          text: 'Cadastro realizado com sucesso!',
+          confirmButtonColor: '#118ab2'
+        })
+        this.rota.navigate(['login']);
     },
     error => {
-      Swal.fire(
-        'Erro',
-        'Algo deu errado.',
-        'error'
-      )
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Algo deu errado.',
+        confirmButtonColor: '#118ab2'
+      })
     }
     )
   }

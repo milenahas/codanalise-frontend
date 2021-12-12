@@ -13,6 +13,7 @@ export class ConfiguracoesComponent implements OnInit {
   bsModalRef?: BsModalRef;
   email: string = localStorage.getItem('email');
   mentor: boolean;
+  getDark: string = localStorage.getItem('dark');
 
   constructor(private modalService: BsModalService, public perfilService: PerfilService) { }
 
@@ -32,6 +33,17 @@ export class ConfiguracoesComponent implements OnInit {
       },
       error: err => console.log('Erro', err)
     })
+  }
+
+  darkMode(modo) {
+    
+    if(modo === true) {
+      localStorage.setItem('dark', 'true');
+    }else if(modo === false) {
+      localStorage.setItem('dark', 'false');
+    }
+
+    location.reload()
   }
 
   isMentor(data) {

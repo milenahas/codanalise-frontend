@@ -1,5 +1,8 @@
-<div class="devs-area" [ngStyle]="{'margin-left' : validaLogin === 'true' ? '300px'  : '0px', 'padding-top' : validaLogin === 'true' ? ''  : '100px'}">
-  <div class="card border-0 bg-white text-dark-gray" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+<div class="devs-area" [ngStyle]="{'margin-left' : validaLogin === 'true' ? '300px'  : '0px', 'padding-top' : validaLogin === 'true' ? ''  : '100px'}" [ngClass]="{'darkmode': getDark === 'true'}">
+  <div class="card border-0">
+    <div class="card-header">
+      <h6 class="m-2">Devs</h6>
+    </div>
     <ng-container *ngIf="!loading else carregamento">
       <app-devs-listagem [usuario]="usuario"></app-devs-listagem>
     </ng-container>

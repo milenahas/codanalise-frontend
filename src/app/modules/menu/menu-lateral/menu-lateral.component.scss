@@ -21,6 +21,18 @@
   }
 }
 
+.darkmode {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+
+    li {
+      a {
+        color: #F5F5F5;
+      }
+    }
+}
+
 .table-overflow {
   overflow-y: auto;
 

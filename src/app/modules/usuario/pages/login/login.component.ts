@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthguardService } from 'src/app/config/guards/authguard.service';
+import Swal from 'sweetalert2';
 import { Usuario } from '../../shared/usuario';
 import { UsuarioService } from '../../shared/usuario.service';
 
@@ -53,7 +53,12 @@ export class LoginComponent implements OnInit {
         this.retornoLogin(data);
     },
     error => {
-      alert("Dados não encontrados em nossa base de dados.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro',
+          text: 'Dados não encontrados.',
+          confirmButtonColor: '#118ab2'
+        })
     });
   };
 

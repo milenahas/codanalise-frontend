@@ -4,7 +4,7 @@ import { HistoricoDetalheComponent } from './pages/historico-detalhe/historico-d
 import { HistoricoComponent } from './pages/historico/historico.component';
 
 const routes: Routes = [
-  { path: 'historico-detalhe', component: HistoricoDetalheComponent},
+  { path: 'detalhe-publicacao', component: HistoricoDetalheComponent},
   { path: '', component: HistoricoComponent }
 ];
 

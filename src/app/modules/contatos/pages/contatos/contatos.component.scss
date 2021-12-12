@@ -1,18 +1,50 @@
 .contatos-area {
+  height: 100vh;
   margin-left: 300px;
   padding: 25px 50px;
 
-  a {
-    color: #A2A2A2;
-  }
+  .card {
+    color: #616161;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    .card-header {
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
 
-  .active {
-      color: #118ab2 ;
-      border-bottom: 2px solid #118ab2;
+    a {
+      color: #A2A2A2;
+    }
+  
+    .active {
+        color: #118ab2 ;
+        border-bottom: 2px solid #118ab2;
+    }
+  
+    button {
+      border-radius: 20px;
+    }
   }
+}
 
-  button {
-    border-radius: 20px;
+.darkmode {
+  background-color: #20232A;
+  color: #F5F5F5;
+  box-shadow: none;
+  .card {
+    background-color: #282C34;
+    color: #F5F5F5;
+    box-shadow: none;
+    .card {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 4px;
+    }
+    .card-header {
+      background-color: #282C34;
+    }
+    a {
+      color: white;
+    }
   }
 }
 

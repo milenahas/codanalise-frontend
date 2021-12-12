@@ -9,7 +9,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class DevPerfilDetalheComponent implements OnInit {
 
   @Input() area: string;
-
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {

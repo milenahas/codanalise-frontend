@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatosComponent implements OnInit {
 
+  getDark: string = localStorage.getItem('dark');
+
   constructor() { }
 
   ngOnInit(): void {

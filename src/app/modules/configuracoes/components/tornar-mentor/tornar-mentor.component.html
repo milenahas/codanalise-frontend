@@ -1,4 +1,4 @@
-<div class="modal-content text-dark-gray">
+<div class="modal-content text-dark-gray" [ngClass]="{'darkmode': getDark === 'true'}">
   <div class="modal-header">
     <h6 class="modal-title">Torne-se mentor</h6>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()" style="font-size: 12px;"></button>
