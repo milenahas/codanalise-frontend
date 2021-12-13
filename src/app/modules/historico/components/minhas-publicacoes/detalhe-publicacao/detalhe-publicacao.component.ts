@@ -21,8 +21,6 @@ export class DetalhePublicacaoComponent implements OnInit {
   bsModalRef?: BsModalRef;
   getDark: string = localStorage.getItem('dark');
 
-  contPagamento: number = 0;
-
   constructor(private modalService: BsModalService, private historicoService: HistoricoService) { }
 
   ngOnInit(): void {
@@ -54,7 +52,6 @@ export class DetalhePublicacaoComponent implements OnInit {
     .subscribe(
       (data) => {
         this.publicacao = data;
-        console.log(this.publicacao);
     })
   }
 
@@ -71,8 +68,6 @@ export class DetalhePublicacaoComponent implements OnInit {
 
   abrirPagamento(index){
     this.proposta = this.publicacao.propostas[index];
-    this.contPagamento++;
-    
   }
 
 }

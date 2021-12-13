@@ -12,7 +12,7 @@ import { Pagamento } from '../../../shared/pagamento';
   templateUrl: './pagamento.component.html',
   styleUrls: ['./pagamento.component.scss']
 })
-export class PagamentoComponent implements OnInit, OnChanges {
+export class PagamentoComponent implements OnInit {
 
   @Input() contPagamento: number;
   @Input() publicacao: Postagem;
@@ -27,12 +27,6 @@ export class PagamentoComponent implements OnInit, OnChanges {
     this.inicializarFormulario();
   }
 
-  ngOnChanges(): void {
-    if (this.contPagamento > 0){
-      console.log("teste");
-    }
-  }
-
   inicializarFormulario(){
     this.formularioPagamento = this.formBuilder.group({
       nomeCartao: ['', Validators.required],
@@ -44,6 +38,11 @@ export class PagamentoComponent implements OnInit, OnChanges {
 
   validarFormulario(){
     if (this.formularioPagamento.invalid){
+      Object.keys(this.formularioPagamento.controls).forEach(campo => {
+        const controle = this.formularioPagamento.get(campo);
+        controle.markAsDirty();
+      });
+
       Swal.fire({
         icon: 'error',
         title: 'Dados inválidos.',
@@ -64,8 +63,8 @@ export class PagamentoComponent implements OnInit, OnChanges {
     const validade = this.formularioPagamento.controls.validade.value;
     const proposta = this.proposta;
     const valorProposta = this.proposta.valor;
+    
     let mentor: MentorPagamento;
-
     mentor = {
       id: this.proposta.mentor.id
     }
@@ -80,8 +79,6 @@ export class PagamentoComponent implements OnInit, OnChanges {
       vl_pago: valorProposta,
       mentor_pag: mentor
     }
-
-    console.log(pagamento);
 
     this.pagar(pagamento);
   }
@@ -107,6 +104,16 @@ export class PagamentoComponent implements OnInit, OnChanges {
     }).add(() => {
       this.loading = false;
     })
+  }
+
+  aplicaCssErro(campo) {
+    return {
+      'is-invalid': this.verificaTouched(campo) && !this.formularioPagamento.valid
+    }
+  }
+
+  verificaTouched(campo) {
+    return !this.formularioPagamento.get(campo).valid && this.formularioPagamento.get(campo).dirty;
   }
 
 }
