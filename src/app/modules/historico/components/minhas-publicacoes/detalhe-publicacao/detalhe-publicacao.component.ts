@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Postagem } from 'src/app/modules/feed/shared/postagem';
 import { Propostas } from 'src/app/modules/feed/shared/propostas';
-import { PagamentoComponent } from 'src/app/modules/pagamento/pages/pagamento/pagamento.component';
 import { HistoricoService } from '../../../shared/historico.service';
 
 @Component({
@@ -39,10 +38,6 @@ export class DetalhePublicacaoComponent implements OnInit {
   propostas() {
     this.propor = !this.propor;
     this.comentar = false;
-  }
-
-  aceitar() {
-    this.bsModalRef = this.modalService.show(PagamentoComponent);
   }
 
   listarPublicaca(){
