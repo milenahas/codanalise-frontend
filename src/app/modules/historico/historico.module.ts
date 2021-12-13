@@ -7,6 +7,9 @@ import { HistoricoDetalheComponent } from './pages/historico-detalhe/historico-d
 import { MinhasAulasComponent } from './components/minhas-aulas/minhas-aulas.component';
 import { MinhasPropostasComponent } from './components/minhas-propostas/minhas-propostas.component';
 import { MinhasPublicacoesComponent } from './components/minhas-publicacoes/minhas-publicacoes.component';
+import { DetalhePublicacaoComponent } from './components/minhas-publicacoes/detalhe-publicacao/detalhe-publicacao.component';
+import { PagamentoComponent } from './components/minhas-publicacoes/pagamento/pagamento.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +18,14 @@ import { MinhasPublicacoesComponent } from './components/minhas-publicacoes/minh
     HistoricoDetalheComponent,
     MinhasAulasComponent,
     MinhasPropostasComponent,
-    MinhasPublicacoesComponent
+    MinhasPublicacoesComponent,
+    DetalhePublicacaoComponent,
+    PagamentoComponent
   ],
   imports: [
     CommonModule,
-    HistoricoRoutingModule
+    HistoricoRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class HistoricoModule { }

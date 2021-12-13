@@ -1,0 +1,87 @@
+<div class="publicacao-area" [ngClass]="{'darkmode': getDark === 'true'}">
+    <div class="card border-0">
+  
+      <div class="card-header d-flex align-items-center">
+        <h6 class="mt-2 flex-grow-1">{{publicacao.titulo}}</h6>
+        <div class="d-flex align-items-center">
+          <p class="m-0 me-5" style="font-size: 13px;">{{publicacao.datapostagem}}</p>
+          <div (click)="favourite()" *ngIf="!isFavourite">
+            <i class="far fa-bookmark fs-4 me-3"></i>
+          </div>
+          <div (click)="favourite()" *ngIf="isFavourite">
+            <i  class="fas fa-bookmark fs-4 me-3"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card-body mx-0 mx-md-5">
+        <div>
+          <h6 class="fw-bold">Descrição</h6>
+          <p>{{publicacao.descricao}}</p>
+        </div>
+  
+        <div class="d-flex flex-wrap">
+          <div class="d-flex align-items-center me-md-5">
+            <p class="fw-bold me-2">Valor:</p>
+            <p *ngIf="publicacao.valor != 0" class="me-5">{{publicacao.valor}}</p>
+            <p *ngIf="publicacao.valor == 0" class="me-5">Grátis</p>
+          </div>
+        </div>
+  
+        <div>
+          <p class="fw-bold mb-2">Linguagens relacionadas:</p>
+          <div class="d-flex flex-wrap">
+            <span *ngFor="let tags of publicacao.tags" class="border rounded p-1 me-2" style="font-size: 14px;">{{tags.linguagem}}</span>
+          </div>
+        </div>
+  
+        <div class="card-footer d-flex mt-5">
+          <a class="nav-link" (click)="comentarios()"><i class="far fa-comment"></i> Comentários</a>
+          <a class="nav-link" (click)="propostas()"><i class="fas fa-pencil-alt"></i> Propostas</a>
+        </div>
+        <hr class="m-0">
+  
+        <!--Comentários-->
+        <div *ngFor="let comentarios of publicacao.comentarios" class="card border-0 mt-4" [hidden]="!comentar">
+          <div class="card-header d-flex align-items-center">
+            <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" width="50px">
+            <div>
+              <h6 class="m-0">{{comentarios.autorComent.nome}} {{comentarios.autorComent.sobrenome}}</h6>
+              <p class="m-0" style="font-size: 13px;">{{comentarios.autorComent.status}}</p>
+            </div>
+          </div>
+          <div class="card-body mx-0 mx-md-5">
+            <p>{{comentarios.comentario}}</p>
+          </div>
+        </div>
+  
+        <!--Propostas-->
+        <div *ngFor="let propostas of publicacao.propostas; let i = index" class="card border-0 mt-4" [hidden]="!propor">
+          <div class="card-header d-flex align-items-center bg-white">
+            <div class="mt-2 flex-grow-1 d-flex align-items-center">
+              <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" alt="" width="50px">
+              <div>
+                <h6 class="m-0">{{propostas.mentor.usuario.nome}} {{propostas.mentor.usuario.sobrenome}}</h6>
+                <span style="font-size: small;">{{propostas.mentor.usuario.status}}</span>
+              </div>
+            </div>
+
+            <p *ngIf="propostas.valor == 0" class="mt-3">Proposta gratuita</p>
+            <p *ngIf="propostas.valor != 0" class="mt-3">{{mascaraDecimalValor(propostas.valor)}}</p>
+          </div>
+          <div class="card-body mx-0 mx-md-5">
+            <p>{{propostas.comentario}}</p>
+            <div class="d-flex flex-column flex-row-reverse">
+              <div>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modalDetalhe" class="btn-primary-color text-white border-0 p-2 me-3" (click)="abrirPagamento(i)">Aceitar</button>
+                <button type="button" class="btn-gray text-white border-0 p-2">Recusar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-pagamento [contPagamento]="contPagamento" [publicacao]="publicacao" [proposta]="proposta"></app-pagamento>
+  

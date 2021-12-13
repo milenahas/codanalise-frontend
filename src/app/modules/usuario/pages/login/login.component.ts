@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('nome', data.nome);
         localStorage.setItem('sobrenome', data.sobrenome);
         localStorage.setItem('email', this.email);
+        localStorage.setItem('id', String(data.id));
         
         this.retornoLogin(data);
     },
