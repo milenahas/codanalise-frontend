@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Usuario } from 'src/app/modules/usuario/shared/usuario';
-import { DevsService } from '../../shared/devs.service';
 
 @Component({
   selector: 'app-devs-listagem',
@@ -10,16 +9,16 @@ import { DevsService } from '../../shared/devs.service';
 export class DevsListagemComponent implements OnInit {
 
   @Input() usuario: Usuario;
+  @Output() pesquisaEvent = new EventEmitter<string>();
   getDark: string = localStorage.getItem('dark');
 
-  constructor(private devsService: DevsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-   
   }
 
-  abrirPerfil(index: number){
-    this.devsService.usuarioEspecifico = this.usuario[index];
+  filtrarPorNomeTag(valor: string) {
+    this.pesquisaEvent.emit(valor);
   }
-
 }
+

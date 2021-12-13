@@ -1,7 +1,7 @@
 <div class="container m-auto w-100" [ngClass]="getDark === 'true' ? 'darkmode' : ''">
   <div class="input-group mt-5">
-    <input class="form-control border-2 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-    <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
+    <input class="form-control border-2 py-2" type="text" #pesquisa placeholder="Pesquise por tag ou nome do Dev">
+    <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white" (click)="filtrarPorNomeTag(pesquisa.value)"><i class="fas fa-search"></i></button>
   </div>
 
   <div *ngFor="let col of usuario; let i = index" class="card my-5 border-0 ms-3 me-3">

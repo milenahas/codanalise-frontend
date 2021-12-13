@@ -2,9 +2,9 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Postagem } from 'src/app/modules/feed/shared/postagem';
 import { Usuario } from 'src/app/modules/usuario/shared/usuario';
 import { DevsService } from '../../shared/devs.service';
-import { DevPerfilDetalheComponent } from '../dev-perfil-detalhe/dev-perfil-detalhe.component';
 
 @Component({
   selector: 'app-dev-perfil',
@@ -13,19 +13,21 @@ import { DevPerfilDetalheComponent } from '../dev-perfil-detalhe/dev-perfil-deta
 })
 export class DevPerfilComponent implements OnInit {
 
-  bsModalRef?: BsModalRef;
   usuario: Usuario;
+  postagem: Postagem;
   validaUsuario: boolean = false;
   getDark: string = localStorage.getItem('dark');
 
+  loading: boolean = false;
+
   constructor(
-    private modalService: BsModalService,
     private devsService: DevsService,
     public route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
     this.getUsuario();
+  
   }
 
   getUsuario() {
@@ -33,17 +35,23 @@ export class DevPerfilComponent implements OnInit {
 
     this.devsService.getUsuario(id).subscribe( (data: Usuario) => {
       this.usuario = data;
-      console.log(data)
+      this.listarPostagens(data.id);
     })
+  }
+
+  listarPostagens(id) {
+    this.devsService.listarPostagens(id)
+      .subscribe(
+        (data: Postagem) => {
+          this.postagem = data;
+          console.log(data)
+      }).add(() => {
+        this.loading = false;
+      })
   }
 
   abrirRedeSocial(tipo: number){
     { tipo == 1 ? [window.open(this.usuario.linkedin)] : [window.open(this.usuario.github)]};
-  }
-
-  add(fArea) {
-    this.bsModalRef = this.modalService.show(DevPerfilDetalheComponent);
-    this.bsModalRef.content.area = fArea;
   }
 
 }

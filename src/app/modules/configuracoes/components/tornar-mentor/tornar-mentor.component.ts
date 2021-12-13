@@ -71,7 +71,6 @@ export class TornarMentorComponent implements OnInit {
           confirmButtonColor: '#118ab2'
         })
         this.onClose();
-        console.log(this.perfil)
     },
     error => {
       Swal.fire({

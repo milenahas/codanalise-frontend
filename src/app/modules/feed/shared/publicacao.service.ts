@@ -13,7 +13,7 @@ import { Propostas } from './propostas';
 export class PublicacaoService {
 
   // Postagem
-  postagem: Postagem[] = [];
+  postagem: Postagem[] = [];;
   idPostagem: number;
 
   // Detalhe postagem
@@ -51,7 +51,11 @@ export class PublicacaoService {
   }
 
   listarPostagemEspecifica(id: number): Observable<Postagem>{
-    return this.http.get<Postagem>(`${this.url}/postagem/${id}`)
+    return this.http.get<Postagem>(`${this.url}/postagem/${id}`);
+  }
+
+  listagemTagNome(value: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`${this.url}/postagem/busca/${value}`);
   }
 
   // *****************************

@@ -36,7 +36,6 @@ export class PerfilComponent implements OnInit {
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.perfilService.perfil = data;
-        console.log(data)
       },
       error: err => console.log('Erro', err)
     })

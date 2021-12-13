@@ -8,8 +8,8 @@
     <div class="container m-auto w-100">
       <div class="d-flex align-items-center mt-5">
         <div class="input-group">
-          <input class="form-control border-2 border-end-0 py-2" type="text" placeholder="Pesquise por tag ou nome do Dev">
-          <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white"><i class="fas fa-search"></i></button>
+          <input class="form-control border-2 border-end-0 py-2" type="text" #pesquisa placeholder="Pesquise por tag ou nome do Dev">
+          <button type="button" class="btn bg-primary-color border-0 py-2 px-4 fs-5 text-white" (click)="listarPostagens(pesquisa.value)"><i class="fas fa-search"></i></button>
         </div>
         <div>
           <button class="btn-primary-color ms-2 text-white border-0 px-4 py-2 rounded" (click)="add()">Publicar</button>

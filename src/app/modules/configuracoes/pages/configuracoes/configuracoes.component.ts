@@ -28,7 +28,6 @@ export class ConfiguracoesComponent implements OnInit {
   renderizarPerfil(){
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
-        console.log(data);
         this.isMentor(data);
       },
       error: err => console.log('Erro', err)

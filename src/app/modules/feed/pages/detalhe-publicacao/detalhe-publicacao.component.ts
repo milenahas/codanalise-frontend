@@ -27,7 +27,7 @@ export class DetalhePublicacaoComponent implements OnInit {
 
   // Etc
   isFavourite: boolean = false;
-  comentar: boolean = false;
+  comentar: boolean = true;
   propor: boolean = false
   postagemEspecifica: Postagem;
   idPostagem = Number(localStorage.getItem('idPostagem'));

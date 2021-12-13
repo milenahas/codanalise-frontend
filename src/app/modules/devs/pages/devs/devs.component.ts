@@ -29,16 +29,27 @@ export class DevsComponent implements OnInit {
     }
   }
 
-  listarMentores(){
+  listarMentores(value?){
     this.loading = true;
 
-    this.devsService.listarUsuarios()
-    .subscribe(
-      (data: Usuario) => {
-        this.usuario = data;
-    }).add(() => {
-      this.loading = false;
-    })
+    if(value){
+      this.devsService.filtrarNomeTag(value)
+      .subscribe(
+        (data: Usuario) => {
+          this.usuario = data;
+      }).add(() => {
+        this.loading = false;
+      })
+    }else if(value === undefined || value === '') {
+      this.devsService.listarUsuarios()
+      .subscribe(
+        (data: Usuario) => {
+          this.usuario = data;
+      }).add(() => {
+        this.loading = false;
+      })
+    }
+    
   }
 
 }
