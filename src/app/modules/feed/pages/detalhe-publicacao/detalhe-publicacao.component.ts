@@ -16,6 +16,7 @@ export class DetalhePublicacaoComponent implements OnInit {
 
   // Dados
   dadosDetalhePostagem: Postagem = this.publicacaoService.detalhePostagem;
+  dadosMentor: Mentor;
 
   // Proposta
   formularioProposta: FormGroup;
@@ -49,6 +50,7 @@ export class DetalhePublicacaoComponent implements OnInit {
     this.listarComentarios();
     this.listarPostagemEspecifica(this.idPostagem);
     this.pegarDadosUsuario();
+    this.pegarDadosMentor();
   }
 
   // *********************
@@ -112,7 +114,6 @@ export class DetalhePublicacaoComponent implements OnInit {
     this.publicacaoService.adicionarComentario(this.dadosComentario)
     .subscribe(
       (data) => {
-        console.log(this.publicacaoService.detalhePostagem);
         this.listarPostagemEspecifica(this.idPostagem);
         // this.publicacaoService.detalhePostagem.comentarios.push(data);
         Swal.fire({
@@ -152,7 +153,7 @@ export class DetalhePublicacaoComponent implements OnInit {
 
   setarDadosObjetoProposta(){
     let dadosProposta: Propostas;
-    let idMentor = this.publicacaoService.usuario.id;
+    let idMentor = this.dadosMentor.id;
     let mentor: Mentor;
 
     mentor = {
@@ -193,7 +194,6 @@ export class DetalhePublicacaoComponent implements OnInit {
     .subscribe(
       (data: Postagem) => {
         this.postagemEspecifica = data;
-        console.log(this.postagemEspecifica);
     })
   }
 
@@ -204,6 +204,16 @@ export class DetalhePublicacaoComponent implements OnInit {
     this.publicacaoService.dadosUsuario(email).subscribe(
       (data) => {
         this.publicacaoService.usuario = data;
+    })
+  }
+
+  pegarDadosMentor(){
+    let id = Number(localStorage.getItem('id'));
+
+    this.publicacaoService.dadosMentor(id)
+    .subscribe(
+      (data) => {
+        this.dadosMentor = data;
     })
   }
 

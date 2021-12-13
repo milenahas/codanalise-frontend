@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from '../../usuario/shared/usuario';
 import { Comentarios } from './comentarios';
 import { Linguagens } from './linguagens';
+import { Mentor } from './mentor';
 import { Postagem } from './postagem';
 import { Propostas } from './propostas';
 
@@ -36,6 +37,10 @@ export class PublicacaoService {
 
   getLinguagens() {
     return this.http.get<Linguagens>('../../../../assets/dados/linguagens.json').pipe();
+  }
+
+  dadosMentor(id: number): Observable<Mentor> {
+    return this.http.get<Mentor>(`${this.url}/mentor/consulta/${id}`);
   }
   
   // ***************************
