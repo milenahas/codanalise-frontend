@@ -42,16 +42,26 @@ export class FeedComponent implements OnInit {
     //this.bsModalRef.content.area = fArea;
   }
 
-  listarPostagens(){
+  listarPostagens(value?){
     this.loading = true;
-
-    this.publicacaoService.listarPostagens()
-    .subscribe(
-      (data) => {
-        this.publicacaoService.postagem = data;
-    }).add(() => {
-      this.loading = false;
-    })
+    
+    if(value){
+      this.publicacaoService.listagemTagNome(value)
+      .subscribe(
+        (data) => {
+          this.publicacaoService.postagem = data;
+      }).add(() => {
+        this.loading = false;
+      })
+    }else if (value === undefined || value === ''){
+      this.publicacaoService.listarPostagens()
+      .subscribe(
+        (data) => {
+          this.publicacaoService.postagem = data;
+      }).add(() => {
+        this.loading = false;
+      })
+    }
   }
 
   // ******************
@@ -65,4 +75,5 @@ export class FeedComponent implements OnInit {
     // this.publicacaoService.idPostagem = this.publicacaoService.postagem[index].id;
     this.publicacaoService.detalhePostagem = this.publicacaoService.postagem[index];
   }
+    
 }

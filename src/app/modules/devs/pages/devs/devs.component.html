@@ -4,7 +4,7 @@
       <h6 class="m-2">Devs</h6>
     </div>
     <ng-container *ngIf="!loading else carregamento">
-      <app-devs-listagem [usuario]="usuario"></app-devs-listagem>
+      <app-devs-listagem [usuario]="usuario" (pesquisaEvent)="listarMentores($event)"></app-devs-listagem>
     </ng-container>
   </div>
 </div>

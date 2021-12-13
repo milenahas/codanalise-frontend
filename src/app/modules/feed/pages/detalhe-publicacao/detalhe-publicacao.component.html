@@ -40,8 +40,8 @@
       </div>
 
       <div class="card-footer d-flex mt-5">
-        <a class="nav-link" (click)="comentando()"><i class="far fa-comment"></i> Comentar</a>
-        <a class="nav-link" (click)="propondo()"><i class="fas fa-pencil-alt"></i> Propor</a>
+        <a class="nav-link" (click)="comentando()" [ngClass]="{'backLink': comentar === true}"><i class="far fa-comment"></i> Comentar</a>
+        <a class="nav-link" (click)="propondo()" [ngClass]="{'backLink': propor === true}" *ngIf="publicacaoService.usuario?.mentor === true"><i class="fas fa-pencil-alt"></i> Propor</a>
       </div>
       <hr class="m-0">
 

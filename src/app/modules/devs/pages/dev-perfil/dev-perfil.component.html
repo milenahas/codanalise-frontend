@@ -10,7 +10,7 @@
         <div class="text-center">
           <div class="d-flex align-items-center justify-content-center">
             <h5 class="m-0 me-1">{{usuario?.nome}} {{usuario?.sobrenome}}</h5>
-            <img src="../../../../../assets/img/logo/logo30.png" width="20px" height="20px">
+            <img src="../../../../../assets/img/logo/logo30.png" width="20px" height="20px" *ngIf="usuario?.mentor === true">
           </div>
           <p>{{usuario?.status}}</p>
         </div>
@@ -29,33 +29,88 @@
 
           <div class="card mt-3 border-0">
             <div class="card-header m-3 mb-0 ps-0 pb-0">
-              <a (click)="add('Sobre')"><h6 class="m-2 text-primary-color">Sobre</h6></a>
+              <h6 class="m-2 text-primary-color">Sobre</h6>
             </div>
             <div class="card-body ms-4 me-4 mb-4">
-              {{usuario?.sobre}}
+              <p>{{usuario?.sobre}}</p>
+
+              <div>
+                <h6 class="text-primary-color">Escolaridade</h6>
+                <hr>
+              </div>
+              <div *ngFor="let esco of usuario?.escolaridade">
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="w-75">
+                    <h6>Instituição</h6>
+                    <p>{{esco.instituicao}}</p>
+                  </div>
+                  <div class="w-25">
+                    <h6>Nível</h6>
+                    <p>{{esco.nivel}}</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="w-75">
+                    <h6>Data Início</h6>
+                    <p>{{esco.dtini}}</p>
+                  </div>
+                  <div class="w-25">
+                    <h6>Data Fim</h6>
+                    <p *ngIf="esco.dtfim != null">{{esco.dtfim}}</p>
+                    <p *ngIf="esco.dtfim === null">Em andamento</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h6 class="mt-3 text-primary-color">Experiência</h6>
+                <hr>
+              </div>
+              <div *ngFor="let exp of usuario?.exp">
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="w-75">
+                    <h6>Empresa</h6>
+                    <p>{{exp.empresa}}</p>
+                  </div>
+                  <div class="w-25">
+                    <h6>Cargo</h6>
+                    <p>{{exp.cargo}}</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="w-75">
+                    <h6>Data Início</h6>
+                    <p>{{exp.dtini}}</p>
+                  </div>
+                  <div class="w-25">
+                    <h6>Data Fim</h6>
+                    <p *ngIf="exp?.dtfim">{{exp.dtfim}}</p>
+                    <p *ngIf="exp?.dtfim === null || exp?.dtfim === ''">Em andamento</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            
           </div>
 
           <!--Publicações-->
           <div class="card my-3 border-0">
             <div class="card-header m-3 ps-0 pb-0">
-              <a (click)="add('Publicações')"><h6 class="m-2 text-primary-color">Publicações</h6></a>
+              <h6 class="m-2 text-primary-color">Publicações</h6>
             </div>
-            <div class="card my-3 mx-1 mx-md-3 border-0" >
+            <div class="card my-3 mx-1 mx-md-3 border-0" *ngFor="let post of postagem">
               <div class="container">
                 <div class="card-header d-flex align-items-center">
-                  <a routerLink="detalhe-publicacao" class="mt-2 flex-grow-1">Code Review</a>
-                  <p class="mt-3" style="font-size: 13px;">Publicado: há 5 min</p>
+                  <a routerLink="/feed/detalhe-publicacao" class="mt-2 flex-grow-1">{{post?.titulo}}</a>
+                  <p class="mt-3" style="font-size: 13px;">{{post?.datapostagem}}</p>
                 </div>
 
                 <div class="card-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex.</p>
+                  <p>{{post?.descricao}}</p>
                 </div>
 
                 <div class="card-footer d-flex justify-content-end flex-wrap border-0">
-                    <span class="border rounded p-1 me-2" style="font-size: 14px;">JavaScript</span>
+                    <span class="border rounded p-1 me-2" style="font-size: 14px;" *ngFor="let tag of post?.tags">{{tag.linguagem}}</span>
                 </div>
               </div>
             </div>
@@ -67,7 +122,7 @@
           <!--Ferramentas-->
           <div class="card mt-3 border-0">
             <div class="card-header m-3 mb-0 ps-0 pb-0">
-              <a (click)="add('Ferramentas')"><h6 class="m-2 text-primary-color">Ferramentas</h6></a>
+             <h6 class="m-2 text-primary-color">Ferramentas</h6>
             </div>
             <div class="card-body">
               <ul class="list-group">
@@ -79,7 +134,7 @@
           <!--Avaliações-->
           <div class="card my-3 border-0">
             <div class="card-header m-3 ps-0 pb-0">
-              <a (click)="add('Avaliações')"><h6 class="m-2 text-primary-color">Avaliações</h6></a>
+              <h6 class="m-2 text-primary-color">Avaliações</h6>
             </div>
 
             <div class="card border-0 my-3 mx-1 mx-md-2">
