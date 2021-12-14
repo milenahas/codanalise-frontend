@@ -16,8 +16,13 @@
 
     <form [formGroup]="formulario" (submit)="validarFormulario()">
       <div class="mb-4">
+        <label for="contato" class="w-100">Contato</label>
+        <input formControlName="contato" [ngClass]="aplicaCssErro('curriculo')" type="text" id="contato" class="form-control">
+        <small class="text-danger invalid-feedback">Campo obrigatório.</small>
+      </div>
+      <div class="mb-4">
         <label for="arquivoE" class="w-100">Currículo (.pdf)</label>
-        <input formControlName="curriculo" [ngClass]="aplicaCssErro('curriculo')" type="file" name="arquivo" id="arquivoE" class="form-control">
+        <input formControlName="curriculo" [ngClass]="aplicaCssErro('curriculo')" type="file" id="arquivoE" class="form-control">
         <small class="text-danger invalid-feedback">Campo obrigatório.</small>
       </div>
 
