@@ -8,12 +8,12 @@
     <div class="card-body m-0 m-md-5">
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item border-0">Saldo total:</li>
-        <li class="list-group-item border-0">{{carteira?.saldo}}</li>
+        <li class="list-group-item border-0">{{mascaraDecimalValor(carteira?.saldo)}}</li>
       </ul>
 
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item border-0">Disponível para saque:</li>
-        <li class="list-group-item border-0 text-success">{{carteira?.saldo}}</li>
+        <li class="list-group-item border-0 text-success">{{mascaraDecimalValor(carteira?.saldo)}}</li>
       </ul>
 
       <div class="d-flex border-0 justify-content-center my-4">

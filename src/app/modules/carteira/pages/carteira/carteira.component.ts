@@ -39,4 +39,15 @@ export class CarteiraComponent implements OnInit {
     }
   }
 
+  mascaraDecimalValor(i: number) {
+
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL' 
+    });
+
+    const formatted = formatter.format(i);
+    return formatted;
+  }
+
 }
