@@ -7,6 +7,7 @@ export interface Usuario {
   nome?: string;
   sobrenome?: string;
   // cpf?: string;
+  contato?: string;
   genero?: string;
   senha?: string;
   email?: string;

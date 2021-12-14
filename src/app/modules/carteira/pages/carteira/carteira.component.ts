@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Mentor } from 'src/app/modules/feed/shared/mentor';
+import { Carteira } from '../../shared/carteira';
+import { CarteiraService } from '../../shared/carteira.service';
 
 @Component({
   selector: 'app-carteira',
@@ -8,10 +11,32 @@ import { Component, OnInit } from '@angular/core';
 export class CarteiraComponent implements OnInit {
 
   getDark: string = localStorage.getItem('dark');
+  carteira: Carteira;
 
-  constructor() { }
+  constructor(public carteiraService: CarteiraService) { }
 
   ngOnInit(): void {
+    this.getMentor();
+  }
+
+  getMentor() {
+    let idUsuario = +(localStorage.getItem('id'));
+
+    this.carteiraService.getMentor(idUsuario).subscribe((data: Mentor) => {
+      this.getCarteira(data.id)
+    })
+  }
+
+  getCarteira(idMentor) {
+    this.carteiraService.getCarteira().subscribe( (data: Carteira[]) => {
+      for(let i = 0; i < data.length; i++) {
+        if(data[i].mentor_id === idMentor) {
+          this.carteira = data[i];
+        }
+      }
+    }), erro => {
+      console.log(erro)
+    }
   }
 
 }

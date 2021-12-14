@@ -33,6 +33,7 @@ export class TornarMentorComponent implements OnInit {
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.perfil = data;
+        console.log(data.contato)
       },
       error: err => console.log('Erro', err)
     })
@@ -40,7 +41,8 @@ export class TornarMentorComponent implements OnInit {
 
   inicializarFormulario(){
     this.formulario = this.formBuilder.group({
-      curriculo: ['', Validators.compose([Validators.required])]
+      curriculo: ['', Validators.compose([Validators.required])],
+      contato: ['', Validators.compose([Validators.required])]
     })
   }
 
@@ -55,6 +57,7 @@ export class TornarMentorComponent implements OnInit {
 
   setarMentor() {
     this.perfil.mentor = true;
+    this.perfil.contato = this.formulario.get('contato').value
 
     this.enviarDados();
   }
@@ -71,6 +74,7 @@ export class TornarMentorComponent implements OnInit {
           confirmButtonColor: '#118ab2'
         })
         this.onClose();
+        location.reload();
     },
     error => {
       Swal.fire({
