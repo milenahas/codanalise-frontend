@@ -55,7 +55,6 @@ export class MinhasAulasComponent implements OnInit {
     .subscribe(
       (data) => {
         this.minhasAulas = data;
-        console.log(this.minhasAulas);
     })
   }
 

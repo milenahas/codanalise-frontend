@@ -50,7 +50,6 @@ export class HistoricoComponent implements OnInit {
       (data) => {
         this.mentorDados = data;
         this.listou = true;
-        console.log(this.mentorDados);
     })
   }
 
