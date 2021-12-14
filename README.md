@@ -8,12 +8,12 @@ O CodAnalise é uma plataforma de mentoria que visa estreitar a comunicação e 
 
 Existem dois usuários, o usuário comum, que criará postagens buscando a solução do seu problema, e os mentores, que poderão fazer propostas na publicação dos usuários oferecendo alguns minutos ou horas do seu tempo em troca de remuneração.
 
-Após a proposta ser feita, o aluno pode aceitá-la e pagá-la, e assim se inicia o processo de criação de uma aula. O usuário terá acesso ao contato direto com o mentor, e poderá agendar uma data para que ocorra a mentoria.
+Após a proposta ser feita, o aluno poderá aceitá-la e pagá-la, e assim se inicia o processo de criação de uma aula. O usuário terá acesso ao contato direto com o mentor, e poderá agendar uma data para que ocorra a mentoria.
 
 Após a aula ser concluída, tanto o aluno quanto o mentor deverão confirmar a conclusão da aula, e após isto, o dinheiro pago pelo aluno será liberado ao mentor, com a retirada de 15% do valor total como forma de remuneração para a plataforma.
 
 ## Evoluções futuras
 
 - Adicionar um chat para comunicação interna entre mentor e aluno.
-- Adicionar chamadas de vídeo internas na plataforma, para que os mentores e alunos não tenham que se locomover à plataforma de terceiros.
+- Adicionar chamadas de vídeo internas na plataforma, para que os mentores e alunos não tenham que se locomover à plataformas de terceiros.
 - Implementação de um sistema de teste técnico para medir o nível profissional e garantir uma maior qualidade dos mentores presentes na plataforma.
