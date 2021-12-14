@@ -10,6 +10,7 @@ import { MinhasPublicacoesComponent } from './components/minhas-publicacoes/minh
 import { DetalhePublicacaoComponent } from './components/minhas-publicacoes/detalhe-publicacao/detalhe-publicacao.component';
 import { PagamentoComponent } from './components/minhas-publicacoes/pagamento/pagamento.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HistoricoRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ]
 })
 export class HistoricoModule { }
