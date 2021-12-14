@@ -32,7 +32,6 @@ export class MinhasPropostasComponent implements OnInit {
       (data) =>{
         this.propostas = data;
         this.converte(data);
-        console.log(data)
       })
   }
 
