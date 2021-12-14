@@ -1,22 +1,24 @@
 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionContainer" [ngClass]="{'darkmode': getDark === 'true'}">
     <div class="accordion-body">
-        <div class="card my-3 border-0">
+        <div class="card my-3 border-0"*ngFor="let proposta of propostas; let i = index">
             <div class="card-header d-flex align-items-center">
-                <h6 routerLink="historico-detalhe" class="mt-2 flex-grow-1">Proposta 01</h6>
-                <span class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle" style="color:#F3D27C; font-size: 10px;"></i> Em andamento</span>
+                <p class="m-0 flex-grow-1 fs-6" style="font-weight: 500;">Proposta {{i+1}}</p>
+                <span class="text-gray" style="font-size: 13px;" *ngIf="proposta.estado === 'Andamento'"><i class="fas fa-circle" style="color:#F3D27C; font-size: 10px;"></i> Em andamento</span>
+                <span class="text-gray" style="font-size: 13px;" *ngIf="proposta.estado === 'Recusado'"><i class="fas fa-circle text-danger" style="font-size: 10px;"></i> Recusado</span>
             </div>
-            <div class="card-body row p-0 ">
+            <div class="card-body row p-0">
                 <div class="col-12 col-lg-10 p-4">
-                    <h6>Aluno: <span class="fw-normal text-primary-color" style="cursor: pointer; text-decoration: underline;">Maria Santos</span></h6> 
-                    <h6>Proposta: <span class="fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fuga molestiae repellat, rerum dolores.</span></h6>
-                    <h6>Valor da proposta: <span class="fw-normal">R$ 30,00</span></h6>
-                </div>
-                <div class="p-4 col-12 col-lg-2 divisoria">
-                    <h6>Data: <span class="fw-normal">01/01/2021</span></h6>
-                    <h6>Duração: <span class="fw-normal">30 min</span></h6>
-                    <div class="text-center mt-4">
-                        <button type="button" class="w-100 btn-primary-color border-0 text-white py-2 rounded-pill mb-2">Concluir Aula</button>
-                        <button type="button" class="w-100 btn-danger border-0 text-white py-2 rounded-pill">Cancelar Aula</button>
+                    <div class="mt-2">
+                        <span style="font-weight: 500;">Comentário: </span>
+                        <span>{{proposta.comentario}}</span>
+                    </div>
+                    <div class="mt-2">
+                        <span style="font-weight: 500;">Valor da proposta: </span>
+                        <span>{{proposta.valor}}</span>
+                    </div>
+                    <div class="mt-2">
+                        <span style="font-weight: 500;">Data da proposta: </span>
+                        <span>{{proposta.dt_prop}}</span>
                     </div>
                 </div>
             </div>

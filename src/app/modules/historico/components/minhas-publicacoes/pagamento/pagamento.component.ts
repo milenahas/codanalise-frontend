@@ -18,6 +18,7 @@ export class PagamentoComponent implements OnInit {
   @Input() publicacao: Postagem;
   @Input() proposta: Propostas;
 
+  getDark: string = localStorage.getItem('dark');
   formularioPagamento: FormGroup;
   loading: boolean = false;
 

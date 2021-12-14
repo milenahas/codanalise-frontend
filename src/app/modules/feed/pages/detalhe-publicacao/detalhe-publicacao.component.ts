@@ -112,7 +112,6 @@ export class DetalhePublicacaoComponent implements OnInit {
     this.publicacaoService.adicionarComentario(this.dadosComentario)
     .subscribe(
       (data) => {
-        console.log(this.publicacaoService.detalhePostagem);
         this.listarPostagemEspecifica(this.idPostagem);
         // this.publicacaoService.detalhePostagem.comentarios.push(data);
         Swal.fire({
@@ -193,7 +192,6 @@ export class DetalhePublicacaoComponent implements OnInit {
     .subscribe(
       (data: Postagem) => {
         this.postagemEspecifica = data;
-        console.log(this.postagemEspecifica);
     })
   }
 

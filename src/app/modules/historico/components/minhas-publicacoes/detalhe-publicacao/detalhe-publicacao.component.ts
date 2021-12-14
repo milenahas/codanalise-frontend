@@ -47,6 +47,7 @@ export class DetalhePublicacaoComponent implements OnInit {
     .subscribe(
       (data) => {
         this.publicacao = data;
+        console.log(data.comentarios)
     })
   }
 

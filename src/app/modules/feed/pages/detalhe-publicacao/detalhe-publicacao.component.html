@@ -41,7 +41,7 @@
 
       <div class="card-footer d-flex mt-5">
         <a class="nav-link" (click)="comentando()" [ngClass]="{'backLink': comentar === true}"><i class="far fa-comment"></i> Comentar</a>
-        <a class="nav-link" (click)="propondo()" [ngClass]="{'backLink': propor === true}" *ngIf="publicacaoService.usuario?.mentor === true"><i class="fas fa-pencil-alt"></i> Propor</a>
+        <a class="nav-link" (click)="propondo()" [ngClass]="{'backLink': propor === true}" *ngIf="publicacaoService.usuario?.mentor === true && publicacaoService.usuario?.id !== postagemEspecifica?.id"><i class="fas fa-pencil-alt"></i> Propor</a>
       </div>
       <hr class="m-0">
 
@@ -86,11 +86,14 @@
       <!--Comentários-->
       <ng-container *ngIf="comentar">
         <ng-container *ngIf="postagemEspecifica?.comentarios != null || postagemEspecifica?.comentarios.length == 0">
-          <div *ngFor="let col of postagemEspecifica?.comentarios" class="card border-0 bg-white text-dark-gray mt-4" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-            <div class="card-header d-flex align-items-center bg-white">
+          <div *ngFor="let col of postagemEspecifica?.comentarios" class="card border-0 mt-4">
+            <div class="card-header d-flex align-items-center">
               <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" alt="" width="50px">
               <div>
-                <h6 class="m-0">{{col.autorComent?.nome}} {{col.autorComent?.sobrenome}}</h6>
+                <div class="d-flex">
+                  <h6 class="m-0 me-2">{{col.autorComent?.nome}} {{col.autorComent?.sobrenome}}</h6>
+                  <img src="../../../../../assets/img/logo/logo30.png" width="20px" *ngIf="col.autorComent?.mentor === true">
+                </div>
                 <p class="m-0" style="font-size: 13px;">{{col.autorComent?.status}}</p>
               </div>
             </div>
@@ -104,13 +107,16 @@
       <!-- Propostas -->
       <ng-container *ngIf="propor">
         <ng-container *ngIf="postagemEspecifica?.propostas != null || postagemEspecifica?.propostas.length == 0">
-          <div *ngFor="let col of postagemEspecifica?.propostas" class="card border-0 bg-white text-dark-gray mt-4" style="border-radius: 15px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+          <div *ngFor="let col of postagemEspecifica?.propostas" class="card border-0 mt-4">
 
-                <div class="card-header d-flex align-items-center bg-white">
+                <div class="card-header d-flex align-items-center">
                   <div class="mt-2 flex-grow-1 d-flex align-items-center">
                     <img class="rounded-circle me-3" src="../../../../../assets/img/personas/avatar.png" alt="" width="50px">
                     <div>
-                      <h6 class="m-0">{{col.mentor.usuario.nome}} {{col.mentor.usuario.sobrenome}}</h6>
+                      <div class="d-flex">
+                        <h6 class="m-0">{{col.mentor.usuario.nome}} {{col.mentor.usuario.sobrenome}}</h6>
+                        <img src="../../../../../assets/img/logo/logo30.png" width="20px">
+                      </div>
                       <span style="font-size: small;">{{col.mentor.usuario.status}}</span>
                     </div>
                     
