@@ -15,7 +15,7 @@
         Minhas aulas
       </button>
     </h2>
-    <app-minhas-aulas></app-minhas-aulas>
+    <app-minhas-aulas *ngIf="listou" [mentor]="mentor" [mentorDados]="mentorDados"></app-minhas-aulas>
   </div>
 
   <div class="accordion-item border-0 mt-3" *ngIf="mentor === true">

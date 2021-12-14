@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Mentor } from 'src/app/modules/feed/shared/mentor';
 import { Postagem } from 'src/app/modules/feed/shared/postagem';
+import { Usuario } from 'src/app/modules/usuario/shared/usuario';
 import Swal from 'sweetalert2';
 import { Aula } from '../../shared/aula';
 import { HistoricoService } from '../../shared/historico.service';
@@ -12,6 +14,11 @@ import { Pagamento } from '../../shared/pagamento';
 })
 export class MinhasAulasComponent implements OnInit {
 
+  @Input() mentor: boolean;
+  @Input() mentorDados: Mentor;
+
+  usuario: Usuario;
+
   minhasAulas: Aula[] = [];
   postagem: Postagem;
 
@@ -20,16 +27,35 @@ export class MinhasAulasComponent implements OnInit {
   constructor(private historicoService: HistoricoService) { }
 
   ngOnInit(): void {
-    this.listarMinhasAulas();
+    this.validaTipoUsuario();
   }
 
-  listarMinhasAulas(){
+  validaTipoUsuario(){
+    if (this.mentor == false){
+      this.listarMinhasAulasAluno();
+    } else {
+      this.listarMinhasAulasMentor();
+    }
+  }
+
+  listarMinhasAulasAluno(){
     let idUsuario = Number(localStorage.getItem('id'));
 
-    this.historicoService.listarMinhasAulas(idUsuario)
+    this.historicoService.listarMinhasAulasUsuario(idUsuario)
     .subscribe(
       (data) => {
         this.minhasAulas = data;
+    })
+  }
+
+  listarMinhasAulasMentor(){
+    let idMentor = this.mentorDados.id;
+
+    this.historicoService.listarMinhasAulasMentor(idMentor)
+    .subscribe(
+      (data) => {
+        this.minhasAulas = data;
+        console.log(this.minhasAulas);
     })
   }
 
@@ -67,14 +93,26 @@ export class MinhasAulasComponent implements OnInit {
       id: this.minhasAulas[index].id
     }
 
-    aula = {
-      id: this.minhasAulas[index].id,
-      pagamento: pagamento,
-      hora: this.minhasAulas[index].hora,
-      id_mentor: this.minhasAulas[index].id_mentor,
-      id_usuario: this.minhasAulas[index].id_usuario,
-      conf_mentor: this.minhasAulas[index].conf_mentor,
-      conf_usuario: true
+    if (!this.mentor){
+      aula = {
+        id: this.minhasAulas[index].id,
+        pagamento: pagamento,
+        hora: this.minhasAulas[index].hora,
+        id_mentor: this.minhasAulas[index].id_mentor,
+        id_usuario: this.minhasAulas[index].id_usuario,
+        conf_mentor: this.minhasAulas[index].conf_mentor,
+        conf_usuario: true
+      }
+    } else {
+      aula = {
+        id: this.minhasAulas[index].id,
+        pagamento: pagamento,
+        hora: this.minhasAulas[index].hora,
+        id_mentor: this.minhasAulas[index].id_mentor,
+        id_usuario: this.minhasAulas[index].id_usuario,
+        conf_mentor: true,
+        conf_usuario: this.minhasAulas[index].conf_usuario
+      }
     }
 
     this.historicoService.atualizaAula(aula)
@@ -85,6 +123,13 @@ export class MinhasAulasComponent implements OnInit {
           'Aula confirmada e finalizada.',
           'success'
         );
+
+        if (!this.mentor){
+          this.listarMinhasAulasAluno();
+        } else {
+          this.listarMinhasAulasMentor();
+        }
+        
     })
   }
 

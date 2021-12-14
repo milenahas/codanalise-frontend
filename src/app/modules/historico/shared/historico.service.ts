@@ -6,6 +6,7 @@ import { Postagem } from '../../feed/shared/postagem';
 import { Aula } from './aula';
 import { Propostas } from '../../feed/shared/propostas';
 import { Pagamento } from './pagamento';
+import { Usuario } from '../../usuario/shared/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class HistoricoService {
     return this.http.get<Postagem>(`${this.url}/postagem/${idPostagem}`);
   }
 
+  listarUsuarioEspecifico(email: string): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.url}/usuario/login/${email}`);
+  }
+
   pagar(dadosPagamento: Pagamento): Observable<Pagamento>{
     return this.http.post<Pagamento>(`${this.url}/pagamento`, dadosPagamento);
   }
@@ -37,8 +42,12 @@ export class HistoricoService {
   }
 
   // Minhas aulas
-  listarMinhasAulas(id: number): Observable<Aula[]>{
+  listarMinhasAulasUsuario(id: number): Observable<Aula[]>{
     return this.http.get<Aula[]>(`${this.url}/aula/aluno/${id}`)
+  }
+
+  listarMinhasAulasMentor(id: number): Observable<Aula[]>{
+    return this.http.get<Aula[]>(`${this.url}/aula/mentor/${id}`);
   }
 
   atualizaAula(dados: Aula): Observable<Aula>{
