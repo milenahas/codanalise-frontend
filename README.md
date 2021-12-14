@@ -2,7 +2,7 @@
 
 Projeto de conclusão de curso de Sistemas de Informação na UNINASSAU.
 
-O CodAnalise é uma plataforma de mentoria que visa estreitar a comunicação e troca de conhecimento entre profissionais altamente capacitados e desenvolvedores menos experientes, ou pessoas que estão começando a entrar no mundo da programação agora. As soluções podem variar: o usuário pode necessitar de uma análise de código, ou de ajuda para solucionar um bug, tirar dúvidas sobre o mercado de trabalho, ou até mesmo dúvidas sobre uma linguagem nova recém aprendida. Todas soluções que podem ser tiradas de forma simples, barata e direta, com um profissional capacitado e pronto para ceder 100% de sua atenção durante a mentoria.
+O CodAnalise é uma plataforma de mentoria que visa estreitar a comunicação e troca de conhecimento entre profissionais altamente capacitados e desenvolvedores menos experientes, ou pessoas que estão começando a entrar no mundo da programação agora. As soluções podem variar: o usuário pode necessitar de uma análise de código, ou de ajuda para solucionar um bug, tirar dúvidas sobre o mercado de trabalho, ou até mesmo dúvidas sobre uma linguagem nova recém aprendida. Estas são todas soluções que podem ser fornecidas de forma simples, barata e direta, com um profissional capacitado e pronto para ceder 100% de sua atenção durante a mentoria.
 
 ## Como funciona
 
