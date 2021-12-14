@@ -6,11 +6,18 @@
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-size: 14px;
   .card-header {
     background-color: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-color: #F5F5F5;
+    a {
+      color: #616161;
+    }
+  }
+  .card-footer {
+    background-color: white;
   }
 }
 

@@ -16,6 +16,7 @@ export class SobreComponent implements OnInit {
   perfil: Usuario;
   email: string = localStorage.getItem('email');
   getDark: string = localStorage.getItem('dark');
+  caracteres: number = 0; 
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -79,6 +80,8 @@ export class SobreComponent implements OnInit {
     this.formulario.controls.linkedin.setValue(data.linkedin);
     this.formulario.controls.sobre.setValue(data.sobre);
     this.formulario.controls.status.setValue(data.status);
+
+    //this.contagemCaracteres(data);
   }
 
   // ****************** SETA VALORES NO OBJETO ****************** //

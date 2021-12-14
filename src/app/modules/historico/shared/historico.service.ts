@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Mentor } from '../../feed/shared/mentor';
 import { Postagem } from '../../feed/shared/postagem';
 import { Aula } from './aula';
+import { Propostas } from '../../feed/shared/propostas';
 import { Pagamento } from './pagamento';
 
 @Injectable({
@@ -23,7 +25,15 @@ export class HistoricoService {
   }
 
   pagar(dadosPagamento: Pagamento): Observable<Pagamento>{
-    return this.http.post<Pagamento>(`${this.url}/pagamento`, dadosPagamento)
+    return this.http.post<Pagamento>(`${this.url}/pagamento`, dadosPagamento);
+  }
+
+  getProposta(id: number): Observable<Propostas> {
+    return this.http.get<Propostas>(`${this.url}/proposta/busca/${id}`);
+  }
+
+  getMentor(id: number): Observable<Mentor> {
+    return this.http.get<Mentor>(`${this.url}/mentor/consulta/${id}`);
   }
 
   // Minhas aulas

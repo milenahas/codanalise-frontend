@@ -41,26 +41,23 @@
         <hr>
         <div class="mb-3">
           <label for="sobre" class="form-label">Sobre</label>
-          <textarea formControlName="sobre" [ngClass]="aplicaCssErro('sobre')" class="form-control form-control-sm border-2 p-2" type="text" id="sobre"></textarea>
-          <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+          <textarea formControlName="sobre" class="form-control form-control-sm border-2 p-2" #sobre type="text" id="sobre" maxlength="255"></textarea>
+          <small>{{sobre.value.length}} de 255</small>
         </div>
         <div class="mb-3 d-flex">
           <div class="me-2">
             <label class="form-label" for="github">Github</label>
-            <input formControlName="github" [ngClass]="aplicaCssErro('github')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="github">
-            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+            <input formControlName="github" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="github">
           </div>
           <div>
             <label class="form-label" for="linkedin">Linkedin</label>
-            <input formControlName="linkedin" [ngClass]="aplicaCssErro('linkedin')" class="form-control form-control-sm border-2 p-2" type="text" id="linkedin">
-            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+            <input formControlName="linkedin" class="form-control form-control-sm border-2 p-2" type="text" id="linkedin">
           </div>
         </div>
         <div class="mb-3 d-flex">
           <div class="me-2">
             <label class="form-label" for="status">Status</label>
-            <input formControlName="status" [ngClass]="aplicaCssErro('status')" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="status">
-            <span class="invalid-feedback" style="font-size: 12px;">Campo obrigatório</span>
+            <input formControlName="status" class="form-control form-control-sm border-2 p-2 me-2" type="text" id="status">
           </div>
           <div>
             <label class="form-label" for="senha">Senha</label>

@@ -1,0 +1,15 @@
+.modal-content {
+    color: #616161;
+    input {
+        outline: none;
+        &:focus {
+          box-shadow: none;
+          border: solid 2px #118ab2;
+        }
+      }
+}
+
+.darkmode {
+    background-color: #20232A;
+    color: #F5F5F5;
+}
