@@ -33,7 +33,6 @@ export class TornarMentorComponent implements OnInit {
     this.perfilService.usuarioEspecifico(this.email).subscribe({
       next: (data) => {
         this.perfil = data;
-        console.log(data.contato)
       },
       error: err => console.log('Erro', err)
     })
@@ -71,10 +70,9 @@ export class TornarMentorComponent implements OnInit {
           icon: 'success',
           title: 'Sucesso',
           text: 'Currículo enviado com sucesso!',
-          confirmButtonColor: '#118ab2'
+          confirmButtonColor: '#118ab2',
         })
         this.onClose();
-        location.reload();
     },
     error => {
       Swal.fire({
@@ -89,6 +87,7 @@ export class TornarMentorComponent implements OnInit {
 
   onClose(){
     this.bsModelRef.hide();
+    location.reload;
   }
 
   // ****************** VALIDAÇÕES DE ERRO ******************
