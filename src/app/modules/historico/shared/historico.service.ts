@@ -40,4 +40,8 @@ export class HistoricoService {
   listarMinhasAulas(id: number): Observable<Aula[]>{
     return this.http.get<Aula[]>(`${this.url}/aula/aluno/${id}`)
   }
+
+  atualizaAula(dados: Aula): Observable<Aula>{
+    return this.http.put<Aula>(`${this.url}/aula`, dados);
+  }
 }

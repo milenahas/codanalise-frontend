@@ -3,8 +3,9 @@
     <div *ngFor="let col of minhasAulas; let i = index" class="card my-3 border-0">
       <div class="card-header d-flex align-items-center">
         <p class="mt-2 flex-grow-1" style="font-weight: 500;">Aula {{i+1}}</p>
-        <p *ngIf="col.pagamento.proposta.estado == 'ABERTO'" class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle" style="color: #F3D27C"></i>Em andamento</p>
-        <p *ngIf="col.pagamento.proposta.estado == 'RESOLVIDO'" class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle" style="color: #71DC88"></i>Concluído</p>
+        <p *ngIf="col.conf_usuario == false && col.conf_mentor == false" class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle me-2" style="color: #F3D27C"></i>Em andamento</p>
+        <p *ngIf="col.conf_usuario == true && col.conf_mentor == false" class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle me-2" style="color: #F3D27C"></i>Aguardando confirmação do mentor</p>
+        <p *ngIf="col.conf_usuario == true && col.conf_mentor == true" class="mt-3 text-gray" style="font-size: 13px;"><i class="fas fa-circle me-2" style="color: #71DC88"></i>Concluído</p>
       </div>
 
       <div class="card-body p-0" style="font-size: 14px;">
@@ -12,7 +13,7 @@
           <div class="col-md-10 mt-4 ml-4 mb-4" style="padding-left: 40px; padding-right: 40px;">
             <div>
               <span style="font-weight: 500;">Mentor: </span>
-              <a routerLink="" style="color: #118AB2;">{{col.pagamento.proposta.mentor.usuario.nome}} {{col.pagamento.proposta.mentor.usuario.sobrenome}}</a>
+              <a>{{col.pagamento.proposta.mentor.usuario.nome}} {{col.pagamento.proposta.mentor.usuario.sobrenome}}</a>
             </div>
 
             <div class="mt-2">
@@ -33,7 +34,7 @@
             </div>
 
             <div class="mb-4 mt-2">
-              <button class="btn-primary-color text-white py-2 mt-2 body-card-buttons">Concluir Aula</button>
+              <button (click)="confirmarConcluirAula(i)" class="btn-primary-color text-white py-2 mt-2 body-card-buttons">Concluir Aula</button>
               <button class="btn-danger text-white py-2 mt-2 body-card-buttons">Cancelar Aula</button>
             </div>
           </div>

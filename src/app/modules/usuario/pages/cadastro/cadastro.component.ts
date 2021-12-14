@@ -25,6 +25,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.inicializarFormulario();
+    localStorage.clear();
   }
 
   inicializarFormulario(){
