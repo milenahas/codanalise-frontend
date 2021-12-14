@@ -1,5 +1,6 @@
 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionContainer" [ngClass]="{'darkmode': getDark === 'true'}">
     <div class="accordion-body">
+        <ng-container *ngIf="propostas.length > 0 else semProposta"></ng-container>
         <div class="card my-3 border-0"*ngFor="let proposta of propostas; let i = index">
             <div class="card-header d-flex align-items-center">
                 <p class="m-0 flex-grow-1 fs-6" style="font-weight: 500;">Proposta {{i+1}}</p>
@@ -25,6 +26,13 @@
         </div>
     </div>
   </div>
+
+
+<ng-template #semProposta>
+    <div class="text-center">
+        <small>Sem propostas.</small>
+    </div>
+</ng-template>
   
 
 

@@ -33,8 +33,8 @@ export class HistoricoService {
     return this.http.post<Pagamento>(`${this.url}/pagamento`, dadosPagamento);
   }
 
-  getProposta(id: number): Observable<Propostas> {
-    return this.http.get<Propostas>(`${this.url}/proposta/busca/${id}`);
+  getProposta(id: number): Observable<Propostas[]> {
+    return this.http.get<Propostas[]>(`${this.url}/proposta/busca/${id}`);
   }
 
   getMentor(id: number): Observable<Mentor> {

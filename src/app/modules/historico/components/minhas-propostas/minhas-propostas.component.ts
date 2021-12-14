@@ -10,7 +10,7 @@ import { HistoricoService } from '../../shared/historico.service';
 export class MinhasPropostasComponent implements OnInit {
 
   getDark: string = localStorage.getItem('dark');
-  propostas: Propostas;
+  propostas: Propostas[] = [];
 
   constructor(public historicoService: HistoricoService) { }
 
@@ -32,7 +32,6 @@ export class MinhasPropostasComponent implements OnInit {
       (data) =>{
         this.propostas = data;
         this.converte(data);
-        console.log(data)
       })
   }
 
